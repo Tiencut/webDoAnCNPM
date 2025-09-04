@@ -1,0 +1,368 @@
+﻿var applicationUrl = "";
+//refresh trang
+function refreshPage() {
+    window.location.reload(true);
+}
+//Hiển thị biểu tượng loading
+function showLoader() {
+    $("#ajax-loader").show();
+}
+//Ẩn hiển thị biểu tượng loading
+function hideLoader() {
+    $("#ajax-loader").hide();
+}
+function createBaseLink(url) {
+    return applicationUrl + url;
+}
+//refresh lại captcha
+function refreshCaptcha() {
+    $("input.captcha").prop("value", "");
+    $("img.captcha").prop("src", createBaseLink("captcha?t=" + $.now()));
+}
+//bắt các link popup
+function triggerPopupLink() {
+    $(".popup-link").removeClass("popup-link").click(function (e) {
+        e.preventDefault();
+        popupLink(this);
+    });
+    //$('.popup-link:not(.is-popup-bound)').addClass('is-popup-bound').click(function (e) {
+    //    e.preventDefault();
+    //    popupLink(this);
+    //});
+    //$(".popup-link").click(function (e) {        
+    //    e.preventDefault();    
+    //    popupLink(this);
+    //});
+}
+function popupLink(obj) {
+    var container = "#dialogMain";
+    var url = $(obj).attr("href");
+    var w = $(obj).data("width");
+    var h = $(obj).data("height");
+    $.ajax({
+        type: "GET",
+        url: url,
+        beforeSend: function () {
+            showLoader();
+        },
+        complete: function () {
+            hideLoader();
+        },
+        async: false,
+        error: function () {
+            alert("Your request is not valid!");
+        },
+        success: function (data) {
+            $(container).html(data);
+            $(container).modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+            $(container + " .modal-dialog").attr({ 'style': 'width:' + w + 'px !important;height:' + h + 'px !important' });
+        }
+    });
+}
+//Lấy nội dung của 1 trang có địa chỉ tại link (dùng GET method) và hiển thị nội dung trong  container
+function getPageContent(container, link) {
+    $.ajax({
+        type: "GET",
+        url: link,
+        beforeSend: function () {
+            showLoader();
+        },
+        complete: function () {
+            hideLoader();
+        },
+        async: false,
+        error: function () {
+            alert("Your request is not valid!");
+        },
+        success: function (data) {
+            $(container).html(data);
+        }
+    });
+}
+//Lấy nội dung của 1 trang có địa chỉ tại link (dùng POST method và truyền dữ liệu ở postData) và hiển thị nội dung trong container
+function postPageContent(container, link, postData) {
+    $.ajax({
+        url: link,
+        type: "POST",
+        data: postData,
+        async: false,
+        beforeSend: function () {
+            showLoader();
+        },
+        complete: function () {
+            hideLoader();
+        },
+        error: function () {
+            alert("Your request is not valid!");
+        },
+        success: function (data) {
+            $(container).html(data);
+        }
+    });
+}
+function getData(url, data) {
+    $.ajax({
+        url: url,
+        type: "GET",
+        data: data,
+        async: false,
+        beforeSend: function () {
+            showLoader();
+        },
+        complete: function () {
+            hideLoader();
+        },
+        error: function () {
+            alert("Ajax Error!");
+        },
+        success: function (result) {
+            return result;
+        }
+    });
+}
+function postData(url, data) {
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: data,
+        async: false,
+        beforeSend: function () {
+            showLoader();
+        },
+        complete: function () {
+            hideLoader();
+        },
+        error: function () {
+            alert("Ajax Error!");
+        },
+        success: function (result) {
+            return result;
+        }
+    });
+}
+//get dữ liệu từ 1 trang web, hiển thị kết quả trong container (div) dưới dạng dialog
+function showDialogContent(container, link, width, height, title) {
+    getPageContent(container, link);
+    $(container).dialog({
+        autoOpen: true,
+        modal: true,
+        width: width,
+        height: height,
+        title: title,
+        resizable: false,
+        close: function () {
+            $(container).html("");
+        },
+        buttons: {
+            "Đóng lại": function () {
+                $(this).dialog("close");
+            }, //Hủy bỏ 
+        }
+    });
+}
+//chuyển trang
+function redirectPage(link) {
+    window.parent.location = link;
+}
+function closeDialogMain() {
+    $("#dialogMain").html("");
+    $("#dialogMain").modal("hide");
+}
+//Get dữ liệu từ url và hiển thị trong dialogMain
+function popupDialogMain(url, width, height) {
+    $.ajax({
+        type: "GET",
+        url: url,
+        beforeSend: function () {
+            showLoader();
+        },
+        complete: function () {
+            hideLoader();
+        },
+        async: false,
+        error: function () {
+            alert("Your request is not valid!");
+        },
+        success: function (data) {
+            $("#dialogMain").html(data);
+            $("#dialogMain").modal();
+            $("#dialogMain .modal-dialog").attr({ 'style': 'width:' + width + 'px !important;height:' + height + 'px !important' })
+        }
+    });
+}
+//Lấy dữ liệu liên quan đến notification theo thời gian định kỳ
+function get_notifications() {
+    $.ajax({
+        type: "POST",
+        url: createBaseLink("api/notifications/" + Date.now() + "?umst=13f4a4b45199a150a19998097a64133ad5f6653a3ac9578c6039465155f5d77bc11d6d61"),
+        async: true,
+        success: function (data) {
+            if (data != null) {
+                if (data.UnreadMessages > 0) {
+                    $(".notification-message").html("<b>[" + data.UnreadMessages + "]</b>");
+                }
+                else {
+                    $(".notification-message").html("");
+                }                
+            }
+        }
+    });
+}
+//Hiển thị alert
+function showAlertMain(msg, type) {
+    $("#__alertMain").empty();
+    if (type === "warning") {
+        $("#__alertMain").html("<div id='__alertfb1c1f692a825e45b9d8f2cbbdcbc72d' class='alert alert-warning' style='padding:3px !important; margin:0 !important'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" + msg + "</div>");
+    }
+    else if (type === "danger") {
+        $("#__alertMain").html("<div id='__alertfb1c1f692a825e45b9d8f2cbbdcbc72d' class='alert alert-danger' style='padding:3px !important; margin:0 !important'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" + msg + "</div>");
+    }
+    else if (type == "success") {
+        $("#__alertMain").html("<div id='__alertfb1c1f692a825e45b9d8f2cbbdcbc72d' class='alert alert-success' style='padding:3px !important; margin:0 !important'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" + msg + "</div>");
+    }
+    else {
+        $("#__alertMain").html("<div id='__alertfb1c1f692a825e45b9d8f2cbbdcbc72d' class='alert alert-info' style='padding:3px !important; margin:0 !important'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" + msg + "</div>");
+    }
+    window.setTimeout(function () {
+        $("#__alertfb1c1f692a825e45b9d8f2cbbdcbc72d").fadeTo(200, 0).slideUp(200, function () {
+            $(this).remove();
+            $("#__alertMain").empty();
+        });
+    }, 2000);
+}
+//ẩn alert
+function hideAllertMain() {
+    $("#__alertMain").empty();
+}
+//Hiển thị hộp thoại để confirm
+function popupConfirm(heading, question, okText, cancelText, callback) {
+    var confirmModal =
+      $('<div class="modal fade" style="margin-top:100px !important;">' +
+          '<div class="modal-dialog" style="width:550px !important">' +
+          '<div class="modal-content">' +
+          '<div class="modal-header bg-primary">' +
+            '<a class="close" data-dismiss="modal" >&times;</a>' +
+            '<strong>' + heading + '</strong>' +
+          '</div>' +
+          '<div class="modal-body">' +
+            '<p>' + question + '</p>' +
+          '</div>' +
+          '<div class="modal-footer">' +
+            '<a href="javascript:;" id="__fb819ccce74176b4cc3e7df6cc0061de" class="btn btn-sm btn-primary">' + okText + '</a>' +
+            '<a href="javascript:;" class="btn btn-sm" data-dismiss="modal">' + cancelText + '</a>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+        '</div>');
+
+    confirmModal.find('#__fb819ccce74176b4cc3e7df6cc0061de').click(function (event) {
+        callback();
+        confirmModal.modal('hide');
+    });
+
+    confirmModal.modal('show');
+};
+//Hiển thị hộp thoại (bootstrap modal) để thông báo
+function popupAlert(msg) {
+    var alertModal =
+      $('<div class="modal fade" style="margin-top:100px !important;">' +
+          '<div class="modal-dialog" style="width:550px !important">' +
+          '<div class="modal-content">' +
+          '<div class="modal-header bg-primary">' +
+            '<a class="close" data-dismiss="modal" >&times;</a>' +
+            '<strong>Thông báo</strong>' +
+          '</div>' +
+          '<div class="modal-body">' +
+            '<p>' + msg + '</p>' +
+          '</div>' +
+          '<div class="modal-footer">' +
+            '<a href="javascript:;" class="btn btn-sm btn-primary" style="width:120px" data-dismiss="modal">OK</a>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+        '</div>');
+    alertModal.modal('show');
+}
+/********************* JQUERY EXTENSION ********************************/
+// Create a jquery plugin that prints the given element.
+jQuery.fn.print = function () {
+    // NOTE: We are trimming the jQuery collection down to the
+    // first element in the collection.
+    if (this.size() > 1) {
+        this.eq(0).print();
+        return;
+    } else if (!this.size()) {
+        return;
+    }
+
+    // ASSERT: At this point, we know that the current jQuery
+    // collection (as defined by THIS), contains only one
+    // printable element.
+
+    // Create a random name for the print frame.
+    var strFrameName = ("printer-" + (new Date()).getTime());
+
+    // Create an iFrame with the new name.
+    var jFrame = $("<iframe name='" + strFrameName + "'>");
+
+    // Hide the frame (sort of) and attach to the body.
+    jFrame
+    .css("width", "1px")
+    .css("height", "1px")
+    .css("position", "absolute")
+    .css("left", "-9999px")
+    .appendTo($("body:first"))
+    ;
+
+    // Get a FRAMES reference to the new frame.
+    var objFrame = window.frames[strFrameName];
+
+    // Get a reference to the DOM in the new frame.
+    var objDoc = objFrame.document;
+
+    // Grab all the style tags and copy to the new
+    // document so that we capture look and feel of
+    // the current document.
+
+    // Create a temp document DIV to hold the style tags.
+    // This is the only way I could find to get the style
+    // tags into IE.
+    var jStyleDiv = $("<div>").append(
+        $("style").clone()
+    );
+
+    // Write the HTML for the document. In this, we will
+    // write out the HTML of the current element.
+    objDoc.open();
+    objDoc.write("<html>");
+    objDoc.write("<body>");
+    objDoc.write("<head>");
+    objDoc.write("<title>");
+    //objDoc.write(document.title);
+    objDoc.write("</title>");
+    objDoc.write(jStyleDiv.html());
+    objDoc.write("</head>");
+    objDoc.write(this.html());
+    objDoc.write("</body>");
+    objDoc.write("</html>");
+    objDoc.close();
+
+    // Print the document.
+    objFrame.focus();
+    objFrame.print();
+
+    // Have the frame remove itself in about a minute so that
+    // we don't build up too many of these frames.
+    setTimeout(
+        function () {
+            jFrame.remove();
+        },
+        (60 * 1000)
+    );
+}
+function printContent(id) {
+    $(id).print();
+}
