@@ -4,7 +4,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../components/HelloWorld.vue') // Placeholder for now
+    component: () => import('../views/HomeView.vue') // Sử dụng HomeView mới
   },
   {
     path: '/login/student',
@@ -28,33 +28,38 @@ const routes = [
   },
   {
     path: '/lecturer-dashboard',
-    name: 'LecturerDashboard',
+    name: 'lecturer-dashboard',
     component: () => import('../views/LecturerDashboardView.vue')
   },
   {
-    path: '/admin-dashboard',
-    name: 'AdminDashboard',
-    component: () => import('../views/AdminDashboardView.vue')
+    path: '/lecturer/profile',
+    name: 'lecturer-profile',
+    component: () => import('../views/LecturerProfileView.vue')
   },
   {
-    path: '/groups',
-    name: 'Groups',
-    component: () => import('../views/GroupsView.vue')
+    path: '/lecturer/course-sections',
+    name: 'lecturer-course-sections',
+    component: () => import('../views/LecturerCourseSectionsView.vue')
   },
   {
-    path: '/projects',
-    name: 'Projects',
-    component: () => import('../views/ProjectsView.vue')
+    path: '/lecturer/groups',
+    name: 'lecturer-groups',
+    component: () => import('../views/LecturerGroupsView.vue')
   },
   {
-    path: '/reports',
-    name: 'Reports',
-    component: () => import('../views/ReportsView.vue')
+    path: '/lecturer/projects',
+    name: 'lecturer-projects',
+    component: () => import('../views/LecturerProjectsView.vue')
   },
   {
-    path: '/notifications',
-    name: 'Notifications',
-    component: () => import('../views/NotificationsView.vue')
+    path: '/lecturer/reports',
+    name: 'lecturer-reports',
+    component: () => import('../views/LecturerReportsView.vue')
+  },
+  {
+    path: '/lecturer/notifications',
+    name: 'lecturer-notifications',
+    component: () => import('../views/LecturerNotificationsView.vue')
   },
 ];
 

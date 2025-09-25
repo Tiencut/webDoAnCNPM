@@ -1,0 +1,480 @@
+<body>
+  <div id="app" data-v-app="">
+    <div data-v-7a7a37b1="" id="app" class="min-h-screen bg-gray-100">
+      <nav data-v-7a7a37b1="" class="bg-white shadow-md p-4">
+        <div data-v-7a7a37b1="" class="flex flex-wrap">
+          <a
+            data-v-7a7a37b1=""
+            href="/"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Home</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/login/student"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Student Login</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/login/lecturer"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Lecturer Login</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/login/admin"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Admin Login</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/student-dashboard"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Student Dashboard</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/lecturer-dashboard"
+            class="router-link-active router-link-exact-active text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            aria-current="page"
+            >Lecturer Dashboard</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/admin-dashboard"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Admin Dashboard</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/groups"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Groups</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/projects"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Projects</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/reports"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Reports</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/notifications"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Notifications</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/lecturer/profile"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Lecturer Profile</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/lecturer/course-sections"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Lecturer Course Sections</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/lecturer/groups"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Lecturer Groups</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/lecturer/projects"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Lecturer Projects</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/lecturer/reports"
+            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
+            >Lecturer Reports</a
+          ><a
+            data-v-7a7a37b1=""
+            href="/lecturer/notifications"
+            class="text-blue-500 hover:text-blue-700 mb-2"
+            >Lecturer Notifications</a
+          >
+        </div>
+      </nav>
+      <main data-v-7a7a37b1="" class="p-4">
+        <div
+          data-v-ff2b6807=""
+          data-v-7a7a37b1=""
+          class="lecturer-dashboard-container min-h-screen bg-gray-100 flex"
+        >
+          <!-- Left Navigation Sidebar -->
+          <aside data-v-ff2b6807="" class="w-64 bg-white shadow-md p-6">
+            <h2
+              data-v-ff2b6807=""
+              class="text-2xl font-bold text-gray-800 mb-6"
+            >
+              Điều hướng
+            </h2>
+            <nav data-v-ff2b6807="">
+              <ul data-v-ff2b6807="">
+                <li data-v-ff2b6807="" class="mb-4">
+                  <a
+                    data-v-ff2b6807=""
+                    aria-current="page"
+                    href="/lecturer-dashboard"
+                    class="router-link-active router-link-exact-active flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                    ><svg
+                      data-v-ff2b6807=""
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        data-v-ff2b6807=""
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 001 1h3m-3-11L12 9m2 2l-2-2m0 0l-2 2m2-2V5"
+                      ></path>
+                    </svg>
+                    Tổng quan
+                  </a>
+                </li>
+                <li data-v-ff2b6807="" class="mb-4">
+                  <a
+                    data-v-ff2b6807=""
+                    href="/lecturer/profile"
+                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                    ><svg
+                      data-v-ff2b6807=""
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        data-v-ff2b6807=""
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      ></path>
+                    </svg>
+                    Thông tin cá nhân
+                  </a>
+                </li>
+                <li data-v-ff2b6807="" class="mb-4">
+                  <a
+                    data-v-ff2b6807=""
+                    href="/lecturer/course-sections"
+                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                    ><svg
+                      data-v-ff2b6807=""
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        data-v-ff2b6807=""
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.794 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5c1.706 0 3.332.477 4.5 1.253v13C19.832 18.477 18.206 18 16.5 18s-3.332.477-4.5 1.253"
+                      ></path>
+                    </svg>
+                    Lớp học phần
+                  </a>
+                </li>
+                <li data-v-ff2b6807="" class="mb-4">
+                  <a
+                    data-v-ff2b6807=""
+                    href="/lecturer/groups"
+                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                    ><svg
+                      data-v-ff2b6807=""
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        data-v-ff2b6807=""
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M17 20h2a2 2 0 002-2V7a2 2 0 00-2-2h-2.586a1 1 0 01-.707-.293l-1.414-1.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v12a2 2 0 002 2h2m0 0l-2 2m2-2l2 2m-3 0v-3m-2 3h3m-3 0h-3"
+                      ></path>
+                    </svg>
+                    Nhóm sinh viên
+                  </a>
+                </li>
+                <li data-v-ff2b6807="" class="mb-4">
+                  <a
+                    data-v-ff2b6807=""
+                    href="/lecturer/projects"
+                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                    ><svg
+                      data-v-ff2b6807=""
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        data-v-ff2b6807=""
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M12 16h.01"
+                      ></path>
+                    </svg>
+                    Đề tài/Dự án
+                  </a>
+                </li>
+                <li data-v-ff2b6807="" class="mb-4">
+                  <a
+                    data-v-ff2b6807=""
+                    href="/lecturer/reports"
+                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                    ><svg
+                      data-v-ff2b6807=""
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        data-v-ff2b6807=""
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 17v-2m3 2v-4m3 2v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      ></path>
+                    </svg>
+                    Báo cáo
+                  </a>
+                </li>
+                <li data-v-ff2b6807="" class="mb-4">
+                  <a
+                    data-v-ff2b6807=""
+                    href="/lecturer/notifications"
+                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                    ><svg
+                      data-v-ff2b6807=""
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        data-v-ff2b6807=""
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                      ></path>
+                    </svg>
+                    Thông báo
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+          <!-- Main Content Area -->
+          <main data-v-ff2b6807="" class="flex-1 p-6"><!----></main>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js?t=1758600334706"></script>
+
+  <script
+    src="http://localhost:5174/@id/virtual:vue-devtools-path:overlay/devtools-overlay.mjs"
+    type="module"
+  ></script>
+  <div id="vue-inspector-container" data-v-app="">
+    <div data-v-31d1379f="" data-v-inspector-ignore="true">
+      <!--v-if--><!-- Overlay --><!--v-if-->
+    </div>
+  </div>
+  <div
+    id="__vue-devtools-container__"
+    data-v-inspector-ignore="true"
+    data-v-app=""
+  >
+    <div
+      data-v-640ec535=""
+      class="vue-devtools__anchor dark"
+      style="
+        left: 626.5px;
+        top: 842px;
+        --vue-devtools-widget-bg: #121212;
+        --vue-devtools-widget-fg: #f5f5f5;
+        --vue-devtools-widget-border: #3336;
+        --vue-devtools-widget-shadow: rgba(0, 0, 0, 0.3);
+      "
+    >
+      <div
+        data-v-640ec535=""
+        class="vue-devtools__anchor--glowing"
+        style=""
+      ></div>
+      <div
+        data-v-640ec535=""
+        class="vue-devtools__panel"
+        style="transform: translate(-50%, -50%)"
+      >
+        <div
+          data-v-640ec535=""
+          class="vue-devtools__anchor-btn panel-entry-btn"
+          title="Toggle Vue DevTools"
+          aria-label="Toggle devtools panel"
+          style="filter: saturate(0)"
+        >
+          <svg
+            data-v-640ec535=""
+            viewBox="0 0 256 198"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              data-v-640ec535=""
+              fill="#41B883"
+              d="M204.8 0H256L128 220.8L0 0h97.92L128 51.2L157.44 0h47.36Z"
+            ></path>
+            <path
+              data-v-640ec535=""
+              fill="#41B883"
+              d="m0 0l128 220.8L256 0h-51.2L128 132.48L50.56 0H0Z"
+            ></path>
+            <path
+              data-v-640ec535=""
+              fill="#35495E"
+              d="M50.56 0L128 133.12L204.8 0h-47.36L128 51.2L97.92 0H50.56Z"
+            ></path>
+          </svg>
+        </div>
+        <div
+          data-v-640ec535=""
+          class="vue-devtools__panel-content vue-devtools__panel-divider"
+        ></div>
+        <div
+          data-v-640ec535=""
+          class="vue-devtools__anchor-btn vue-devtools__panel-content vue-devtools__inspector-button active"
+          title="Toggle Component Inspector"
+        >
+          <svg
+            data-v-640ec535=""
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            style="
+              height: 1.1em;
+              width: 1.1em;
+              opacity: 1;
+              color: rgb(0, 220, 130);
+            "
+          >
+            <g
+              data-v-640ec535=""
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <circle
+                data-v-640ec535=""
+                cx="12"
+                cy="12"
+                r=".5"
+                fill="currentColor"
+              ></circle>
+              <path
+                data-v-640ec535=""
+                d="M5 12a7 7 0 1 0 14 0a7 7 0 1 0-14 0m7-9v2m-9 7h2m7 7v2m7-9h2"
+              ></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div
+        data-v-399f5059=""
+        data-v-640ec535=""
+        class="vue-devtools-frame"
+        style="
+          z-index: -1;
+          pointer-events: auto;
+          width: min(80vw, -48px + 100vw);
+          height: min(60vh, -48px + 100vh);
+          left: 0px;
+          transform: translate(-50%, 0px);
+          bottom: 0px;
+          display: none;
+        "
+      >
+        <div
+          data-v-399f5059=""
+          class="vue-devtools-resize vue-devtools-resize--horizontal"
+          style="top: 0px"
+        ></div>
+        <div
+          data-v-399f5059=""
+          class="vue-devtools-resize vue-devtools-resize--horizontal"
+          style="bottom: 0px; display: none"
+        ></div>
+        <div
+          data-v-399f5059=""
+          class="vue-devtools-resize vue-devtools-resize--vertical"
+          style="left: 0px"
+        ></div>
+        <div
+          data-v-399f5059=""
+          class="vue-devtools-resize vue-devtools-resize--vertical"
+          style="right: 0px"
+        ></div>
+        <div
+          data-v-399f5059=""
+          class="vue-devtools-resize vue-devtools-resize-corner"
+          style="top: 0px; left: 0px; cursor: nwse-resize"
+        ></div>
+        <div
+          data-v-399f5059=""
+          class="vue-devtools-resize vue-devtools-resize-corner"
+          style="top: 0px; right: 0px; cursor: nesw-resize"
+        ></div>
+        <div
+          data-v-399f5059=""
+          class="vue-devtools-resize vue-devtools-resize-corner"
+          style="bottom: 0px; left: 0px; cursor: nesw-resize; display: none"
+        ></div>
+        <div
+          data-v-399f5059=""
+          class="vue-devtools-resize vue-devtools-resize-corner"
+          style="bottom: 0px; right: 0px; cursor: nwse-resize; display: none"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div
+    id="lbdictex_find_popup"
+    class="lbexpopup hidden"
+    style="position: absolute; top: 0px; left: 0px"
+  >
+    <div class="lbexpopup_top">
+      <h2 class="fl popup_title">&nbsp;</h2>
+      <ul>
+        <li><a class="close_main popup_close" href="#">&nbsp;</a></li>
+      </ul>
+      <div class="clr"></div>
+    </div>
+    <div class="popup_details"></div>
+    <div class="popup_powered">abc</div>
+  </div>
+  <div
+    id="lbdictex_ask_mark"
+    class="hidden"
+    style="position: absolute; top: 0px; left: 0px"
+  >
+    <a class="lbdictex_ask_select" href="#">&nbsp;</a>
+  </div>
+</body>
