@@ -6,21 +6,8 @@ import { computed } from 'vue';
 
 const route = useRoute()
 const showNavbar = computed(() => {
-  const noNavbarRoutes = [
-    'Home',
-    'StudentLogin',
-    'LecturerLogin',
-    'AdminLogin',
-    'StudentDashboard',
-    'lecturer-dashboard',
-    'lecturer-profile',
-    'lecturer-course-sections',
-    'lecturer-groups',
-    'lecturer-projects',
-    'lecturer-reports',
-    'lecturer-notifications',
-  ];
-  return !noNavbarRoutes.includes(route.name);
+  // Tạm thời luôn hiển thị navbar để kiểm tra lỗi
+  return true;
 });
 </script>
 
@@ -57,12 +44,6 @@ const showNavbar = computed(() => {
     </main>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'App',
-};
-</script>
 
 <style>
 /* Global styles or Tailwind imports can go here */

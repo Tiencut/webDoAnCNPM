@@ -1,295 +1,144 @@
 <body>
   <div id="app" data-v-app="">
-    <div data-v-7a7a37b1="" id="app" class="min-h-screen bg-gray-100">
-      <nav data-v-7a7a37b1="" class="bg-white shadow-md p-4">
-        <div data-v-7a7a37b1="" class="flex flex-wrap">
-          <a
-            data-v-7a7a37b1=""
-            href="/"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Home</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/login/student"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Student Login</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/login/lecturer"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Lecturer Login</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/login/admin"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Admin Login</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/student-dashboard"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Student Dashboard</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/lecturer-dashboard"
-            class="router-link-active router-link-exact-active text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            aria-current="page"
-            >Lecturer Dashboard</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/admin-dashboard"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Admin Dashboard</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/groups"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Groups</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/projects"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Projects</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/reports"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Reports</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/notifications"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Notifications</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/lecturer/profile"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Lecturer Profile</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/lecturer/course-sections"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Lecturer Course Sections</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/lecturer/groups"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Lecturer Groups</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/lecturer/projects"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Lecturer Projects</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/lecturer/reports"
-            class="text-blue-500 hover:text-blue-700 mr-4 mb-2"
-            >Lecturer Reports</a
-          ><a
-            data-v-7a7a37b1=""
-            href="/lecturer/notifications"
-            class="text-blue-500 hover:text-blue-700 mb-2"
-            >Lecturer Notifications</a
-          >
-        </div>
-      </nav>
-      <main data-v-7a7a37b1="" class="p-4">
+    <div data-v-7a7a37b1="" id="app" class="min-h-screen font-sans antialiased">
+      <!--v-if-->
+      <main data-v-7a7a37b1="" class="container mx-auto p-4 mt-4">
         <div
-          data-v-ff2b6807=""
+          data-v-b4e148ca=""
           data-v-7a7a37b1=""
-          class="lecturer-dashboard-container min-h-screen bg-gray-100 flex"
+          class="home flex flex-col items-center justify-center min-h-screen py-10"
         >
-          <!-- Left Navigation Sidebar -->
-          <aside data-v-ff2b6807="" class="w-64 bg-white shadow-md p-6">
-            <h2
-              data-v-ff2b6807=""
-              class="text-2xl font-bold text-gray-800 mb-6"
+          <h1
+            data-v-b4e148ca=""
+            class="text-5xl font-extrabold text-gray-900 mb-6 animate-fade-in-down"
+          >
+            Chào mừng đến với Hệ thống Quản lý Đồ án
+          </h1>
+          <p
+            data-v-b4e148ca=""
+            class="text-xl text-gray-700 mb-12 text-center max-w-2xl animate-fade-in-up"
+          >
+            Vui lòng chọn vai trò của bạn để đăng nhập:
+          </p>
+          <div
+            data-v-b4e148ca=""
+            class="login-options grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-5xl"
+          >
+            <a
+              data-v-b4e148ca=""
+              href="/login/student"
+              class="login-card bg-white rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 p-8 flex flex-col items-center text-center border-b-4 border-blue-500 hover:border-blue-700"
+              ><div
+                data-v-b4e148ca=""
+                class="icon-wrapper bg-blue-100 text-blue-600 rounded-full p-5 mb-6 shadow-md"
+              >
+                <svg
+                  data-v-b4e148ca=""
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-16 w-16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    data-v-b4e148ca=""
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM12 14H8c-2.206 0-4 1.794-4 4v1h16v-1c0-2.206-1.794-4-4-4z"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                data-v-b4e148ca=""
+                class="text-3xl font-bold text-gray-800 mb-3"
+              >
+                Sinh viên
+              </h2>
+              <p data-v-b4e148ca="" class="text-gray-600 text-lg">
+                Đăng nhập với tư cách sinh viên để quản lý đồ án, nhóm và báo
+                cáo.
+              </p></a
+            ><a
+              data-v-b4e148ca=""
+              href="/login/lecturer"
+              class="login-card bg-white rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 p-8 flex flex-col items-center text-center border-b-4 border-green-500 hover:border-green-700"
+              ><div
+                data-v-b4e148ca=""
+                class="icon-wrapper bg-green-100 text-green-600 rounded-full p-5 mb-6 shadow-md"
+              >
+                <svg
+                  data-v-b4e148ca=""
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-16 w-16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    data-v-b4e148ca=""
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.794 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5c1.706 0 3.332.477 4.5 1.253v13C19.832 18.477 18.206 18 16.5 18s-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                data-v-b4e148ca=""
+                class="text-3xl font-bold text-gray-800 mb-3"
+              >
+                Giảng viên
+              </h2>
+              <p data-v-b4e148ca="" class="text-gray-600 text-lg">
+                Đăng nhập với tư cách giảng viên để quản lý lớp học, đề tài và
+                sinh viên.
+              </p></a
+            ><a
+              data-v-b4e148ca=""
+              href="/login/admin"
+              class="login-card bg-white rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 p-8 flex flex-col items-center text-center border-b-4 border-red-500 hover:border-red-700"
+              ><div
+                data-v-b4e148ca=""
+                class="icon-wrapper bg-red-100 text-red-600 rounded-full p-5 mb-6 shadow-md"
+              >
+                <svg
+                  data-v-b4e148ca=""
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-16 w-16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    data-v-b4e148ca=""
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002.92 12c0 3.072 1.874 5.798 4.515 7.553L12 22.953l4.515-2.398A12.001 12.001 0 0021.08 12c0-3.072-1.874-5.798-4.515-7.553z"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                data-v-b4e148ca=""
+                class="text-3xl font-bold text-gray-800 mb-3"
+              >
+                Quản trị viên
+              </h2>
+              <p data-v-b4e148ca="" class="text-gray-600 text-lg">
+                Đăng nhập với tư cách quản trị viên để quản lý hệ thống và người
+                dùng.
+              </p></a
             >
-              Điều hướng
-            </h2>
-            <nav data-v-ff2b6807="">
-              <ul data-v-ff2b6807="">
-                <li data-v-ff2b6807="" class="mb-4">
-                  <a
-                    data-v-ff2b6807=""
-                    aria-current="page"
-                    href="/lecturer-dashboard"
-                    class="router-link-active router-link-exact-active flex items-center text-gray-700 hover:text-blue-600 font-medium"
-                    ><svg
-                      data-v-ff2b6807=""
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 mr-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        data-v-ff2b6807=""
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 001 1h3m-3-11L12 9m2 2l-2-2m0 0l-2 2m2-2V5"
-                      ></path>
-                    </svg>
-                    Tổng quan
-                  </a>
-                </li>
-                <li data-v-ff2b6807="" class="mb-4">
-                  <a
-                    data-v-ff2b6807=""
-                    href="/lecturer/profile"
-                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
-                    ><svg
-                      data-v-ff2b6807=""
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 mr-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        data-v-ff2b6807=""
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      ></path>
-                    </svg>
-                    Thông tin cá nhân
-                  </a>
-                </li>
-                <li data-v-ff2b6807="" class="mb-4">
-                  <a
-                    data-v-ff2b6807=""
-                    href="/lecturer/course-sections"
-                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
-                    ><svg
-                      data-v-ff2b6807=""
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 mr-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        data-v-ff2b6807=""
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.794 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5c1.706 0 3.332.477 4.5 1.253v13C19.832 18.477 18.206 18 16.5 18s-3.332.477-4.5 1.253"
-                      ></path>
-                    </svg>
-                    Lớp học phần
-                  </a>
-                </li>
-                <li data-v-ff2b6807="" class="mb-4">
-                  <a
-                    data-v-ff2b6807=""
-                    href="/lecturer/groups"
-                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
-                    ><svg
-                      data-v-ff2b6807=""
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 mr-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        data-v-ff2b6807=""
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M17 20h2a2 2 0 002-2V7a2 2 0 00-2-2h-2.586a1 1 0 01-.707-.293l-1.414-1.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v12a2 2 0 002 2h2m0 0l-2 2m2-2l2 2m-3 0v-3m-2 3h3m-3 0h-3"
-                      ></path>
-                    </svg>
-                    Nhóm sinh viên
-                  </a>
-                </li>
-                <li data-v-ff2b6807="" class="mb-4">
-                  <a
-                    data-v-ff2b6807=""
-                    href="/lecturer/projects"
-                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
-                    ><svg
-                      data-v-ff2b6807=""
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 mr-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        data-v-ff2b6807=""
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M12 16h.01"
-                      ></path>
-                    </svg>
-                    Đề tài/Dự án
-                  </a>
-                </li>
-                <li data-v-ff2b6807="" class="mb-4">
-                  <a
-                    data-v-ff2b6807=""
-                    href="/lecturer/reports"
-                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
-                    ><svg
-                      data-v-ff2b6807=""
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 mr-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        data-v-ff2b6807=""
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M9 17v-2m3 2v-4m3 2v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      ></path>
-                    </svg>
-                    Báo cáo
-                  </a>
-                </li>
-                <li data-v-ff2b6807="" class="mb-4">
-                  <a
-                    data-v-ff2b6807=""
-                    href="/lecturer/notifications"
-                    class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
-                    ><svg
-                      data-v-ff2b6807=""
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 mr-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        data-v-ff2b6807=""
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                      ></path>
-                    </svg>
-                    Thông báo
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </aside>
-          <!-- Main Content Area -->
-          <main data-v-ff2b6807="" class="flex-1 p-6"><!----></main>
+          </div>
         </div>
       </main>
     </div>
   </div>
-  <script type="module" src="/src/main.js?t=1758600334706"></script>
+  <script type="module" src="/src/main.js"></script>
 
   <script
-    src="http://localhost:5174/@id/virtual:vue-devtools-path:overlay/devtools-overlay.mjs"
+    src="http://localhost:5173/@id/virtual:vue-devtools-path:overlay/devtools-overlay.mjs"
     type="module"
   ></script>
   <div id="vue-inspector-container" data-v-app="">
@@ -306,7 +155,7 @@
       data-v-640ec535=""
       class="vue-devtools__anchor dark"
       style="
-        left: 626.5px;
+        left: 570px;
         top: 842px;
         --vue-devtools-widget-bg: #121212;
         --vue-devtools-widget-fg: #f5f5f5;
