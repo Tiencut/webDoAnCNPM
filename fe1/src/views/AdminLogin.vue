@@ -1,7 +1,7 @@
 <template>
   <div class="admin-login">
     <h1>Trang Đăng Nhập Quản Trị Viên</h1>
-    <form>
+    <form @submit.prevent="login">
       <div class="form-group">
         <label for="username">Tên đăng nhập:</label>
         <input type="text" id="username" v-model="username" />
@@ -24,9 +24,15 @@ export default defineComponent({
     const username = ref('');
     const password = ref('');
 
+    const login = () => {
+      console.log('Đăng nhập với:', username.value, password.value);
+      // TODO: Tích hợp API xác thực tại đây
+    };
+
     return {
       username,
       password,
+      login,
     };
   },
 });

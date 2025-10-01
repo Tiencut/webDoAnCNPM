@@ -1,7 +1,7 @@
 <template>
   <div class="student-login">
     <h1>Trang Đăng Nhập Sinh Viên</h1>
-    <form>
+    <form @submit.prevent="login">
       <div class="form-group">
         <label for="studentId">Mã số sinh viên:</label>
         <input type="text" id="studentId" v-model="studentId" />
@@ -24,9 +24,15 @@ export default defineComponent({
     const studentId = ref('');
     const password = ref('');
 
+    const login = () => {
+      console.log('Đăng nhập với:', studentId.value, password.value);
+      // TODO: Tích hợp API xác thực tại đây
+    };
+
     return {
       studentId,
       password,
+      login,
     };
   },
 });
