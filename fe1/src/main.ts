@@ -15,3 +15,5 @@ const authStore = useAuthStore()
 authStore.initializeAuth()
 
 app.mount('#app')
+
+app.config.devtools = false;

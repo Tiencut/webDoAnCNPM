@@ -14,9 +14,13 @@
       :items="groups"
       item-key="id"
       :has-actions="true"
-      @edit="editGroup"
-      @delete="deleteGroup"
-    />
+      :clickable="true"
+      @row-click="editGroup"
+    >
+      <template #actions="{ item }">
+        <button @click.stop="deleteGroup(item)" class="text-red-600 hover:text-red-900">Xóa</button>
+      </template>
+    </BaseTable>
 
     <Modal :show="showGroupModal" @close="closeGroupModal">
       <template #header>
@@ -31,6 +35,15 @@
         />
       </template>
     </Modal>
+
+    <Modal :show="showDetailsModal" @close="closeDetailsModal">
+      <template #header>
+        <h3 class="text-xl font-bold">Chi tiết Nhóm</h3>
+      </template>
+      <template #body>
+        <GroupDetails v-if="currentGroup" :group="currentGroup" />
+      </template>
+    </Modal>
   </div>
 </template>
 
@@ -39,33 +52,56 @@ import { ref } from 'vue';
 import BaseTable from '../../components/common/BaseTable.vue';
 import Modal from '../../components/common/Modal.vue';
 import GroupForm from '../../components/admin/GroupForm.vue';
+import GroupDetails from '../../components/admin/GroupDetails.vue';
+
+interface Student {
+  studentId: string;
+  fullName: string;
+  email: string;
+}
 
 interface Group {
   id: number;
-  name: string;
-  leader: string;
-  membersCount: number;
+  stt: number;
+  groupId: string;
+  topicName: string;
+  note: string;
+  members: Student[];
 }
 
 const groups = ref<Group[]>([
-  { id: 1, name: 'Nhóm 1', leader: 'Nguyễn Văn A', membersCount: 3 },
-  { id: 2, name: 'Nhóm 2', leader: 'Trần Thị B', membersCount: 4 },
+  {
+    id: 1, stt: 1, groupId: 'N001', topicName: 'Đề tài 1', note: 'Ghi chú 1',
+    members: [
+      { studentId: 'SV001', fullName: 'Nguyễn Văn A', email: 'vana@example.com' },
+      { studentId: 'SV002', fullName: 'Trần Thị B', email: 'thib@example.com' },
+    ]
+  },
+  {
+    id: 2, stt: 2, groupId: 'N002', topicName: 'Đề tài 2', note: 'Ghi chú 2',
+    members: [
+      { studentId: 'SV003', fullName: 'Lê Văn C', email: 'vanc@example.com' },
+      { studentId: 'SV004', fullName: 'Phạm Thị D', email: 'thid@example.com' },
+    ]
+  },
 ]);
 
 const groupTableHeaders = ref([
-  { text: 'ID', value: 'id' },
-  { text: 'Tên Nhóm', value: 'name' },
-  { text: 'Trưởng Nhóm', value: 'leader' },
-  { text: 'Số lượng Thành viên', value: 'membersCount' },
+  { text: 'STT', value: 'stt' },
+  { text: 'Mã nhóm', value: 'groupId' },
+  { text: 'Tên đề tài', value: 'topicName' },
+  { text: 'Ghi chú', value: 'note' },
+  { text: 'Hành động', value: 'actions' },
 ]);
 
 const showGroupModal = ref(false);
+const showDetailsModal = ref(false);
 const isEditing = ref(false);
 const currentGroup = ref<Group | null>(null);
 
 const openAddGroupModal = () => {
   isEditing.value = false;
-  currentGroup.value = { id: 0, name: '', leader: '', membersCount: 0 };
+  currentGroup.value = { id: 0, stt: 0, groupId: '', topicName: '', note: '', members: [] };
   showGroupModal.value = true;
 };
 
@@ -98,6 +134,16 @@ const deleteGroup = (group: Group) => {
 
 const closeGroupModal = () => {
   showGroupModal.value = false;
+  currentGroup.value = null;
+};
+
+const viewGroupDetails = (group: Group) => {
+  currentGroup.value = group;
+  showDetailsModal.value = true;
+};
+
+const closeDetailsModal = () => {
+  showDetailsModal.value = false;
   currentGroup.value = null;
 };
 </script>

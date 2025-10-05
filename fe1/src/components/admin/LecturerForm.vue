@@ -12,8 +12,8 @@
           <input type="email" id="email" v-model="currentLecturer.email" class="form-input" required />
         </div>
         <div>
-          <label for="maxTopics" class="form-label">Số lượng đề tài tối đa có thể hướng dẫn</label>
-          <input type="number" id="maxTopics" v-model="currentLecturer.maxTopics" class="form-input" min="0" required />
+          <label for="phoneNumber" class="form-label">Số điện thoại</label>
+          <input type="text" id="phoneNumber" v-model="currentLecturer.phoneNumber" class="form-input" required />
         </div>
       </div>
       <div class="form-actions">
@@ -35,7 +35,7 @@ interface Lecturer {
   id: number;
   fullName: string;
   email: string;
-  maxTopics: number;
+  phoneNumber: string;
 }
 
 const props = defineProps<{
@@ -67,6 +67,7 @@ const cancelEdit = () => {
   border: 1px solid #e5e7eb; /* border border-gray-200 */
   border-radius: 0.5rem; /* rounded-lg */
   background-color: #f9fafb; /* bg-gray-50 */
+  max-width: 100%;
 }
 
 .lecturer-form-title {
@@ -78,14 +79,20 @@ const cancelEdit = () => {
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+  grid-template-columns: 1fr; /* grid-cols-1 */
   gap: 1rem; /* gap-4 */
   margin-bottom: 1rem; /* mb-4 */
+  /* border: 1px solid blue; */
+}
+
+.form-grid > div {
+  width: 100%;
+  min-width: 0;
 }
 
 @media (min-width: 768px) {
   .form-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+    grid-template-columns: 1fr 1fr; /* md:grid-cols-2 */
   }
 }
 
@@ -94,6 +101,7 @@ const cancelEdit = () => {
   font-size: 0.875rem; /* text-sm */
   font-weight: 500; /* font-medium */
   color: #4b5563; /* text-gray-700 */
+  word-break: break-word;
 }
 
 .form-input {
@@ -104,6 +112,10 @@ const cancelEdit = () => {
   border-radius: 0.375rem; /* rounded-md */
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
   padding: 0.5rem; /* p-2 */
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .form-actions {

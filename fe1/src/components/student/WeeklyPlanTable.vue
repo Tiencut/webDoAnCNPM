@@ -1,45 +1,49 @@
 <template>
-    <div class="weekly-plan-list-card">
-      <h1 class="weekly-plan-management-title">Quản lý Kế hoạch Làm việc Hàng tuần</h1>
-      <button @click="$emit('addPlan')" class="btn btn-primary add-plan-button">Thêm Kế hoạch Mới</button>
+  <div class="weekly-plan-list-card">
+    <div class="weekly-plan-management-header">
+      <h1 class="weekly-plan-management-title">Kế hoạch Hàng tuần của tôi</h1>
       <input type="text" v-model="searchQuery" placeholder="Tìm kiếm kế hoạch..." class="search-input" />
-      <div class="table-responsive">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th class="table-th">
-                Tên Kế hoạch
-              </th>
-              <th class="table-th">
-                Ngày Bắt đầu
-              </th>
-              <th class="table-th">
-                Ngày Kết thúc
-              </th>
-              <th class="table-th">
-                Trạng thái
-              </th>
-              <th class="table-th">
-                Hành động
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="plan in filteredPlans" :key="plan.id" class="cursor-pointer" @click="$emit('editPlan', plan)">
-              <td class="table-td">{{ plan.name }}</td>
-              <td class="table-td">{{ plan.startDate }}</td>
-              <td class="table-td">{{ plan.endDate }}</td>
-              <td class="table-td">{{ plan.status }}</td>
-              <td class="table-td">
-                <button @click.stop="$emit('deletePlan', plan.id)"
-                  class="btn-delete">
-                  Xóa
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="table-container">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th class="table-th">
+                  Tên Kế hoạch
+                </th>
+                <th class="table-th">
+                  Ngày Bắt đầu
+                </th>
+                <th class="table-th">
+                  Ngày Kết thúc
+                </th>
+                <th class="table-th">
+                  Trạng thái
+                </th>
+                <th class="table-th">
+                  Hành động
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="plan in filteredPlans" :key="plan.id" class="cursor-pointer" @click="$emit('editPlan', plan)">
+                <td class="table-td">{{ plan.name }}</td>
+                <td class="table-td">{{ plan.startDate }}</td>
+                <td class="table-td">{{ plan.endDate }}</td>
+                <td class="table-td">{{ plan.status }}</td>
+                <td class="table-td">
+                  <!-- Sinh viên không có quyền xóa kế hoạch -->
+                  <!-- <button @click.stop="$emit('deletePlan', plan.id)"
+                    class="btn-delete">
+                    Xóa
+                  </button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+    </div>
     </div>
 </template>
 
@@ -77,14 +81,11 @@ const filteredPlans = computed(() => {
 </script>
 
 <style scoped>
-/* Thêm CSS cho component WeeklyPlanTable tại đây nếu cần */
 .weekly-plan-list-card {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap; /* Cho phép các mục xuống dòng nếu không đủ không gian */

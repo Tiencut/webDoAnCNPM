@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter, RouterLink } from 'vue-router';
-import { HomeIcon, UserGroupIcon, AcademicCapIcon, BookOpenIcon, CalendarDaysIcon, BellIcon, ArrowRightOnRectangleIcon } from '@heroicons/vue/24/outline';
+import { HomeIcon, UserGroupIcon, AcademicCapIcon, BookOpenIcon, CalendarDaysIcon, BellIcon, ArrowRightOnRectangleIcon, KeyIcon } from '@heroicons/vue/24/outline';
 import StudentImportModal from './common/StudentImportModal.vue';
 import LecturerImportModal from './common/LecturerImportModal.vue';
 import TopicImportModal from './common/TopicImportModal.vue';
@@ -12,9 +12,11 @@ const navigation = [
   { name: 'Trang chủ', href: '/admin', icon: HomeIcon },
   { name: 'Quản lý Giảng viên', href: '/admin/lecturers', icon: UserGroupIcon },
   { name: 'Quản lý Sinh viên', href: '/admin/students', icon: AcademicCapIcon },
+  { name: 'Quản lý Nhóm', href: '/admin/groups', icon: UserGroupIcon },
   { name: 'Quản lý Đề tài', href: '/admin/topics', icon: BookOpenIcon },
   { name: 'Quản lý Kế hoạch Làm việc Hàng tuần', href: '/admin/weekly-plans', icon: CalendarDaysIcon },
   { name: 'Quản lý Thông báo', href: '/admin/notifications', icon: BellIcon },
+  { name: 'Đổi mật khẩu', href: '/admin/change-password', icon: KeyIcon },
 ];
 
 const handleLogout = () => {
@@ -33,15 +35,6 @@ const handleLogout = () => {
             <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
             <span>{{ item.name }}</span>
           </RouterLink>
-        </li>
-        <li>
-          <StudentImportModal />
-        </li>
-        <li>
-          <LecturerImportModal />
-        </li>
-        <li>
-          <TopicImportModal />
         </li>
       </ul>
     </nav>

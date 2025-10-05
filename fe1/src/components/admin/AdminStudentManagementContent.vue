@@ -22,9 +22,17 @@
         :headers="studentTableHeaders"
         :items="students"
         item-key="id"
-        @edit="editStudent"
+        :has-actions="true"
+        :clickable="true"
+        @row-click="editStudent"
         @delete="deleteStudent"
-      />
+      >
+        <template #actions="{ item }">
+          <button @click.stop="deleteStudent(item.id)" class="btn-danger">
+            Xóa
+          </button>
+        </template>
+      </BaseTable>
     </div>
   </div>
 </template>
@@ -38,25 +46,41 @@ import StudentImportModal from '../common/StudentImportModal.vue';
 
 interface Student {
   id: number;
-  name: string;
-  studentId: string;
-  email: string;
+  studentCode: string;
+  fullName: string;
+  university: string;
   major: string;
+  gpa: number;
+  gender: string;
+  dob: string;
+  email: string;
+  phone: string;
+  graduationYear: number;
+  course: string;
+  idNumber: string;
 }
 
 const studentTableHeaders = [
-  { text: 'Tên Sinh viên', value: 'name' },
-  { text: 'Mã Sinh viên', value: 'studentId' },
-  { text: 'Email', value: 'email' },
+  { text: 'Mã SV', value: 'studentCode' },
+  { text: 'Họ và Tên', value: 'fullName' },
+  { text: 'Trường', value: 'university' },
   { text: 'Chuyên ngành', value: 'major' },
+  { text: 'GPA', value: 'gpa' },
+  { text: 'Giới tính', value: 'gender' },
+  { text: 'Ngày sinh', value: 'dob' },
+  { text: 'Email cá nhân', value: 'email' },
+  { text: 'Số điện thoại', value: 'phone' },
+  { text: 'Năm tốt nghiệp', value: 'graduationYear' },
+  { text: 'Khóa', value: 'course' },
+  { text: 'CMND/CCCD', value: 'idNumber' },
 ];
 
 const students = ref<Student[]>([
-  { id: 1, name: 'Nguyễn Văn A', studentId: 'SV001', email: 'vana@example.com', major: 'Công nghệ thông tin' },
-  { id: 2, name: 'Trần Thị B', studentId: 'SV002', email: 'thib@example.com', major: 'Khoa học Máy tính' },
+  { id: 1, studentCode: 'SV001', fullName: 'Nguyễn Văn A', university: 'Đại học ABC', major: 'Công nghệ thông tin', gpa: 3.5, gender: 'Nam', dob: '2000-01-01', email: 'vana@example.com', phone: '0901234567', graduationYear: 2022, course: 'K44', idNumber: '123456789' },
+  { id: 2, studentCode: 'SV002', fullName: 'Trần Thị B', university: 'Đại học XYZ', major: 'Khoa học Máy tính', gpa: 3.8, gender: 'Nữ', dob: '2001-02-02', email: 'thib@example.com', phone: '0907654321', graduationYear: 2023, course: 'K45', idNumber: '987654321' },
 ]);
 
-const currentStudent = ref<Student>({ id: 0, name: '', studentId: '', email: '', major: '' });
+const currentStudent = ref<Student>({ id: 0, studentCode: '', fullName: '', university: '', major: '', gpa: 0, gender: '', dob: '', email: '', phone: '', graduationYear: 0, course: '', idNumber: '' });
 const isEditing = ref(false);
 const showForm = ref(false);
 
@@ -98,7 +122,7 @@ const cancelEdit = () => {
 };
 
 const resetForm = () => {
-  currentStudent.value = { id: 0, name: '', studentId: '', email: '', major: '' };
+  currentStudent.value = { id: 0, studentCode: '', fullName: '', university: '', major: '', gpa: 0, gender: '', dob: '', email: '', phone: '', graduationYear: 0, course: '', idNumber: '' };
   isEditing.value = false;
 };
 </script>

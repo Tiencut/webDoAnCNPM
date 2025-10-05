@@ -1,6 +1,6 @@
 <template>
   <div class="student-registration">
-    <h1>Đăng Ký Thông Tin Cá Nhân Sinh Viên</h1>
+    <h1>Sửa Thông Tin Cá Nhân Sinh Viên</h1>
     <form @submit.prevent="register">
       <div class="form-group">
         <label for="studentId">Mã số sinh viên:</label>

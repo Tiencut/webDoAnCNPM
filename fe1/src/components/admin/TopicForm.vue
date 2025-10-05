@@ -89,6 +89,8 @@ const cancelEdit = () => {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   margin: 0 auto;
+  word-wrap: break-word;
+  overflow-y: auto;
 }
 
 .topic-form-title {
@@ -99,11 +101,15 @@ const cancelEdit = () => {
 }
 
 .form-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-grid > div {
+    min-width: 0;
+  }
 
 @media (min-width: 600px) {
   .form-grid {
@@ -126,6 +132,8 @@ const cancelEdit = () => {
   border-radius: 4px;
   font-size: 1rem;
   transition: border-color 0.2s ease-in-out;
+  box-sizing: border-box;
+  word-break: break-all;
 }
 
 .form-input:focus,

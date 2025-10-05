@@ -7,11 +7,14 @@
       </tr>
     </thead>
     <tbody class="table-body">
-      <tr v-for="item in items" :key="item[itemKey]">
-        <td v-for="header in headers" :key="header.value" class="table-td">{{ item[header.value] }}</td>
+      <tr v-for="item in items" :key="item[itemKey]" :class="{ 'cursor-pointer': clickable }" @click="clickable && $emit('row-click', item)">
+        <td v-for="header in headers" :key="header.value" class="table-td">
+          <slot :name="`item-${header.value}`" :item="item">
+            {{ item[header.value] }}
+          </slot>
+        </td>
         <td v-if="hasActions" class="table-td action-buttons">
-          <button @click="$emit('edit', item)" class="btn-edit">Sửa</button>
-          <button @click="$emit('delete', item[itemKey])" class="btn-delete">Xóa</button>
+          <slot name="actions" :item="item"></slot>
         </td>
       </tr>
     </tbody>
@@ -43,9 +46,13 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  clickable: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-const emits = defineEmits(['edit', 'delete']);
+const emits = defineEmits(['edit', 'delete', 'row-click']);
 </script>
 
 <style scoped>
@@ -53,7 +60,7 @@ const emits = defineEmits(['edit', 'delete']);
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 8px;
@@ -61,20 +68,20 @@ const emits = defineEmits(['edit', 'delete']);
 }
 
 .table-header {
-  background-color: #f4f6f8;
+  background-color: #f2f2f2;
 }
 
 .table-th {
-  padding: 12px 15px;
+  padding: 8px;
   text-align: left;
-  font-weight: 600;
+  font-weight: bold;
+  border: 1px solid #ddd;
   color: #333;
-  border-bottom: 1px solid #ddd;
 }
 
 .table-td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #eee;
+  padding: 8px;
+  border: 1px solid #ddd;
   color: #555;
 }
 
@@ -113,5 +120,9 @@ const emits = defineEmits(['edit', 'delete']);
 
 .btn-delete:hover {
   background-color: #da190b;
+}
+
+.table-body tr.cursor-pointer:hover {
+  background-color: #f0f0f0;
 }
 </style>

@@ -4,20 +4,57 @@
     <form @submit.prevent="saveStudent">
       <div class="form-grid">
         <div>
-          <label for="studentName" class="form-label">Tên Sinh viên:</label>
-          <input type="text" id="studentName" v-model="currentStudent.name" class="form-input" required>
+          <label for="studentCode" class="form-label">Mã Sinh viên:</label>
+          <input type="text" id="studentCode" v-model="currentStudent.studentCode" class="form-input" required>
         </div>
         <div>
-          <label for="studentId" class="form-label">Mã Sinh viên:</label>
-          <input type="text" id="studentId" v-model="currentStudent.studentId" class="form-input" required>
+          <label for="fullName" class="form-label">Họ và Tên:</label>
+          <input type="text" id="fullName" v-model="currentStudent.fullName" class="form-input" required>
         </div>
         <div>
-          <label for="studentEmail" class="form-label">Email:</label>
-          <input type="email" id="studentEmail" v-model="currentStudent.email" class="form-input" required>
+          <label for="university" class="form-label">Trường:</label>
+          <input type="text" id="university" v-model="currentStudent.university" class="form-input" required>
         </div>
         <div>
-          <label for="studentMajor" class="form-label">Chuyên ngành:</label>
-          <input type="text" id="studentMajor" v-model="currentStudent.major" class="form-input" required>
+          <label for="major" class="form-label">Chuyên ngành:</label>
+          <input type="text" id="major" v-model="currentStudent.major" class="form-input" required>
+        </div>
+        <div>
+          <label for="gpa" class="form-label">GPA:</label>
+          <input type="number" id="gpa" v-model.number="currentStudent.gpa" class="form-input" step="0.1" required>
+        </div>
+        <div>
+          <label for="gender" class="form-label">Giới tính:</label>
+          <select id="gender" v-model="currentStudent.gender" class="form-input" required>
+            <option value="">Chọn giới tính</option>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
+          </select>
+        </div>
+        <div>
+          <label for="dob" class="form-label">Ngày sinh:</label>
+          <input type="date" id="dob" v-model="currentStudent.dob" class="form-input" required>
+        </div>
+        <div>
+          <label for="email" class="form-label">Email cá nhân:</label>
+          <input type="email" id="email" v-model="currentStudent.email" class="form-input" required>
+        </div>
+        <div>
+          <label for="phone" class="form-label">Số điện thoại:</label>
+          <input type="tel" id="phone" v-model="currentStudent.phone" class="form-input" required>
+        </div>
+        <div>
+          <label for="graduationYear" class="form-label">Năm tốt nghiệp:</label>
+          <input type="number" id="graduationYear" v-model.number="currentStudent.graduationYear" class="form-input" required>
+        </div>
+        <div>
+          <label for="course" class="form-label">Khóa:</label>
+          <input type="text" id="course" v-model="currentStudent.course" class="form-input" required>
+        </div>
+        <div>
+          <label for="idNumber" class="form-label">CMND/CCCD:</label>
+          <input type="text" id="idNumber" v-model="currentStudent.idNumber" class="form-input" required>
         </div>
       </div>
       <div class="form-actions">
@@ -37,10 +74,18 @@ import { ref, watch } from 'vue';
 
 interface Student {
   id: number;
-  name: string;
-  studentId: string;
-  email: string;
+  studentCode: string;
+  fullName: string;
+  university: string;
   major: string;
+  gpa: number;
+  gender: string;
+  dob: string;
+  email: string;
+  phone: string;
+  graduationYear: number;
+  course: string;
+  idNumber: string;
 }
 
 const props = defineProps<{
@@ -72,6 +117,7 @@ const cancelEdit = () => {
   border-radius: 0.5rem; /* rounded-lg */
   padding: 1rem; /* p-4 */
   margin-bottom: 1.5rem; /* mb-6 */
+  max-width: 100%;
 }
 
 .student-form-title {
@@ -82,14 +128,19 @@ const cancelEdit = () => {
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+  grid-template-columns: 1fr; /* grid-cols-1 */
   gap: 1rem; /* gap-4 */
   margin-bottom: 1rem; /* mb-4 */
 }
 
+.form-grid > div {
+  width: 100%;
+  min-width: 0;
+}
+
 @media (min-width: 768px) {
   .form-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+    grid-template-columns: 1fr 1fr; /* md:grid-cols-2 */
   }
 }
 
@@ -99,6 +150,7 @@ const cancelEdit = () => {
   font-size: 0.875rem; /* text-sm */
   font-weight: 700; /* font-bold */
   margin-bottom: 0.5rem; /* mb-2 */
+  word-break: break-word;
 }
 
 .form-input {
@@ -110,6 +162,10 @@ const cancelEdit = () => {
   padding: 0.5rem 0.75rem; /* py-2 px-3 */
   color: #374151; /* text-gray-700 */
   line-height: 1.25; /* leading-tight */
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .form-input:focus {

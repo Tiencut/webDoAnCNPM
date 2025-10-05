@@ -1,20 +1,18 @@
 <template>
   <div class="topic-management-container">
-
-
-    <!-- Form thêm/chỉnh sửa đề tài -->
-    <TopicForm :initialTopic="currentTopic" :isEditingProp="isEditing" :show="showTopicFormModal" @save="handleSaveTopic" @close="handleCancelEdit" />
+    <!-- Đề tài đang đăng ký -->
+    <RegisteredTopicDisplay :registeredTopic="registeredTopic" @edit-registered-topic="handleEditRegisteredTopic" @save-registered-topic="handleSaveRegisteredTopic" @cancel-edit-registered-topic="handleCancelEditRegisteredTopic" />
+     
 
     <!-- Bảng danh sách đề tài -->
-    <TopicTable :topics="topics" @edit-topic="editTopic" @delete-topic="deleteTopic" @show-add-topic-modal="showAddTopicModal" @request-change-topic="requestChangeTopic" />
+    <TopicTable :topics="topics" @edit-topic="editTopic" @delete-topic="deleteTopic" @show-add-topic-modal="showAddTopicModal" @register-topic="handleRegisterTopic" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from 'vue';
-import TopicForm from '../../components/TopicForm.vue';
-// import TopicImportModal from '../../components/common/TopicImportModal.vue'; // Xóa import này
-import TopicTable from '../../components/admin/TopicTable.vue'; // Import TopicTable
+import { defineComponent, ref, reactive, onMounted } from 'vue';
+import TopicTable from '../../components/student/TopicTable.vue';
+import RegisteredTopicDisplay from '../../components/student/RegisteredTopicDisplay.vue';
 
 interface Topic {
   id: number;
@@ -26,15 +24,32 @@ interface Topic {
 export default defineComponent({
   name: 'TopicManagement',
   components: {
-    TopicForm,
-    // TopicImportModal, // Xóa đăng ký này
-    TopicTable, // Đăng ký TopicTable
+    TopicTable,
+    RegisteredTopicDisplay,
   },
   setup() {
     const topics = ref<Topic[]>([
       { id: 1, name: 'Đề tài 1', description: 'Mô tả đề tài 1', status: 'pending' },
       { id: 2, name: 'Đề tài 2', description: 'Mô tả đề tài 2', status: 'approved' },
     ]);
+
+    const registeredTopic = ref<Topic | null>(null);
+
+    const fetchRegisteredTopic = () => {
+      // Simulate fetching a registered topic
+      // In a real application, you would fetch this from an API
+      registeredTopic.value = {
+        id: 1,
+        name: 'Đề tài 1',
+        description: 'Mô tả đề tài 1',
+        status: 'Đã đăng ký',
+        members: ['Nguyễn Văn A', 'Trần Thị B'],
+      };
+    };
+
+    onMounted(() => {
+      fetchRegisteredTopic();
+    });
 
     const currentTopic = reactive<Topic>({
       id: 0,
@@ -77,18 +92,9 @@ export default defineComponent({
       showTopicFormModal.value = true; // Hiển thị modal khi thêm mới
     };
 
-    const deleteTopic = (id: number) => {
-      if (confirm('Bạn có chắc chắn muốn xóa đề tài này không?')) {
-        topics.value = topics.value.filter(t => t.id !== id);
-      }
-    };
-
-    const requestChangeTopic = (topic: Topic) => {
-      if (confirm(`Bạn có chắc chắn muốn yêu cầu đổi đề tài '${topic.name}' không?`)) {
-        console.log(`Yêu cầu đổi đề tài: ${topic.name} (ID: ${topic.id}) đã được gửi.`);
-        alert(`Yêu cầu đổi đề tài '${topic.name}' đã được gửi thành công!`);
-        // Logic thực tế để gửi yêu cầu đổi đề tài sẽ được thêm vào đây
-      }
+    const handleRegisterTopic = (topic: Topic) => {
+      registeredTopic.value = { ...topic, status: 'registered' };
+      alert(`Bạn đã đăng ký thành công đề tài: ${topic.name}`);
     };
 
     const resetForm = () => {
@@ -99,6 +105,23 @@ export default defineComponent({
       isEditing.value = false;
     };
 
+    const handleSaveRegisteredTopic = (updatedTopic: Topic) => {
+      if (registeredTopic.value && registeredTopic.value.id === updatedTopic.id) {
+        registeredTopic.value.name = updatedTopic.name;
+        // You might want to update other fields as well, but for now, only name is requested.
+      }
+    };
+
+    const handleEditRegisteredTopic = (topic: Topic) => {
+      // This will be handled by RegisteredTopicDisplay's internal state
+      // or passed down as a prop if more complex editing is needed.
+      // For now, we just need to ensure the RegisteredTopicDisplay can emit this.
+    };
+
+    const handleCancelEditRegisteredTopic = () => {
+      // This will be handled by RegisteredTopicDisplay's internal state
+    };
+
     return {
       topics,
       currentTopic,
@@ -106,10 +129,13 @@ export default defineComponent({
       handleSaveTopic,
       handleCancelEdit,
       editTopic,
-      deleteTopic,
       showTopicFormModal,
       showAddTopicModal,
-      requestChangeTopic,
+      handleRegisterTopic,
+      registeredTopic,
+      handleSaveRegisteredTopic,
+      handleEditRegisteredTopic,
+      handleCancelEditRegisteredTopic,
     };
   },
 });
@@ -121,6 +147,8 @@ export default defineComponent({
   margin: 0 auto;
   padding: 1rem;
 }
+
+
 
 /* Xóa các style sau đây vì chúng đã được chuyển sang TopicTable.vue */
 /*

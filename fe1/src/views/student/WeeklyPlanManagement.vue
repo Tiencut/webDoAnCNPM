@@ -8,8 +8,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from 'vue';
-import WeeklyPlanForm from '../../components/WeeklyPlanForm.vue';
-import WeeklyPlanTable from '../../components/admin/WeeklyPlanTable.vue';
+import WeeklyPlanForm from '../../components/student/WeeklyPlanForm.vue';
+import WeeklyPlanTable from '../../components/student/WeeklyPlanTable.vue';
 
 interface WeeklyPlan {
   id: number;
@@ -73,11 +73,11 @@ export default defineComponent({
       showWeeklyPlanFormModal.value = true;
     };
 
-    const deletePlan = (id: number) => {
-      if (confirm(`Bạn có chắc chắn muốn xóa kế hoạch này không?`)) {
-        plans.value = plans.value.filter(p => p.id !== id);
-      }
-    };
+    // const deletePlan = (id: number) => {
+    //   if (confirm(`Bạn có chắc chắn muốn xóa kế hoạch này không?`)) {
+    //     plans.value = plans.value.filter(p => p.id !== id);
+    //   }
+    // };
 
     const resetForm = () => {
       currentPlan.id = 0;
@@ -95,7 +95,7 @@ export default defineComponent({
       handleSavePlan,
       handleCancelEdit,
       editPlan,
-      deletePlan,
+      // deletePlan,
       showWeeklyPlanFormModal,
       showAddPlanModal,
     };
@@ -107,14 +107,17 @@ export default defineComponent({
 .weekly-plan-management-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
 }
 
 .weekly-plan-list-card {
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
-  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* margin-top: 20px; */
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .weekly-plan-list-title {
