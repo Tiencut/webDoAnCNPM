@@ -56,7 +56,6 @@ onUnmounted(() => {
   background-color: #fff;
   border-radius: 8px;
   position: relative;
-  padding: 20px; /* Thêm padding cho nội dung modal */
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;

@@ -1,10 +1,13 @@
 <template>
   <div class="notification-management-container">
-    <h1 class="notification-management-title">Quản lý Thông báo</h1>
+    
+    <div class="header-container">
+      <h1 class="notification-management-title">Quản lý Thông báo</h1>
 
-    <button @click="showAddNotificationModal" class="btn btn-primary add-notification-btn">
-      Thêm Thông báo Mới
-    </button>
+      <button @click="showAddNotificationModal" class="btn btn-primary add-notification-btn">
+        Thêm Thông báo Mới
+      </button>
+    </div>
 
     <NotificationForm :initialNotification="currentNotification" :isEditingProp="isEditing" :show="showNotificationFormModal"
       @save="handleSaveNotification" @cancel="handleCancelEdit" @close="showNotificationFormModal = false" />
@@ -94,7 +97,9 @@ export default defineComponent({
     };
 
     const deleteNotification = (id: number) => {
-      notifications.value = notifications.value.filter(n => n.id !== id);
+      if (confirm('Bạn có chắc chắn muốn xóa thông báo này không?')) {
+        notifications.value = notifications.value.filter(n => n.id !== id);
+      }
     };
 
     const resetForm = () => {
@@ -135,10 +140,16 @@ export default defineComponent({
   padding: 1rem;
 }
 
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
 .notification-management-title {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1rem;
 }
 
 .add-notification-btn {

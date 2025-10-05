@@ -37,7 +37,7 @@
         @delete="deleteLecturer"
       >
         <template #actions="{ item }">
-          <button @click.stop="deleteLecturer(item.id)" class="btn-danger">
+          <button @click.stop="deleteLecturer(item.id)" class="delete-button">
             Xóa
           </button>
         </template>
@@ -53,6 +53,9 @@ import Modal from '../common/Modal.vue';
 import BaseTable from '../common/BaseTable.vue';
 import LecturerImportModal from '../common/LecturerImportModal.vue';
 import { computed } from 'vue';
+import '../common/DeleteButton.css';
+import '../common/AddButton.css';
+
 
 const lecturerTableHeaders = [
   { text: 'ID', value: 'id' },
@@ -147,7 +150,6 @@ const cancelEdit = () => {
   showForm.value = false;
 };
 </script>
-
 <style scoped>
 .lecturer-list-section {
   background-color: #fff; /* bg-white */

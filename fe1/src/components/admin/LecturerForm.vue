@@ -62,7 +62,6 @@ const cancelEdit = () => {
 
 <style scoped>
 .lecturer-form-section {
-  margin-bottom: 2rem; /* mb-8 */
   padding: 1.5rem; /* p-6 */
   border: 1px solid #e5e7eb; /* border border-gray-200 */
   border-radius: 0.5rem; /* rounded-lg */

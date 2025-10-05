@@ -107,7 +107,6 @@ export default defineComponent({
 .weekly-plan-management-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
 }
 
 .weekly-plan-list-card {

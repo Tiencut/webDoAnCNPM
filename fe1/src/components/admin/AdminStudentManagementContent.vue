@@ -3,6 +3,9 @@
     <div class="student-list-card">
       <div class="student-list-header">
         <h2 class="student-list-title">Danh sách Sinh viên</h2>
+        <div class="search-input-container">
+          <input type="text" placeholder="Tìm kiếm sinh viên..." class="search-input" v-model="searchQuery" />
+        </div>
         <StudentImportModal/>
         <button @click="toggleForm" class="btn-add-student">
           {{ showForm ? 'Ẩn Form' : 'Thêm Sinh viên Mới' }}
@@ -20,7 +23,7 @@
 
       <BaseTable
         :headers="studentTableHeaders"
-        :items="students"
+        :items="filteredStudents"
         item-key="id"
         :has-actions="true"
         :clickable="true"
@@ -38,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import StudentForm from './StudentForm.vue';
 import Modal from '../common/Modal.vue';
 import BaseTable from '../common/BaseTable.vue';
@@ -79,6 +82,18 @@ const students = ref<Student[]>([
   { id: 1, studentCode: 'SV001', fullName: 'Nguyễn Văn A', university: 'Đại học ABC', major: 'Công nghệ thông tin', gpa: 3.5, gender: 'Nam', dob: '2000-01-01', email: 'vana@example.com', phone: '0901234567', graduationYear: 2022, course: 'K44', idNumber: '123456789' },
   { id: 2, studentCode: 'SV002', fullName: 'Trần Thị B', university: 'Đại học XYZ', major: 'Khoa học Máy tính', gpa: 3.8, gender: 'Nữ', dob: '2001-02-02', email: 'thib@example.com', phone: '0907654321', graduationYear: 2023, course: 'K45', idNumber: '987654321' },
 ]);
+
+const searchQuery = ref('');
+
+const filteredStudents = computed(() => {
+  const query = searchQuery.value.toLowerCase();
+  return students.value.filter(student =>
+    student.fullName.toLowerCase().includes(query) ||
+    student.studentCode.toLowerCase().includes(query) ||
+    student.email.toLowerCase().includes(query) ||
+    student.phone.toLowerCase().includes(query)
+  );
+});
 
 const currentStudent = ref<Student>({ id: 0, studentCode: '', fullName: '', university: '', major: '', gpa: 0, gender: '', dob: '', email: '', phone: '', graduationYear: 0, course: '', idNumber: '' });
 const isEditing = ref(false);
@@ -129,7 +144,6 @@ const resetForm = () => {
 
 <style scoped>
 .student-management-content-container {
-  padding: 1rem; /* p-4 */
 }
 
 .student-list-card {
@@ -144,6 +158,25 @@ const resetForm = () => {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem; /* Khoảng cách giữa header và bảng */
+}
+
+.search-input-container {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  width: 200px;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2563eb; /* Blue-600 */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25); /* Focus ring */
 }
 
 .student-list-title {
@@ -166,6 +199,4 @@ const resetForm = () => {
 .btn-add-student:hover {
   background-color: #1d4ed8; /* Blue-700 */
 }
-
-
 </style>

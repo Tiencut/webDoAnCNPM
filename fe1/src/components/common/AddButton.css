@@ -1,0 +1,14 @@
+.add-button {
+  background-color: #2196F3; /* Blue */
+  padding: 0.5rem 1rem;
+  border: 1px solid #2196F3;
+  border-radius: 0.375rem;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.add-button:hover {
+  background-color: #1976D2;
+  border-color: #1976D2;
+}
