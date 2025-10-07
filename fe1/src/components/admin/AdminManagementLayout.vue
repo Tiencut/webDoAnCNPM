@@ -29,7 +29,7 @@
 
 .main-content {
   max-width: 100%;
-  /* padding: 2rem; */
+  padding: 2rem;
 }
 
 .content-header {

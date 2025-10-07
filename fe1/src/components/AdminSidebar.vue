@@ -16,6 +16,8 @@ const navigation = [
   { name: 'Quản lý Đề tài', href: '/admin/topics', icon: BookOpenIcon },
   { name: 'Quản lý Kế hoạch Làm việc Hàng tuần', href: '/admin/weekly-plans', icon: CalendarDaysIcon },
   { name: 'Quản lý Thông báo', href: '/admin/notifications', icon: BellIcon },
+  { name: 'Quản lý Quy tắc', href: '/admin/rules', icon: BookOpenIcon },
+  { name: 'Quản lý Báo cáo', href: '/admin/reports', icon: BookOpenIcon }, // Thêm liên kết mới cho quản lý báo cáo
   { name: 'Đổi mật khẩu', href: '/admin/change-password', icon: KeyIcon },
 ];
 

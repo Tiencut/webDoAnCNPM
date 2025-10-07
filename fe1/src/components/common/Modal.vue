@@ -1,8 +1,16 @@
 <template>
   <div v-if="show" class="modal-overlay" @click.self="closeModal">
     <div class="modal-content">
+      <div class="modal-header">
+        <slot name="header"></slot>
+      </div>
       <button class="modal-close" @click="closeModal">&times;</button>
-      <slot></slot>
+      <div class="modal-body">
+        <slot name="body"></slot>
+      </div>
+      <div class="modal-footer">
+        <slot name="footer"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -60,18 +68,19 @@ onUnmounted(() => {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Thêm khoảng cách giữa các phần tử con */
-  max-width: 90vw; /* Giới hạn chiều rộng tối đa của modal */
-  width: auto; /* Cho phép modal co lại theo nội dung */
+  gap: 10px;
+  max-width: 90vw;
   box-sizing: border-box;
-  min-width: 0;
   flex-shrink: 1;
   word-break: break-word;
   overflow-wrap: break-word;
+  z-index: 1001;
+  padding: 20px; /* Thêm padding cho modal-content */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Thêm box-shadow */
 }
 
 .modal-header {
-  padding: 15px 20px;
+  padding: 15px 0; /* Điều chỉnh padding */
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
@@ -79,14 +88,14 @@ onUnmounted(() => {
 }
 
 .modal-body {
-  padding: 20px;
+  padding: 20px 0; /* Điều chỉnh padding */
   flex-grow: 1;
   overflow-y: auto;
-  max-height: calc(90vh - 100px); /* Giới hạn chiều cao tối đa của phần thân modal */
+  max-height: calc(90vh - 120px); /* Điều chỉnh max-height để phù hợp với padding mới */
 }
 
 .modal-footer {
-  padding: 15px 20px;
+  padding: 15px 0; /* Điều chỉnh padding */
   border-top: 1px solid #eee;
   display: flex;
   justify-content: flex-end;

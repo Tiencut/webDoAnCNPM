@@ -4,6 +4,7 @@ import LecturerLogin from '../views/LecturerLogin.vue'
 import AdminLogin from '../views/AdminLogin.vue'
 import StudentRegistration from '../views/StudentRegistration.vue'
 import Home from '../views/Home.vue'
+import StudentChatComponent from '../views/student/ChatComponent.vue'
 
 import StudentGroupManagement from '../views/student/GroupManagement.vue'
 import StudentNotificationManagement from '../views/student/NotificationManagement.vue'
@@ -80,6 +81,12 @@ const router = createRouter({
       meta: { requiresAuth: true, role: 'student' },
     },
     {
+      path: '/student/chat',
+      name: 'student-chat',
+      component: StudentChatComponent,
+      meta: { requiresAuth: true, role: 'student' },
+    },
+    {
       path: '/admin/lecturers',
       name: 'admin-lecturers',
       component: LecturerManagement
@@ -151,6 +158,18 @@ const router = createRouter({
       path: '/admin/notifications',
       name: 'AdminNotificationManagement',
       component: () => import('../views/admin/NotificationManagement.vue'),
+      meta: { requiresAuth: true, role: 'admin' },
+    },
+    {
+      path: '/admin/rules',
+      name: 'AdminRuleManagement',
+      component: () => import('../views/admin/RuleManagement.vue'),
+      meta: { requiresAuth: true, role: 'admin' },
+    },
+    {
+      path: '/admin/reports',
+      name: 'AdminReportManagement',
+      component: () => import('../views/admin/AdminReportsView.vue'),
       meta: { requiresAuth: true, role: 'admin' },
     },
   ],

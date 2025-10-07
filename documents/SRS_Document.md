@@ -97,15 +97,26 @@
 
 ### 2.3. Quản lý tiến độ và báo cáo
 
-#### 2.3.1. Nhóm trưởng gửi email báo cáo kết quả công việc hàng tuần
-- Hệ thống phải cung cấp chức năng cho nhóm trưởng gửi báo cáo tiến độ công việc hàng tuần qua email cho giảng viên hướng dẫn.
-- Hệ thống phải lưu trữ các báo cáo này.
+#### 2.3.1. Nộp báo cáo
+- Hệ thống sẽ tự động lấy nội dung báo cáo từ URL được cung cấp tại thời điểm deadline.
+- Hệ thống sẽ không cho phép nộp lại báo cáo sau khi đã nộp.
+- Khi deadline được gia hạn, hệ thống sẽ không gia hạn báo cáo mà thay vào đó sẽ tạo ra các phiên bản báo cáo mới (v2, v3,...).
 
-#### 2.3.2. Giảng viên/chuyên gia doanh nghiệp gửi phản hồi về kết quả công việc
-- Hệ thống phải cho phép giảng viên/chuyên gia doanh nghiệp gửi phản hồi về báo cáo của nhóm.
-- Hệ thống phải lưu trữ phản hồi và thông báo cho nhóm trưởng.
+#### 2.3.2. Xác nhận nộp báo cáo
+- Sau khi báo cáo được nộp (tự động), người dùng sẽ nhận được xác nhận ngay lập tức.
+- Xác nhận này bao gồm thời gian nộp, phiên bản báo cáo và liên kết đến báo cáo.
 
-#### 2.3.3. Kế hoạch làm việc hàng tuần
+#### 2.3.3. Quyền truy cập báo cáo
+- Tất cả thành viên trong nhóm, giảng viên và quản trị viên đều có thể xem báo cáo đã nộp.
+
+#### 2.3.4. Trạng thái báo cáo
+- Báo cáo có các trạng thái sau: "Đã nộp", "Đang chờ duyệt", "Đã duyệt", "Cần chỉnh sửa", "Bị từ chối".
+- Quản trị viên và giảng viên có quyền thay đổi trạng thái của báo cáo.
+
+#### 2.3.5. Thông báo về báo cáo
+- Hệ thống sẽ gửi các thông báo cần thiết cho người dùng về việc nộp báo cáo (ví dụ: nhắc nhở sắp đến deadline, thông báo đã nộp thành công, thông báo báo cáo bị từ chối).
+
+#### 2.3.6. Kế hoạch làm việc hàng tuần
 - Hệ thống phải cho phép nhóm lập kế hoạch làm việc hàng tuần trực tiếp trong ứng dụng hoặc liên kết đến Google Sheet.
 - Nếu lập kế hoạch trong ứng dụng, hệ thống phải cho phép nhập công việc, người phụ trách, thời hạn, trạng thái và hiển thị kế hoạch.
 

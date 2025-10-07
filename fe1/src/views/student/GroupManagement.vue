@@ -1,19 +1,16 @@
 <template>
   <div class="group-management-container">
-    <div class="group-management-header">
-      <button @click="openAddGroupModal"
-              class="btn btn-primary py-2 px-4 rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-        Tạo Nhóm mới
-      </button>
-    </div>
-
     <!-- Nhóm đang đăng ký -->
     <RegisteredGroupList
       :groups="groups"
       :groupTableHeaders="groupTableHeaders"
       :viewGroupDetails="viewGroupDetails"
       @leave-group="handleLeaveGroup"
+      @register-topic="handleRegisterTopic"
     />
+
+    <!-- Bỏ ở đây -->
+    <ReportSubmissionForm :assignments="mockAssignments" />
 
     <!-- Danh sách sinh viên khác -->
     <StudentGroupInvitationList
@@ -53,6 +50,38 @@
         />
       </template>
     </Modal>
+
+    <Modal :show="showTopicRegistrationModal" @close="closeTopicRegistrationModal">
+      <template #header>
+        <h3 class="text-xl font-bold">Đăng ký/Đề xuất Đề tài Đồ án</h3>
+      </template>
+      <template #body>
+        <TopicRegistrationForm
+          :initialTopic="currentTopic"
+          @save="saveTopic"
+          @cancel="closeTopicRegistrationModal"
+        />
+      </template>
+      <template #footer>
+        <div class="flex justify-end space-x-2">
+          <button
+            type="button"
+            @click="closeTopicRegistrationModal"
+            class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Hủy
+          </button>
+          <button
+            type="submit"
+            @click="handleTopicSave"
+            class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Lưu
+          </button>
+        </div>
+      </template>
+    </Modal>
+    <RuleGroup :has-actions="false" />
   </div>
 </template>
 
@@ -66,6 +95,9 @@ import GroupDetails from '../../components/student/GroupDetails.vue';
 import AvailableGroupsList from '../../components/student/AvailableGroupsList.vue';
 import StudentGroupInvitationList from '../../components/student/StudentGroupInvitationList.vue';
 import RegisteredGroupList from "../../components/group/RegisteredGroupList.vue";
+import TopicRegistrationForm from '../../components/student/TopicRegistrationForm.vue';
+import RuleGroup from '../../components/rule/RuleGroup.vue'; // Import RuleGroup component
+import ReportSubmissionForm from '@/components/submission/ReportSubmissionForm.vue';
 
 // Note: In <script setup>, components are automatically registered if imported and used.
 // The 'components' option is typically not used. This block is added to fulfill the instruction
@@ -166,7 +198,8 @@ const showDetailsModal = ref(false);
 const isEditing = ref(false);
 const currentGroup = ref<Group | null>(null);
 const isStudentInGroup = ref(false); // Mặc định là false để sinh viên có thể tạo hoặc tham gia nhóm
-
+const showTopicRegistrationModal = ref(false);
+const currentTopic = ref<TopicForm | null>(null);
 const authStore = useAuthStore();
 
 const isLeader = computed(() => {
@@ -234,6 +267,8 @@ const closeDetailsModal = () => {
   currentGroup.value = null;
 };
 
+
+
 const handleApproveRequest = (requestId: number) => {
   alert(`Yêu cầu ${requestId} đã được chấp nhận.`);
   // Logic xử lý chấp nhận yêu cầu tham gia nhóm
@@ -285,11 +320,39 @@ const handleLeaveGroup = (group: Group) => {
   }
 };
 
-// Note: In <script setup>, variables and functions are automatically exposed to the template.
-// The original search/replace block was attempting to modify a 'return' statement,
-// which does not exist in <script setup> components. Since 'availableGroups'
-// and 'sendJoinRequest' are already declared at the top level, they are implicitly
-// available in the template. No explicit 'return' statement is needed or possible here.
+const handleRegisterTopic = () => {
+  currentTopic.value = { topicName: '', note: '' };
+  showTopicRegistrationModal.value = true;
+};
+
+const saveTopic = (topic: TopicForm) => {
+  alert(`Đề tài "${topic.topicName}" với ghi chú "${topic.note}" đã được lưu.`);
+  // Logic để lưu đề tài vào backend hoặc cập nhật danh sách đề tài
+  showTopicRegistrationModal.value = false;
+};
+
+const closeTopicRegistrationModal = () => {
+  showTopicRegistrationModal.value = false;
+  currentTopic.value = null;
+};
+
+interface TopicForm {
+  topicName: string;
+  note: string;
+}
+
+const mockAssignments = ref([
+  { id: '1', title: 'Nộp Checklist Self review DB Design', status: 'Chưa nộp' },
+  { id: '2', title: 'Nộp checklist Self review SRS', status: 'Chưa nộp' },
+  { id: '3', title: 'Nộp Testcase v2.0', status: 'Chưa nộp' },
+  { id: '4', title: 'Nộp SRS v3.0', status: 'Chưa nộp' },
+  { id: '5', title: 'Nộp Testcase v1.0', status: 'Chưa nộp' },
+  { id: '6', title: 'Nộp DB design v2.0', status: 'Chưa nộp' },
+  { id: '7', title: 'Nộp DB Design v1.0', status: 'Chưa nộp' },
+  { id: '8', title: 'Nộp SRS v2.0', status: 'Chưa nộp' },
+  { id: '9', title: 'Nộp SRS v1.0', status: 'Chưa nộp' },
+  { id: '10', title: 'Nộp Requirement Outline', status: 'Chưa nộp' },
+]);
 
 </script>
 

@@ -24,6 +24,9 @@
         <li class="sidebar-item">
           <router-link to="/student/notifications" class="sidebar-link">Thông báo</router-link>
         </li>
+        <li class="sidebar-item">
+          <router-link to="/student/chat" class="sidebar-link">Chat</router-link>
+        </li>
 
       </ul>
       

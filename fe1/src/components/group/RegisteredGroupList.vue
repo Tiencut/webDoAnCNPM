@@ -1,6 +1,10 @@
 <template>
   <div class="overflow-x-auto">
     <h2 class="text-xl font-bold mb-4">Nhóm của bạn</h2>
+    <button @click="openAddGroupModal"
+            class="btn btn-primary py-2 px-4 rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+      Tạo Nhóm mới
+    </button>
     <BaseTable
       :headers="groupTableHeaders"
       :items="groups"
@@ -16,9 +20,14 @@
         </ul>
       </template>
       <template #actions="{ item }">
-        <button @click.stop="emit('leave-group', item)" class="btn btn-danger py-1 px-2 rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-          Rời nhóm
-        </button>
+        <div class="action-buttons-container">
+          <button @click.stop="emit('register-topic')" class="btn btn-primary py-1 px-2 rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-500">
+            Đăng ký hoặc đề xuất đề tài đồ án
+          </button>
+          <button @click.stop="emit('leave-group', item)" class="btn btn-danger py-1 px-2 rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+            Rời nhóm
+          </button>
+        </div>
       </template>
     </BaseTable>
   </div>
@@ -28,7 +37,7 @@
 import BaseTable from '../common/BaseTable.vue';
 import { defineProps, defineEmits } from 'vue';
 
-const emit = defineEmits(['leave-group']);
+const emit = defineEmits(['leave-group', 'register-topic']);
 
 interface Student {
   studentId: string;
@@ -58,4 +67,14 @@ const props = defineProps<{
 }>();
 </script>
 
-<style scoped></style>
+<style scoped>
+.action-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Khoảng cách 8px giữa các nút */
+}
+
+.action-buttons-container button {
+  width: 100%;
+}
+</style>
