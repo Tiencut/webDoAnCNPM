@@ -27,6 +27,9 @@
         <li class="sidebar-item">
           <router-link to="/student/chat" class="sidebar-link">Chat</router-link>
         </li>
+        <li class="sidebar-item">
+          <router-link to="/student/task-management" class="sidebar-link">Quản lý công việc</router-link>
+        </li>
 
       </ul>
       
@@ -43,6 +46,10 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const userRole = ref(localStorage.getItem('userRole') || 'guest');
+
 // Xử lý đăng xuất
 const logout = () => {
   // Xóa token hoặc thông tin đăng nhập từ localStorage

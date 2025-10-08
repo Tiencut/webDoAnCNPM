@@ -1,226 +1,403 @@
-<div id="app">
-  <div data-v-2532e8d8="" class="sidebar">
-    <div data-v-2532e8d8="" class="logo">
-      <img data-v-2532e8d8="" src="/logo.png" alt="Logo" />
-    </div>
-    <nav data-v-2532e8d8="" class="navigation">
-      <ul data-v-2532e8d8="">
-        <li data-v-2532e8d8="">
-          <a data-v-2532e8d8="" href="/admin" class=""
-            ><svg
-              data-v-2532e8d8=""
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              data-slot="icon"
-              class="h-6 w-6"
+<div
+  data-v-ff371df5=""
+  data-v-0a882351=""
+  class="report-submission-form p-6 bg-white rounded-lg shadow-md mt-6"
+  assignments="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+>
+  <h2 data-v-ff371df5="" class="text-xl font-semibold mb-4">Nộp Báo Cáo</h2>
+  <div data-v-ff371df5="" class="overflow-x-auto">
+    <table data-v-8f7442bc="" data-v-ff371df5="" class="data-table">
+      <thead data-v-8f7442bc="" class="table-header">
+        <tr data-v-8f7442bc="">
+          <th data-v-8f7442bc="" class="table-th expand-toggle-th"></th>
+          <th data-v-8f7442bc="" scope="col" class="table-th">Bài Tập</th>
+          <th data-v-8f7442bc="" scope="col" class="table-th">
+            Liên Kết Nộp Bài
+          </th>
+          <th data-v-8f7442bc="" scope="col" class="table-th">Trạng Thái</th>
+          <th data-v-8f7442bc="" scope="col" class="table-th">
+            Quản lý công việc
+          </th>
+          <th data-v-8f7442bc="" scope="col" class="table-th">Hành động</th>
+        </tr>
+      </thead>
+      <tbody data-v-8f7442bc="" class="table-body">
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">Nộp Requirement Outline</td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-              ></path></svg
-            ><span data-v-2532e8d8="">Trang chủ</span></a
-          >
-        </li>
-        <li data-v-2532e8d8="">
-          <a
-            data-v-2532e8d8=""
-            href="/admin/lecturers"
-            class="active router-link-exact-active"
-            aria-current="page"
-            ><svg
-              data-v-2532e8d8=""
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              data-slot="icon"
-              class="h-6 w-6"
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
-              ></path></svg
-            ><span data-v-2532e8d8="">Quản lý Giảng viên</span></a
-          >
-        </li>
-        <li data-v-2532e8d8="">
-          <a data-v-2532e8d8="" href="/admin/students" class=""
-            ><svg
-              data-v-2532e8d8=""
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              data-slot="icon"
-              class="h-6 w-6"
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
-              ></path></svg
-            ><span data-v-2532e8d8="">Quản lý Sinh viên</span></a
-          >
-        </li>
-        <li data-v-2532e8d8="">
-          <a data-v-2532e8d8="" href="/admin/topics" class=""
-            ><svg
-              data-v-2532e8d8=""
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              data-slot="icon"
-              class="h-6 w-6"
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            Nộp Checklist Self review DB Design
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-              ></path></svg
-            ><span data-v-2532e8d8="">Quản lý Đề tài</span></a
-          >
-        </li>
-        <li data-v-2532e8d8="">
-          <a data-v-2532e8d8="" href="/admin/weekly-plans" class=""
-            ><svg
-              data-v-2532e8d8=""
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              data-slot="icon"
-              class="h-6 w-6"
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
-              ></path></svg
-            ><span data-v-2532e8d8=""
-              >Quản lý Kế hoạch Làm việc Hàng tuần</span
-            ></a
-          >
-        </li>
-        <li data-v-2532e8d8="">
-          <a data-v-2532e8d8="" href="/admin/notifications" class=""
-            ><svg
-              data-v-2532e8d8=""
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              data-slot="icon"
-              class="h-6 w-6"
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-              ></path></svg
-            ><span data-v-2532e8d8="">Quản lý Thông báo</span></a
-          >
-        </li>
-        <!-- Nút đăng xuất -->
-        <li data-v-2532e8d8="" class="logout-item">
-          <button data-v-2532e8d8="" class="logout-button">
-            <arrowrightonrectangleicon
-              data-v-2532e8d8=""
-              class="h-6 w-6"
-              aria-hidden="true"
-            ></arrowrightonrectangleicon
-            ><span data-v-2532e8d8="">Đăng xuất</span>
-          </button>
-        </li>
-      </ul>
-    </nav>
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            Nộp checklist Self review SRS
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
+            >
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">Nộp Testcase v2.0</td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
+            >
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">Nộp SRS v3.0</td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
+            >
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">Nộp Testcase v1.0</td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
+            >
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">Nộp DB design v2.0</td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
+            >
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">Nộp DB Design v1.0</td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
+            >
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">Nộp SRS v2.0</td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
+            >
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+        <tr data-v-8f7442bc="" class="">
+          <td data-v-8f7442bc="" class="table-td expand-toggle-td">
+            <button data-v-8f7442bc="" class="expand-button">+</button>
+          </td>
+          <td data-v-8f7442bc="" class="table-td">Nộp SRS v1.0</td>
+          <td data-v-8f7442bc="" class="table-td">
+            <input
+              data-v-ff371df5=""
+              type="url"
+              placeholder="Dán liên kết vào đây"
+              class="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </td>
+          <td data-v-8f7442bc="" class="table-td">
+            <span
+              data-v-ff371df5=""
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              >Chưa nộp</span
+            >
+          </td>
+          <td data-v-8f7442bc="" class="table-td"></td>
+          <td data-v-8f7442bc="" class="table-td action-buttons">
+            <button
+              data-v-ff371df5=""
+              disabled=""
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Nộp</button
+            ><button
+              data-v-ff371df5=""
+              class="ml-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Ẩn Quản lý công việc
+            </button>
+          </td>
+        </tr>
+        <!--v-if-->
+      </tbody>
+    </table>
   </div>
-  <div class="main-content">
-    <div data-v-95fbbeb5="" class="admin-lecturer-management">
-      <div data-v-95fbbeb5="" class="content-wrapper">
-        <div
-          data-v-64105ff4=""
-          data-v-95fbbeb5=""
-          class="lecturer-management-container"
-        >
-          <!-- Danh sách giảng viên -->
-          <div data-v-64105ff4="" class="lecturer-list-section">
-            <h2 data-v-64105ff4="" class="lecturer-list-title">
-              Danh sách Giảng viên
-            </h2>
-            <button data-v-64105ff4="" class="btn-primary add-lecturer-btn">
-              Thêm Giảng viên Mới</button
-            ><!-- Form thêm/sửa giảng viên --><!--v-if-->
-            <div data-v-64105ff4="" class="table-responsive">
-              <table data-v-8f7442bc="" data-v-64105ff4="" class="data-table">
-                <thead data-v-8f7442bc="" class="table-header">
-                  <tr data-v-8f7442bc="">
-                    <th data-v-8f7442bc="" scope="col" class="table-th">ID</th>
-                    <th data-v-8f7442bc="" scope="col" class="table-th">
-                      Họ và Tên
-                    </th>
-                    <th data-v-8f7442bc="" scope="col" class="table-th">
-                      Email
-                    </th>
-                    <th data-v-8f7442bc="" scope="col" class="table-th">
-                      Số đề tài tối đa
-                    </th>
-                    <th data-v-8f7442bc="" scope="col" class="table-th">
-                      Hành động
-                    </th>
-                  </tr>
-                </thead>
-                <tbody data-v-8f7442bc="" class="table-body">
-                  <tr data-v-8f7442bc="">
-                    <td data-v-8f7442bc="" class="table-td">1</td>
-                    <td data-v-8f7442bc="" class="table-td">Nguyễn Văn A</td>
-                    <td data-v-8f7442bc="" class="table-td">
-                      vana@example.com
-                    </td>
-                    <td data-v-8f7442bc="" class="table-td">5</td>
-                    <td data-v-8f7442bc="" class="table-td action-buttons">
-                      <button data-v-8f7442bc="" class="btn-edit">Sửa</button
-                      ><button data-v-8f7442bc="" class="btn-delete">
-                        Xóa
-                      </button>
-                    </td>
-                  </tr>
-                  <tr data-v-8f7442bc="">
-                    <td data-v-8f7442bc="" class="table-td">2</td>
-                    <td data-v-8f7442bc="" class="table-td">Trần Thị B</td>
-                    <td data-v-8f7442bc="" class="table-td">
-                      thib@example.com
-                    </td>
-                    <td data-v-8f7442bc="" class="table-td">7</td>
-                    <td data-v-8f7442bc="" class="table-td action-buttons">
-                      <button data-v-8f7442bc="" class="btn-edit">Sửa</button
-                      ><button data-v-8f7442bc="" class="btn-delete">
-                        Xóa
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--v-if-->
 </div>

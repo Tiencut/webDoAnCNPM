@@ -9,7 +9,16 @@
       @register-topic="handleRegisterTopic"
     />
 
-    <!-- Bỏ ở đây -->
+    <!-- Phân công công việc -->
+    <div v-if="currentUserGroupId">
+      <TaskManagement
+        :assignmentId="currentUserGroupId"
+        :userRole="userRole"
+        :currentUserName="currentUserName"
+      />
+    </div>
+
+    <!-- Nộp báo cáo -->
     <ReportSubmissionForm :assignments="mockAssignments" />
 
     <!-- Danh sách sinh viên khác -->
@@ -98,6 +107,7 @@ import RegisteredGroupList from "../../components/group/RegisteredGroupList.vue"
 import TopicRegistrationForm from '../../components/student/TopicRegistrationForm.vue';
 import RuleGroup from '../../components/rule/RuleGroup.vue'; // Import RuleGroup component
 import ReportSubmissionForm from '@/components/submission/ReportSubmissionForm.vue';
+import TaskManagement from '../../components/task/TaskManagement.vue';
 
 // Note: In <script setup>, components are automatically registered if imported and used.
 // The 'components' option is typically not used. This block is added to fulfill the instruction
@@ -201,6 +211,9 @@ const isStudentInGroup = ref(false); // Mặc định là false để sinh viên
 const showTopicRegistrationModal = ref(false);
 const currentTopic = ref<TopicForm | null>(null);
 const authStore = useAuthStore();
+
+const userRole = ref('student'); // Giả định vai tròng sinh viên cho chế độ xem này
+const currentUserName = computed(() => authStore.userInfo?.fullName || 'Người dùng');
 
 const isLeader = computed(() => {
   return currentGroup.value && authStore.userInfo && currentGroup.value.leaderId === authStore.userInfo.id;

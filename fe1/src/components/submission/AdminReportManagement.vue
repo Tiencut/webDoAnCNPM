@@ -81,7 +81,6 @@ const mockReports = ref<Report[]>([
 
 <style scoped>
 .admin-report-management {
-  padding: 20px;
 }
 
 .header-container {

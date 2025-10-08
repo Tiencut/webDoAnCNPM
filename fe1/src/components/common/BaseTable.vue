@@ -2,27 +2,38 @@
   <table class="data-table">
     <thead class="table-header">
       <tr>
+        <th v-if="expandable" class="table-th expand-toggle-th"></th>
         <th v-for="header in headers" :key="header.value" scope="col" class="table-th">{{ header.text }}</th>
         <th v-if="hasActions" scope="col" class="table-th">Hành động</th>
       </tr>
     </thead>
     <tbody class="table-body">
-      <tr v-for="item in items" :key="item[itemKey]" :class="{ 'cursor-pointer': clickable }" @click="clickable && $emit('row-click', item)">
-        <td v-for="header in headers" :key="header.value" class="table-td">
-          <slot :name="`item-${header.value}`" :item="item">
-            {{ item[header.value] }}
-          </slot>
-        </td>
-        <td v-if="hasActions" class="table-td action-buttons">
-          <slot name="actions" :item="item"></slot>
-        </td>
-      </tr>
+      <template v-for="item in items" :key="item[itemKey]">
+        <tr :class="{ 'cursor-pointer': clickable }" @click="clickable && $emit('row-click', item)">
+          <td v-if="expandable" class="table-td expand-toggle-td">
+            <button @click.stop="toggleExpand(item[itemKey])" class="expand-button">
+              {{ expandedRows[item[itemKey]] ? '-' : '+' }}
+            </button>
+          </td>
+          <td v-for="header in headers" :key="header.value" class="table-td">
+            <slot :name="`item-${header.value}`" :item="item">
+              {{ item[header.value] }}
+            </slot>
+          </td>
+          <td v-if="hasActions" class="table-td action-buttons">
+            <slot name="actions" :item="item"></slot>
+          </td>
+        </tr>
+        <tr v-if="expandable && expandedRows[item[itemKey]]" class="expanded-row">
+          <slot name="expanded-row" :item="item"></slot>
+        </tr>
+      </template>
     </tbody>
   </table>
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, computed } from 'vue';
+import { ref, defineProps, defineEmits, computed } from 'vue';
 
 interface TableHeader {
   text: string;
@@ -50,9 +61,30 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  expandable: {
+    type: Boolean,
+    default: false,
+  },
+  allRowsExpandedByDefault: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emits = defineEmits(['edit', 'delete', 'row-click']);
+
+const expandedRows = ref<{ [key: string]: boolean }>({});
+
+// Initialize expandedRows based on allRowsExpandedByDefault prop
+if (props.allRowsExpandedByDefault) {
+  props.items.forEach(item => {
+    expandedRows.value[item[props.itemKey]] = true;
+  });
+}
+
+const toggleExpand = (key: string) => {
+  expandedRows.value[key] = !expandedRows.value[key];
+};
 </script>
 
 <style scoped>
@@ -124,5 +156,30 @@ const emits = defineEmits(['edit', 'delete', 'row-click']);
 
 .table-body tr.cursor-pointer:hover {
   background-color: #f0f0f0;
+}
+
+.expand-toggle-th,
+.expand-toggle-td {
+  width: 30px;
+  text-align: center;
+}
+
+.expand-button {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.expanded-row td {
+  padding: 0;
+  border: none;
 }
 </style>

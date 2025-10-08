@@ -10,6 +10,7 @@ import StudentGroupManagement from '../views/student/GroupManagement.vue'
 import StudentNotificationManagement from '../views/student/NotificationManagement.vue'
 import StudentTopicManagement from '../views/student/TopicManagement.vue'
 import StudentWeeklyPlanManagement from '../views/student/WeeklyPlanManagement.vue'
+import TaskManagementView from '../views/student/TaskManagementView.vue' // Import TaskManagementView
 import LecturerManagement from '../views/admin/LecturerManagement.vue'
 import StudentManagement from '../views/admin/StudentManagement.vue'
 import TopicManagement from '../views/admin/TopicManagement.vue'
@@ -84,6 +85,12 @@ const router = createRouter({
       path: '/student/chat',
       name: 'student-chat',
       component: StudentChatComponent,
+      meta: { requiresAuth: true, role: 'student' },
+    },
+    {
+      path: '/student/task-management',
+      name: 'student-task-management',
+      component: TaskManagementView,
       meta: { requiresAuth: true, role: 'student' },
     },
     {

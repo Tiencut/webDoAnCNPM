@@ -2,6 +2,144 @@
   <div class="requirement-outline">
     <h1 class="outline-title">Requirement Outline</h1>
 
+    <!-- Các trường điều hướng của web -->
+     <!-- code ở đay nè -->
+    <nav class="mb-8 p-4 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="text-2xl font-bold text-center mb-6 text-blue-700">Điều hướng Trang Web</h2>
+
+      <table class="feature-table">
+        <thead>
+          <tr>
+            <th>Loại liên kết</th>
+            <th>Tên liên kết</th>
+            <th>Đường dẫn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Các liên kết chung -->
+          <tr>
+            <td rowspan="5" class="font-semibold text-blue-600">Chung</td>
+            <td>Trang chủ</td>
+            <td><NavLink to="/" class="text-blue-500 hover:text-blue-700">/ </NavLink></td>
+          </tr>
+          <tr>
+            <td>Đăng nhập Sinh viên</td>
+            <td><NavLink to="/student-login" class="text-blue-500 hover:text-blue-700">/student-login</NavLink></td>
+          </tr>
+          <tr>
+            <td>Đăng nhập Giảng viên</td>
+            <td><NavLink to="/lecturer-login" class="text-blue-500 hover:text-blue-700">/lecturer-login</NavLink></td>
+          </tr>
+          <tr>
+            <td>Đăng nhập Quản trị viên</td>
+            <td><NavLink to="/admin-login" class="text-blue-500 hover:text-blue-700">/admin/login</NavLink></td>
+          </tr>
+          <tr>
+            <td>Đăng ký Sinh viên</td>
+            <td><NavLink to="/student-registration" class="text-blue-500 hover:text-blue-700">/student-registration</NavLink></td>
+          </tr>
+
+          <!-- Các liên kết cho Sinh viên -->
+          <tr>
+            <td rowspan="6" class="font-semibold text-green-600">Sinh viên</td>
+            <td>Quản lý Nhóm</td>
+            <td><NavLink to="/student/groups" class="text-green-500 hover:text-green-700">/student/groups</NavLink></td>
+          </tr>
+          <tr>
+            <td>Thông báo</td>
+            <td><NavLink to="/student/notifications" class="text-green-500 hover:text-green-700">/student/notifications</NavLink></td>
+          </tr>
+          <tr>
+            <td>Quản lý Đề tài</td>
+            <td><NavLink to="/student/topics" class="text-green-500 hover:text-green-700">/student/topics</NavLink></td>
+          </tr>
+          <tr>
+            <td>Kế hoạch Tuần</td>
+            <td><NavLink to="/student/weekly-plans" class="text-green-500 hover:text-green-700">/student/weekly-plans</NavLink></td>
+          </tr>
+          <tr>
+            <td>Trò chuyện</td>
+            <td><NavLink to="/student/chat" class="text-green-500 hover:text-green-700">/student/chat</NavLink></td>
+          </tr>
+          <tr>
+            <td>Quản lý Công việc</td>
+            <td><NavLink to="/student/task-management" class="text-green-500 hover:text-green-700">/student/task-management</NavLink></td>
+          </tr>
+
+          <!-- Các liên kết cho Giảng viên -->
+          <tr>
+            <td rowspan="7" class="font-semibold text-purple-600">Giảng viên</td>
+            <td>Quản lý Đề tài</td>
+            <td><NavLink to="/lecturer/topics" class="text-purple-500 hover:text-purple-700">/lecturer/topics</NavLink></td>
+          </tr>
+          <tr>
+            <td>Quản lý Sinh viên</td>
+            <td><NavLink to="/lecturer/students" class="text-purple-500 hover:text-purple-700">/lecturer/students</NavLink></td>
+          </tr>
+          <tr>
+            <td>Chỉnh sửa Hồ sơ</td>
+            <td><NavLink to="/lecturer/profile-edit" class="text-purple-500 hover:text-purple-700">/lecturer/profile-edit</NavLink></td>
+          </tr>
+          <tr>
+            <td>Đổi mật khẩu</td>
+            <td><NavLink to="/lecturer/change-password" class="text-purple-500 hover:text-purple-700">/lecturer/change-password</NavLink></td>
+          </tr>
+          <tr>
+            <td>Quản lý Nhóm</td>
+            <td><NavLink to="/lecturer/groups" class="text-purple-500 hover:text-purple-700">/lecturer/groups</NavLink></td>
+          </tr>
+          <tr>
+            <td>Kế hoạch Tuần</td>
+            <td><NavLink to="/lecturer/weekly-plans" class="text-purple-500 hover:text-purple-700">/lecturer/weekly-plans</NavLink></td>
+          </tr>
+          <tr>
+            <td>Thông báo</td>
+            <td><NavLink to="/lecturer/notifications" class="text-purple-500 hover:text-purple-700">/lecturer/notifications</NavLink></td>
+          </tr>
+
+          <!-- Các liên kết cho Quản trị viên -->
+          <tr>
+            <td rowspan="9" class="font-semibold text-red-600">Quản trị viên</td>
+            <td>Quản lý Giảng viên</td>
+            <td><NavLink to="/admin/lecturers" class="text-red-500 hover:text-red-700">/admin/lecturers</NavLink></td>
+          </tr>
+          <tr>
+            <td>Quản lý Sinh viên</td>
+            <td><NavLink to="/admin/students" class="text-red-500 hover:text-red-700">/admin/students</NavLink></td>
+          </tr>
+          <tr>
+            <td>Quản lý Đề tài</td>
+            <td><NavLink to="/admin/topics" class="text-red-500 hover:text-red-700">/admin/topics</NavLink></td>
+          </tr>
+          <tr>
+            <td>Đổi mật khẩu</td>
+            <td><NavLink to="/admin/change-password" class="text-red-500 hover:text-red-700">/admin/change-password</NavLink></td>
+          </tr>
+          <tr>
+            <td>Quản lý Nhóm</td>
+            <td><NavLink to="/admin/groups" class="text-red-500 hover:text-red-700">/admin/groups</NavLink></td>
+          </tr>
+          <tr>
+            <td>Kế hoạch Tuần</td>
+            <td><NavLink to="/admin/weekly-plans" class="text-red-500 hover:text-red-700">/admin/weekly-plans</NavLink></td>
+          </tr>
+          <tr>
+            <td>Thông báo</td>
+            <td><NavLink to="/admin/notifications" class="text-red-500 hover:text-red-700">/admin/notifications</NavLink></td>
+          </tr>
+          <tr>
+            <td>Quản lý Quy tắc</td>
+            <td><NavLink to="/admin/rules" class="text-red-500 hover:text-red-700">/admin/rules</NavLink></td>
+          </tr>
+          <tr>
+            <td>Quản lý Báo cáo</td>
+            <td><NavLink to="/admin/reports" class="text-red-500 hover:text-red-700">/admin/reports</NavLink></td>
+          </tr>
+        </tbody>
+      </table>
+    </nav>
+
+
     <div class="section">
       <h2 class="section-title">Nhóm KH-40</h2>
       <p><strong>Đề tài:</strong> Xây dựng ứng dụng quản lý đồ án công nghệ phần mềm</p>
@@ -104,16 +242,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Gửi báo cáo tiến độ, kết quả công việc định kỳ cho giảng viên.</td><td>✅</td></tr>
+
           <tr><td>Quản lý thành viên nhóm, duyệt lời mời, gửi lời mời thành viên.</td><td>✅</td></tr>
           <tr><td>Cập nhật kế hoạch làm việc của nhóm.</td><td>✅</td></tr>
           <tr><td>Quản lý việc nộp báo cáo nhóm.</td><td>✅</td></tr>
-          <tr><td>(nhóm trưởng khi rời nhóm phải chuyển quyền trưởng nhóm mới)</td><td>❌</td></tr>
+
           <tr><td>Quản lý phân công công việc</td><td>❌</td></tr>
           <tr><td>Thống kê tiến độ thành viên</td><td>❌</td></tr>
-          <tr><td>Gửi thông báo nội bộ nhóm</td><td>❌</td></tr>
+
         </tbody>
       </table>
+      <TaskManagement v-if="userRole === 'teamLeader'" /> <!-- Thêm component TaskManagement -->
 
       <h4 class="role-title">c. Đối tượng Giảng viên</h4>
       <table class="feature-table">
@@ -262,6 +401,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import StudentChatComponent from '../views/student/ChatComponent.vue';
+import TaskManagement from '../components/task/TaskManagement.vue'; // Import TaskManagement component
+import NavLink from '../components/NavLink.vue'; // Import NavLink component
 
 const userRole = ref(localStorage.getItem('userRole') || 'guest');
 
