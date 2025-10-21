@@ -32,7 +32,7 @@
           <tr>
             <td>Nhóm trưởng</td>
             <td>Thực hiện quản trị nhóm (thêm/xóa thành viên, gửi báo cáo nhóm, cập nhật kế hoạch), quản lý phân công công việc, thống kê tiến độ thành viên, gửi thông báo nội bộ nhóm.</td>
-            <td>❌</td>
+            <td>✅</td>
           </tr>
           <tr>
             <td>Giảng viên</td>
@@ -110,11 +110,10 @@
         </thead>
         <tbody>
       
-          <tr><td>Quản lý thành viên nhóm, duyệt lời mời, gửi lời mời thành viên.</td><td>✅</td><td><NavLink to="/student/groups" class="text-blue-500 hover:text-blue-700">/student/groups</NavLink></td></tr>
           <tr><td>Cập nhật kế hoạch làm việc của nhóm.</td><td>✅</td><td><NavLink to="/student/weekly-plans" class="text-blue-500 hover:text-blue-700">/student/weekly-plans</NavLink></td></tr>
           <tr><td>Quản lý việc nộp báo cáo nhóm.</td><td>✅</td><td><NavLink to="/student/weekly-plans" class="text-blue-500 hover:text-blue-700">/student/weekly-plans</NavLink></td></tr>
       
-          <tr><td>Quản lý phân công công việc</td><td>❌</td><td><NavLink to="/student/task-management" class="text-blue-500 hover:text-blue-700">/student/task-management (giả định)</NavLink></td></tr>
+          <tr><td>Quản lý phân công công việc</td><td>✅</td><td><NavLink to="/student/task-management" class="text-blue-500 hover:text-blue-700">/student/task-management (giả định)</NavLink></td></tr>
           <tr><td>Thống kê tiến độ thành viên</td><td>❌</td><td><NavLink to="/student/group-progress" class="text-blue-500 hover:text-blue-700">/student/group-progress (giả định)</NavLink></td></tr>
       
         </tbody>
@@ -140,7 +139,7 @@
            <tr><td>Hướng dẫn, nhận xét/phản hồi báo cáo nhóm và tiến độ.</td><td>✅</td><td><NavLink to="/lecturer/weekly-plans" class="text-blue-500 hover:text-blue-700">/lecturer/weekly-plans</NavLink></td></tr>
            <tr><td>Theo dõi tiến độ</td><td>✅</td><td><NavLink to="/lecturer/weekly-plans" class="text-blue-500 hover:text-blue-700">/lecturer/weekly-plans</NavLink></td></tr>
            <tr><td>Quản lý tài liệu tham khảo</td><td>❌</td><td><NavLink to="/lecturer/documents" class="text-blue-500 hover:text-blue-700">/lecturer/documents (giả định)</NavLink></td></tr>
-           <tr><td>Chat trao đổi trực tiếp</td><td>❌</td><td><NavLink to="/lecturer/chat" class="text-blue-500 hover:text-blue-700">/lecturer/chat (giả định)</NavLink></td></tr>
+           <tr><td>Chat trao đổi trực tiếp</td><td>✅</td><td><NavLink to="/lecturer/chat" class="text-blue-500 hover:text-blue-700">/lecturer/chat (giả định)</NavLink></td></tr>
            <tr><td>Thống kê/xuất dữ liệu điểm số & tiến độ, đánh giá tiến độ, gửi nhận xét tự động</td><td>❌</td><td><NavLink to="/lecturer/reports" class="text-blue-500 hover:text-blue-700">/lecturer/reports (giả định)</NavLink></td></tr>
         </tbody>
       </table>

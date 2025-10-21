@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRouter, RouterLink } from 'vue-router';
-import { UserCircleIcon, BookOpenIcon, AcademicCapIcon, ArrowRightOnRectangleIcon, KeyIcon, UserGroupIcon, CalendarDaysIcon, BellIcon } from '@heroicons/vue/24/outline';
+import { UserCircleIcon, BookOpenIcon, AcademicCapIcon, ArrowRightOnRectangleIcon, KeyIcon, UserGroupIcon, CalendarDaysIcon, BellIcon, ChatBubbleLeftRightIcon } from '@heroicons/vue/24/outline';
 
 const router = useRouter();
 
@@ -11,6 +11,7 @@ const navigation = [
   { name: 'Quản lý Nhóm', href: '/lecturer/groups', icon: UserGroupIcon },
   { name: 'Quản lý Kế hoạch Làm việc Hàng tuần', href: '/lecturer/weekly-plans', icon: CalendarDaysIcon },
   { name: 'Quản lý Thông báo', href: '/lecturer/notifications', icon: BellIcon },
+  { name: 'Chat Tổng', href: '/lecturer/chat', icon: ChatBubbleLeftRightIcon },
   { name: 'Đổi mật khẩu', href: '/lecturer/change-password', icon: KeyIcon },
 ];
 

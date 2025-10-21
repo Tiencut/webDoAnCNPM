@@ -1,6 +1,6 @@
 <template>
   <div class="report-submission-form p-6 bg-white rounded-lg shadow-md mt-6">
-    <h2 class="text-xl font-semibold mb-4">Nộp Báo Cáo</h2>
+    <h2 class="text-xl font-semibold mb-4">Danh sách bài tập</h2>
 
     <div v-if="mockAssignments.length === 0" class="text-gray-600">
       Không có bài tập nào cần nộp vào lúc này.
@@ -44,7 +44,7 @@
           </button>
         </template>
         <template #expanded-row="{ item }">
-          <td :colspan="reportTableHeaders.length + 1">
+          <td :colspan="reportTableHeaders.length + 2">
             <div v-if="item.showTaskManagement" class="p-4 bg-gray-50">
               <TaskManagement
                 :assignmentId="item.id"
@@ -102,7 +102,6 @@ const reportTableHeaders = ref([
   { text: 'Bài Tập', value: 'title' },
   { text: 'Liên Kết Nộp Bài', value: 'submissionUrl' },
   { text: 'Trạng Thái', value: 'status' },
-  { text: 'Quản lý công việc', value: 'taskManagement' }, // New header for task management
 ]);
 
 // Create a reactive list that includes submission URLs and local status management
@@ -110,7 +109,7 @@ const assignmentsWithSubmission = ref<AssignmentWithSubmission[]>(
   mockAssignments.value.map(assignment => ({
     ...assignment,
     submissionUrl: assignment.submissionUrl || '',
-    showTaskManagement: true, // Initialize visibility to true
+    showTaskManagement: false, // Initialize visibility to false
   }))
 );
 
@@ -200,5 +199,4 @@ const currentUserName = ref('Nguyễn Văn A'); // Replace with actual logged-in
 </script>
 
 <style scoped>
-/* Có thể thêm các style tùy chỉnh nếu cần */
-</style>
+/* Có thể thêm các style tùy chỉnh nếu cần */</style>

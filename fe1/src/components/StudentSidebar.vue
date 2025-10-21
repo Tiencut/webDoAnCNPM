@@ -28,7 +28,7 @@
           <router-link to="/student/chat" class="sidebar-link">Chat</router-link>
         </li>
         <li class="sidebar-item">
-          <router-link to="/student/task-management" class="sidebar-link">Quản lý công việc</router-link>
+          <router-link to="/student/task-management" class="sidebar-link">Bài tập</router-link>
         </li>
 
       </ul>

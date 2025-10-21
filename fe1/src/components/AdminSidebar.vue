@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter, RouterLink } from 'vue-router';
-import { HomeIcon, UserGroupIcon, AcademicCapIcon, BookOpenIcon, CalendarDaysIcon, BellIcon, ArrowRightOnRectangleIcon, KeyIcon } from '@heroicons/vue/24/outline';
+import { HomeIcon, UserGroupIcon, AcademicCapIcon, BookOpenIcon, CalendarDaysIcon, BellIcon, ArrowRightOnRectangleIcon, KeyIcon, ChatBubbleLeftRightIcon } from '@heroicons/vue/24/outline';
 import StudentImportModal from './common/StudentImportModal.vue';
 import LecturerImportModal from './common/LecturerImportModal.vue';
 import TopicImportModal from './common/TopicImportModal.vue';
@@ -18,6 +18,7 @@ const navigation = [
   { name: 'Quản lý Thông báo', href: '/admin/notifications', icon: BellIcon },
   { name: 'Quản lý Quy tắc', href: '/admin/rules', icon: BookOpenIcon },
   { name: 'Quản lý Báo cáo', href: '/admin/reports', icon: BookOpenIcon }, // Thêm liên kết mới cho quản lý báo cáo
+  { name: 'Chat Tổng', href: '/admin/chat', icon: ChatBubbleLeftRightIcon },
   { name: 'Đổi mật khẩu', href: '/admin/change-password', icon: KeyIcon },
 ];
 

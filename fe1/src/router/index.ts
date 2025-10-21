@@ -5,7 +5,8 @@ import AdminLogin from '../views/AdminLogin.vue'
 import StudentRegistration from '../views/StudentRegistration.vue'
 import Home from '../views/Home.vue'
 import StudentChatComponent from '../views/student/ChatComponent.vue'
-
+import AdminChatComponent from '../views/admin/AdminChatComponent.vue' // Import AdminChatComponent
+import LecturerChatComponent from '../views/lecturer/LecturerChatComponent.vue'
 import StudentGroupManagement from '../views/student/GroupManagement.vue'
 import StudentNotificationManagement from '../views/student/NotificationManagement.vue'
 import StudentTopicManagement from '../views/student/TopicManagement.vue'
@@ -145,9 +146,21 @@ const router = createRouter({
       component: LecturerNotificationManagement
     },
     {
+      path: '/lecturer/chat',
+      name: 'lecturer-chat',
+      component: LecturerChatComponent,
+      meta: { requiresAuth: true, role: 'lecturer' },
+    },
+    {
       path: '/admin/change-password',
       name: 'admin-change-password',
       component: ChangePassword
+    },
+    {
+      path: '/admin/chat',
+      name: 'admin-chat',
+      component: AdminChatComponent,
+      meta: { requiresAuth: true, role: 'admin' },
     },
     {
       path: '/admin/groups',

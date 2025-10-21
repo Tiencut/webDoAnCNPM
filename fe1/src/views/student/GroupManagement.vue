@@ -9,15 +9,6 @@
       @register-topic="handleRegisterTopic"
     />
 
-    <!-- Phân công công việc -->
-    <div v-if="currentUserGroupId">
-      <TaskManagement
-        :assignmentId="currentUserGroupId"
-        :userRole="userRole"
-        :currentUserName="currentUserName"
-      />
-    </div>
-
     <!-- Nộp báo cáo -->
     <ReportSubmissionForm :assignments="mockAssignments" />
 
