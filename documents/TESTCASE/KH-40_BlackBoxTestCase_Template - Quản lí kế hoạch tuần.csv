@@ -1,0 +1,50 @@
+,,,,,,
+Module Code,QLKHT,,,,,
+Test requirement,"1. Tìm kiếm kế hoạch tuần.
+2. Thêm kế hoạch tuần
+3. Chỉnh sửa thông tin kế hoạch tuần
+4. Xóa kế hoạch tuần
+5. Xem chi tiết kế hoạch tuần
+",,,,,,
+Tester,Lê Trường Lâm,,,,,
+Pass,Fail,Untested,N/A,Number of Test cases,,,
+0,0,10,0,10,,,
+,,,,,,,
+ID,Test Case Description,Test Case Procedure,Expected Output,Inter-test case Dependence,Result,Test date,Note
+,Function : Tìm kiếm kế hoạch tuần,,,,,
+GUI-SearchKHT-01,[Tìm kiếm] Button,,Status = enable,,,,
+FUNC-SearchKHT-01,Mở màn hình tìm kiếm thành công,"Tại Menu Ứng dụng:
+1. Click [Kế hoạch tuần]
+2. Click [Danh sách kế hoạch tuần].",Mở màn hình danh sách kế hoạch tuần,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchKHT-02,Tìm kiếm thành công nhưng không có kết quả tìm thấy,"Tại màn hình tìm kiếm:
+1. Nhập vào dữ liệu không tồn tại trong hệ thống.
+2. Nhấn Enter","Hiển thị thông báo: ""Không tìm thấy dữ liệu phù hợp!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchKHT-03,Tìm kiếm thành công nhưng không nhập dữ liệu,"Tại màn hình tìm kiếm:
+1. Không nhập dữ liệu vào.
+2. Nhấn Enter",Hiển thị danh sách tất cả kế hoạch tuần trong hệ thống.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchKHT-04,Tìm kiếm thành công với dữ liệu được nhập vào là tên,"Tại màn hình tìm kiếm:
+1. Nhập vào tên kế hoạch tuần cần tìm.
+2. Nhấn Enter.",Hiển thị danh sách kế hoạch tuần phù hợp với tên nhập vào.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Thêm kế hoạch tuần,,,,,
+GUI-AddKHT-01,[Thêm] Button,,Status = enable,,,,
+FUNC-AddKHT-01,Mở màn hình Thêm kế hoạch tuần thành công,"Tại Menu Ứng dụng: Click Thêm kế hoạch tuần
+Tại màn hình Danh sách kế hoạch tuần: Click Thêm",Hiển thị màn hình Thêm kế hoạch tuần,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-AddKHT-02,Thêm kế hoạch tuần thành công,"Tại màn hình Thêm kế hoạch tuần:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Thêm kế hoạch tuần thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Chỉnh sửa thông tin kế hoạch tuần,,,,,
+GUI-EditKHT-01,[Sửa] Button,,Status = enable,,,,
+FUNC-EditKHT-01,Mở màn hình Sửa kế hoạch tuần thành công,"Tại màn hình Danh sách kế hoạch tuần:
+Click [Sửa] Button ngay tại kế hoạch tuần cần sửa.",Hiển thị màn hình Sửa kế hoạch tuần,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-EditKHT-02,Chỉnh sửa kế hoạch tuần thành công,"Tại màn hình Sửa kế hoạch tuần:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Sửa] button.","Hiển thị thông báo: ""Sửa kế hoạch tuần thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xóa kế hoạch tuần,,,,,
+GUI-DeleteKHT-01,[Xóa] Button,,Status = enable,,,,
+FUNC-DeleteKHT-01,Mở màn hình Xác nhận xóa thành công,Tại màn hình Danh sách kế hoạch tuần: Click [Xóa] ngay tại kế hoạch tuần muốn xóa.,Hiển thị màn hình Xác nhận xóa.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-DeleteKHT-02,Xóa kế hoạch tuần thành công,"Tại màn hình Xác nhận xóa:
+Click [OK]Button.","Hiển thị thông báo: ""Xóa thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xem chi tiết kế hoạch tuần,,,,,
+GUI-ViewKHT-01,[Xem chi tiết] Button,,Status = enable,,,,
+FUNC-ViewKHT-01,Mở màn hình Xem chi tiết kế hoạch tuần thành công,"Tại màn hình Danh sách kế hoạch tuần:
+Click [Xem chi tiết] Button ngay tại kế hoạch tuần cần xem.",Hiển thị màn hình Xem chi tiết kế hoạch tuần,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."

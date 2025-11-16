@@ -1,0 +1,343 @@
+,,,,,,,
+Module Code,Quản lí cán bộ,,,,,,
+Test requirement,"1. Tìm kiếm cán bộ.
+2. Thêm cán bộ
+3. Chỉnh sửa thông tin cán bộ
+4. Xóa cán bộ
+",,,,,,
+Tester,Lê Trường Lâm,,,,,,
+Pass,Fail,Untested,N/A,Number of Test cases,,,
+0,0,104,0,104,,,
+,,,,,,,
+ID,Test Case Description,Test Case Procedure,Expected Output,Inter-test case Dependence,Result,Test date,Note
+,Function : Tìm kiếm cán bộ,,,,,,
+,Check GUI-Tìm kiếm cán bộ,,,,,,
+GUI-SearchCB-01,[Thêm] Button,,,,,,
+,,Nếu người dùng không có quyền thêm cán bộ,Status = disable,,,,
+,,Trường hợp khác,Status = enable,,,,
+GUI-SearchCB-02,[Search] Search,,Status = enable,,,,
+GUI-SearchCB-03,[Result]Grid,,Format: 10 bản ghi trong 1 trang,,,,
+,,[Họ tên]Column,Lấy dữ liệu từ cột Họ tên của bảng Họ tên,,,,
+,,[Ngày sinh]Column,Lấy dữ liệu từ cột Ngày sinh của bảng Ngày sinh,,,,
+GUI-SearchCB-04,[Sửa]Button,Nếu người dùng không có quyền sửa thông tin cán bộ,Status = disable,,,,
+,,Trường hợp khác,Status = enable,,,,
+GUI-SearchCB-05,[Xóa]Button,Nếu người dùng không có quyền xóa cán bộ,Statuss = disable,,,,
+,,Trường hợp khác,Status = enable,,,,
+GUI-SearchCB-06,[Đầu]Button,Nếu người quản lí đang ở trang đầu tiên của  danh sách.,Status = disable,,,,
+,,Trường hợp khác,Status = enable,,,,
+GUI-SearchCB-07,[Trước]Button,Nếu người quản lí đang ở trang đâu tiên của danh sách.,Status = disable,,,,
+,,Trường hợp khác,Status = enable,,,,
+GUI-SearchCB-08,[Sau]Button,Nếu người quản lí đang ở trang cuối của danh sách hoặc các bản ghi hiện tại có ít hơn hoặc bằng 10 bản ghi.,Status = disable,,,,
+,,Trường hợp khác,Status = enable,,,,
+GUI-SearchCB-09,[Cuối]Button,Nếu người quản lí đang ở trang cuối của danh sách hoặc các bản ghi hiện tại có ít hơn hoặc bằng 10 bản ghi.,Status = disable,,,,
+,,Trường hợp khác,Status = enable,,,,
+,Check FUNC-Tìm kiếm cán bộ,,,,,,
+FUNC-SearchCB-01,Mở màn hình tìm kiếm thành công,"Tại Menu Ứng dụng:
+1. Click [Cán bộ]
+2. Click [Danh sách cán bộ].",Mở màn hình danh sách cán bộ (refer sheet Layout QL cán bộ),,,,
+FUNC-SearchCB-02,Tìm kiếm thành công  nhưng không có kết quả tìm thấy,"Tại màn hình tìm kiếm:
+1. Nhập vào dữ liệu không tồn tại trong hệ thống.
+(Ví dụ: Nhập vào tên Nguyễn Văn Anh không tồn tại trong hệ thống)
+2. Nhấn Enter","Hiển thị thông báo: ""Không tìm thấy dữ liệu phù hợp!""",,,,
+FUNC-SearchCB-03,Tìm kiếm thành công nhưng không nhập dữ liệu,"Tại màn hình tìm kiếm:
+1. Không nhập dữ liệu vào.
+2. Nhấn Enter",Hiển thị danh sách tất cả cán bộ trong hệ thống.,,,,
+FUNC-SearchCB-04,Tìm kiếm thành công với dữ liệu được nhập vào là họ tên,"Tại màn hình tìm kiếm:
+1. Nhập vào tên cán bộ cần tìm.
+2. Nhấn Enter.",Hiển thị danh sách cán bộ phù hợp với họ tên nhập vào.,,,,
+FUNC-SearchCB-05,Tìm kiếm thành công với dữ liệu được nhập vào là Ngày sinh,"Tại màn hình tìm kiếm:
+1. Nhập vào Ngày sinh cần tìm.
+2. Nhấn Enter.",Hiển thị danh sách cán bộ phù hợp với Ngày sinh nhập vào.,,,,
+,Function : Thêm cán bộ,,,,,,
+,Check GUI-Thêm cán bộ,,,,,,
+GUI-ThemCB-01,[Tên cán bộ] Textbox,Nhập vào tên cán bộ cần thêm.,"Status = enable
+Default = blank
+Max-length = 100",,,,
+GUI-ThemCB-02,[Giới tính] Combobox,Lựa chọn giới tính cán bộ.,"Status = enable
+Max-length = 20",,,,
+GUI-ThemCB-03,[Ngày sinh] Datechoose,Lựa chọn ngày sinh cán bộ.,Status = enable,,,,
+GUI-ThemCB-04,[Số điện thoại] Textbox,Nhập vào số điện thoại cán bộ.,"Status = enable
+Default = blank
+Max-length = 50",,,,
+GUI-ThemCB-05,[Hình ảnh] Choosefile,Chọn hình ảnh đại diện.,Status = enable,,,,
+GUI-ThemCB-06,[Email] Textbox,Nhập vào địa chỉ email cán bộ.,"Status = enable
+Default = blank
+Max-length = 50",,,,
+GUI-ThemCB-07,[Địa chỉ] Textbox,Nhập vào địa chỉ cán bộ.,"Status = enable
+Max-length = 100",,,,
+GUI-ThemCB-08,[Nơi công tác] Textbox,Nhập vào nơi công tác của cán bộ.,"Status = enable
+Default = blank
+Max-length = 100",,,,
+GUI-ThemCB-09,[Chức vụ] Textbox,Nhập vào chức vụ của cán bộ.,"Status = enable
+Default = blank
+Max-length = 50",,,,
+GUI-ThemCB-10,[OK] Button,,Status = enable,,,,
+GUI-ThemCB-11,[Reset] Button,,Status = enable,,,,
+GUI-ThemCB-12,[Hủy] Button,,Status = enable,,,,
+,Check FUNC-Thêm cán bộ,,,,,,
+FUNC-ThemCB-01,Mở màn hình Thêm cán bộ thành công,"Tại Menu Ứng dụng: Click Thêm cán bộ
+Tại màn hình Danh sách cán bộ: Click Thêm",Hiển thị màn hình Thêm cán bộ,,,,
+FUNC-ThemCB-02,Không nhập tên cán bộ,"Tại màn hình thêm cán bộ:
+1. Không nhập dữ liệu vào [Tên cán bộ] textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng nhập tên cán bộ!""
+Trỏ chuột tại [Tên cán bộ] textbox.",,,,
+FUNC-ThemCB-03,Nhập tên cán bộ quá số kí tự cho phép,"Tại màn hình Thêm cán bộ:
+1. Nhập quá 100 ký tự tại [Tên cán bộ]textbox
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập quá 100 ký tự!""
+Trỏ chuột tại [Tên cán bộ]textbox.",,,,
+FUNC-ThemCB-04,Nhập tên cán bộ toàn kí tự trống.,"Tại màn hình Thêm cán bộ:
+1. Nhập toàn ký tự trống tại [Tên cán bộ]textbox
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập toàn bộ ký tự trống!""
+Trỏ chuột tại [Tên cán bộ]textbox.",,,,
+FUNC-ThemCB-05,Nhập tên cán bộ có kí tự đặc biệt.,"Tại màn hình Thêm cán bộ:
+1. Nhập ký tự đặc biệt tại [Tên cán bộ]textbox
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập  ký tự đặc biệt!""
+Trỏ chuột tại [Tên cán bộ]textbox.",,,,
+FUNC-ThemCB-06,Nhập tên cán bộ có ký tự số.,"Tại màn hình Thêm cán bộ:
+1. Nhập ký tự số tại [Tên cán bộ]textbox
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập  ký tự số!""
+Trỏ chuột tại [Tên cán bộ]textbox.",,,,
+FUNC-ThemCB-07,Không chọn giới tính,"Tại màn hình Thêm cán bộ:
+1. Không chọn giới tính tại [Giới tính]Combobox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng chọn giới tính!""",,,,
+FUNC-ThemCB-08,Không nhập ngày sinh,"Tại màn hình Thêm cán bộ:
+1. Không chọn ngày sinh tại [Ngày sinh]Datechoose.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng chọn năm sinh!""",,,,
+FUNC-ThemCB-09,Không nhập số điện thoại,"Tại màn hình Thêm cán bộ:
+1. Không nhập dữ liệu vào [Số điện thoại] textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng nhập số điện thoại!""
+Trỏ chuột tại [Số điện thoại] textbox.",,,,
+FUNC-ThemCB-10,Nhập quá số ký tự số điện thoại cho phép,"Tại màn hình Thêm cán bộ:
+1. Nhập quá 50 ký tự tại [Số điện thoại]textbox
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập quá 50 ký tự!""
+Trỏ chuột tại [Số điện thoại]textbox.",,,,
+FUNC-ThemCB-11,Nhập toàn ký tự trống.,"Tại màn hình Thêm cán bộ:
+1. Nhập toàn bộ là ký tự trống tại [Số điện thoại]textbox
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập toàn bộ là ký tự trống!""
+Trỏ chuột tại [Số điện thoại]textbox.",,,,
+FUNC-ThemCB-12,Nhập số điện thoại có ký tự là chữ cái.,"Tại màn hình Thêm cán bộ:
+1. Nhập ký tự chữ cái tại [Số điện thoại]textbox
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập chữ cái!""
+Trỏ chuột tại [Số điện thoại]textbox.",,,,
+FUNC-ThemCB-13,Nhập số điện thoại có ký tự đặc biệt.,"Tại màn hình Thêm cán bộ:
+1. Nhập ký tự đặc biệt tại [Số điện thoại]textbox
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập ký tự đặc biệt!""
+Trỏ chuột tại [Số điện thoại]textbox.",,,,
+FUNC-ThemCB-14,Không chọn hình ảnh ,"Tại màn hình Thêm cán bộ:
+1. Không chọn hình ảnh đại diện. 
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng chọn hình ảnh!""",,,,
+FUNC-ThemCB-15,Không nhập địa chỉ email,"Tại màn hình Thêm cán bộ:
+1. Không nhập dữ liệu vào [Email] textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng nhập địa chỉ email!""
+Trỏ chuột tại [Email] textbox.",,,,
+FUNC-ThemCB-16,Nhập quá số ký tự email cho phép,"Tại màn hình Thêm cán bộ:
+1. Nhập quá 50 ký tự tại [Email]textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập quá 50 ký tự!""
+Trỏ chuột vào [Email]textbox.",,,,
+FUNC-ThemCB-17,Nhập sai định dạng email,"Tại màn hình Thêm cán bộ:
+1. Nhập sai định dạng email tại [Email]textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng nhập lại địa chỉ email!""
+Trỏ chuột tại [Email] textbox.",,,,
+FUNC-ThemCB-18,Không nhập địa chỉ,"Tại màn hình Thêm cán bộ:
+1. Không nhập dữ liệu địa chỉ tại [Địa chỉ]textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng nhập địa chỉ!""
+Trỏ chuột tại [Địa chỉ] textbox.",,,,
+FUNC-ThemCB-19,Nhập quá số ký tự địa chỉ cho phép,"Tại màn hình Thêm cán bộ:
+1. Nhập quá 100 ký tự tại [Địa chỉ]textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập quá 100 ký tự!""
+Trỏ chuột tại [Địa chỉ]textbox.",,,,
+FUNC-ThemCB-20,Nhập địa chỉ có kí tự đặc biệt.,"Tại màn hình Thêm cán bộ:
+1. Nhập ký tự đặc biệt tại [Địa chỉ]textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập ký tự đặc biệt!""
+Trỏ chuột tại [Địa chỉ]textbox.",,,,
+FUNC-ThemCB-21,Không nhập nơi công tác,"Tại màn hình Thêm cán bộ:
+1. Không nhập dữ liệu nơi công tác tại [Nơi công tác] textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng nhập nơi công tác!""
+Trỏ chuột tại [Nơi công tác] textbox.",,,,
+FUNC-ThemCB-22,Nhập quá số ký tự nơi công tác cho phép.,"Tại màn hình Thêm cán bộ:
+1. Nhập quá 100 ký tự tại [Nơi công tác]textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập quá 100 ký tự!""
+Trỏ chuột tại [Nơi công tác]textbox.",,,,
+FUNC-ThemCB-23,Nhập nơi công tác có ký tự đặc biệt.,"Tại màn hình Thêm cán bộ:
+1. Nhập ký tự đặc biệt tại [Nơi công tác]textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập ký tự đặc biệt!""
+Trỏ chuột tại [Nơi công tác]textbox.",,,,
+FUNC-ThemCB-24,Không nhập chức vụ,"Tại màn hình Thêm cán bộ:
+1. Không nhập dữ liệu chức vụ tại [Chức vụ]textbox.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng nhập chức vụ!""
+Trỏ chuột tại [Chức vụ] textbox.",,,,
+FUNC-ThemCB-25,Nhập chức vụ có ký tự đặc biệt,"Tại màn hình Thêm cán bộ:
+1. Nhập ký tự đặc biệt tại [Chức vụ]textbo.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng không nhập ký tự đặc biệt!""
+Trỏ chuột tại [Chức vụ] textbox.",,,,
+FUNC-ThemCB-26,Không nhập dữ liệu vào form,"Tại màn hình Thêm cán bộ:
+1. Không nhập tất cả các dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Vui lòng nhập dữ liệu!""
+Trỏ chuột tại [Tên cán bộ] textbox.
+",,,,
+FUNC-ThemCB-27,Thêm cán bộ thành công khi input tất cả các thông tin,"Tại màn hình Thêm cán bộ:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Thêm cán bộ thành công!""",,,,
+FUNC-ThemCB-28,Thêm cán bộ thành công khi chỉ input item bắt buộc nhập,"Tại màn hình Thêm cán bộ:
+1. Nhập data valid cho các item bắt buộc
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Thêm cán bộ thành công!""",,,,
+FUNC-ThemCB-29,Thêm cán bộ thành công khi input tất cả các thông tin với data max length,"Tại màn hình Thêm cán bộ:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form với data max length
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Thêm cán bộ thành công!""",,,,
+FUNC-ThemCB-30,Xóa toàn bộ dữ liệu nhập vào.,"Tại màn hình Thêm cán bộ:
+1. Nhập vào các dữ liệu được yêu cầu trong form.
+2. Nhấn [Reset]button.","Hiển thị màn hình Thêm cán bộ với form còn trống.
+Trỏ chuột tại [Tên cán bộ] textbox.",,,,
+FUNC-ThemCB-31,Hủy việc thêm cán bộ.,"Tại màn hình Thêm cán bộ:
+Nhấn[ Hủy] Button.",Hiển thị màn hình Danh sách cán bộ.,,,,
+,Function: Sửa cán bộ,,,,,,
+,Check-GUI-Sửa cán bộ,,,,,,
+GUI-SuaCB-01,[Tên cán bộ] Textbox,Nhập vào tên cán bộ cần chỉnh sửa.,"Status = enable
+Default = Tên cán bộ đã tồn tại trong cơ sở dữ liệu
+Max-length = 100",,,,
+GUI-SuaCB-02,[Giới tính] Combobox,Lựa chọn giới tính cán bộ.,"Status = enable 
+Default = Ngày sinh đã tồn tại tong cơ sở dữ liệu.
+",,,,
+GUI-SuaCB-03,[Ngày sinh] Datechoose,Lựa chọn ngày sinh cán bộ.,"Status = enable
+Default = Giới tính đã tồn tại tong cơ sở dữ liệu.",,,,
+GUI-SuaCB-04,[Số điện thoại] Textbox,Nhập vào số điện thoại cán bộ.,"Status = enable
+Default = Số điện thoại đã tồn tại tong cơ sở dữ liệu.
+Max-length = 50",,,,
+GUI-SuaCB-05,[Hình ảnh] Choosefile,Chọn hình ảnh đại diện.,Status = enable,,,,
+GUI-SuaCB-06,[Email] Textbox,Nhập vào địa chỉ email cán bộ.,"Status = enable
+Default = Email đã tồn tại tong cơ sở dữ liệu.
+Max-length = 100",,,,
+GUI-SuaCB-07,[Địa chỉ] Textbox,Nhập vào địa chỉ cán bộ.,"Status = enable
+Max-length = 100",,,,
+GUI-SuaCB-08,[Nơi công tác] Textbox,Nhập vào nơi công tác của cán bộ.,"Status = enable
+Default = Nơi công tác đã tồn tại tong cơ sở dữ liệu.
+Max-length = 100",,,,
+GUI-SuaCB-09,[Chức vụ] Textbox,Nhập vào chức vụ của cán bộ.,"Status = enable
+Default = Chức vụ đã tồn tại tong cơ sở dữ liệu.
+Max-length = 50",,,,
+GUI-SuaCB-10,[Sửa] Button,,Status = enable,,,,
+GUI-SuaCB-11,[Reset] Button,,Status = enable,,,,
+GUI-SuaCB-12,[Hủy] Button,,Status = enable,,,,
+,Check-FUNC-Sửa cán bộ,,,,,,
+FUNC-SuaCB-01,Mở màn hình Sửa cán bộ thành công,"C1:Tại màn hình Danh sách cán bộ: 
+Click [Sửa] Button ngay tại cán bộ cần sửa.
+C2: Tại màn hình Xem cán bộ:
+Click [Sửa]Button.",Hiển thị màn hình Sửa cán bộ,,,,
+FUNC-SuaCB-02,Không nhập tên cán bộ,"Tại màn hình Sửa cán bộ:
+1. Không nhập dữ liệu vào [Tên cán bộ] textbox.
+2. Nhấn [Sửa] button.","Hiển thị thông báo: ""Không nhập tên cán bộ!""
+Trỏ chuột tại [Tên cán bộ] textbox.",,,,
+FUNC-SuaCB-03,Nhập tên cán bộ toàn kí tự trống.,"Tại màn hình Sửa cán bộ:
+1. Nhập toàn ký tự trống tại [Tên cán bộ]textbox
+2. Nhấn [Sửa]button.","Hiển thị thông báo: ""Vui lòng không nhập toàn bộ ký tự trống!""
+Trỏ chuột tại [Tên cán bộ]textbox.",,,,
+FUNC-SuaCB-04,Nhập tên cán bộ có kí tự đặc biệt.,"Tại màn hình Sửa cán bộ:
+1. Nhập ký tự đặc biệt tại [Tên cán bộ]textbox
+2. Nhấn [Sửa]button.","Hiển thị thông báo: ""Vui lòng không nhập  ký tự đặc biệt!""
+Trỏ chuột tại [Tên cán bộ]textbox.",,,,
+FUNC-SuaCB-05,Nhập tên cán bộ có ký tự số.,"Tại màn hình Sửa cán bộ:
+1. Nhập ký tự số tại [Tên cán bộ]textbox
+2. Nhấn [Sửa]button.","Hiển thị thông báo: ""Vui lòng không nhập  ký tự số!""
+Trỏ chuột tại [Tên cán bộ]textbox.",,,,
+FUNC-SuaCB-06,Không chọn giới tính,"Tại màn hình Sửa cán bộ:
+1. Không chọn giới tính tại [Giới tính]Combobox.
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng chọn giới tính!""",,,,
+FUNC-SuaCB-07,Không nhập ngày sinh,"Tại màn hình Sửa cán bộ:
+1. Không chọn ngày sinh tại [Ngày sinh]Datechoose.
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng chọn ngày sinh!""",,,,
+FUNC-SuaCB-08,Không nhập số điện thoại,"Tại màn hình Sửa cán bộ:
+1. Không nhập dữ liệu vào [Số điện thoại] textbox.
+2. Nhấn [Sửa]button.","Hiển thị thông báo: ""Vui lòng nhập số điện thoại!""
+Trỏ chuột tại [Số điện thoại] textbox.",,,,
+FUNC-SuaCB-09,Nhập toàn ký tự trống.,"Tại màn hình Sửa cán bộ:
+1. Nhập toàn bộ là ký tự trống tại [Số điện thoại]textbox
+2. Nhấn [Sửa]button","Hiển thị thông báo: ""Vui lòng không nhập toàn bộ là ký tự trống!""
+Trỏ chuột tại [Số điện thoại]textbox.",,,,
+FUNC-SuaCB-10,Nhập số điện thoại có ký tự là chữ cái.,"Tại màn hình Sửa cán bộ:
+1. Nhập ký tự chữ cái tại [Số điện thoại]textbox
+2. Nhấn [Sửa]button","Hiển thị thông báo: ""Vui lòng không nhập chữ cái!""
+Trỏ chuột tại [Số điện thoại]textbox.",,,,
+FUNC-SuaCB-11,Nhập số điện thoại có ký tự đặc biệt.,"Tại màn hình Sửa cán bộ:
+1. Nhập ký tự đặc biệt tại [Số điện thoại]textbox
+2. Nhấn [Sửa]button.","Hiển thị thông báo: ""Vui lòng không nhập ký tự đặc biệt!""
+Trỏ chuột tại [Số điện thoại]textbox.",,,,
+FUNC-SuaCB-12,Nhập số điện thoại quá số ký tự cho phép.,"Tại màn hình Sửa cán bộ:
+1. Nhập quá 50 ký tự tại [Số điện thoại]textbox
+2. Nhấn [Sửa]button.","Hiển thị thông báo: ""Vui lòng không nhập quá 50 ký tựt!""
+Trỏ chuột tại [Số điện thoại]textbox.",,,,
+FUNC-SuaCB-13,Không chọn hình ảnh ,"Tại màn hình Sửa cán bộ:
+1. Không chọn hình ảnh đại diện. 
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng chọn hình ảnh!""",,,,
+FUNC-SuaCB-14,Không nhập địa chỉ email,"Tại màn hình Sửa cán bộ:
+1. Không nhập dữ liệu vào [Email] textbox.
+2. Nhấn [Sửa] Button.","Hiển thị thông báo: ""Vui lòng nhập địa chỉ email!""
+Trỏ chuột tại [Email] textbox.",,,,
+FUNC-SuaCB-15,Nhập sai định dạng email,"Tại màn hình Sửa cán bộ:
+1. Nhập sai định dạng email tại [Email]textbox.
+2.Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng nhập lại địa chỉ email!""
+Trỏ chuột tại [Email] textbox.",,,,
+FUNC-SuaCB-16,Không nhập địa chỉ,"Tại màn hình Sửa cán bộ:
+1. Không nhập dữ liệu địa chỉ tại [Địa chỉ]textbox.
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng nhập địa chỉ!""
+Trỏ chuột tại [Địa chỉ] textbox.",,,,
+FUNC-SuaCB-17,Nhập quá số ký tự địa chỉ cho phép,"Tại màn hình Sửa cán bộ:
+1. Nhập quá 100 ký tự tại [Địa chỉ]textbox.
+2. Nhấn [Sửa]button.","Hiển thị thông báo: ""Vui lòng không nhập quá 100 ký tự!""
+Trỏ chuột tại [Địa chỉ]textbox.",,,,
+FUNC-SuaCB-18,Nhập địa chỉ có kí tự đặc biệt.,"Tại màn hình Sửa cán bộ:
+1. Nhập ký tự đặc biệt tại [Địa chỉ]textbox.
+2. Nhấn [Sửa]button.","Hiển thị thông báo: ""Vui lòng không nhập ký tự đặc biệt!""
+Trỏ chuột tại [Địa chỉ]textbox.",,,,
+FUNC-SuaCB-19,Không nhập nơi công tác,"Tại màn hình Sửa cán bộ:
+1. Không nhập dữ liệu nơi công tác tại [Nơi công tác] textbox.
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng nhập nơi công tác!""
+Trỏ chuột tại [Nơi công tác] textbox.",,,,
+FUNC-SuaCB-20,Nhập quá số ký tự nơi công tác cho phép.,"Tại màn hình Sửa cán bộ:
+1. Nhập quá 100 ký tự tại [Nơi công tác]textbox.
+2.Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng không nhập quá 100 ký tự!""
+Trỏ chuột tại [Nơi công tác]textbox.",,,,
+FUNC-SuaCB-21,Nhập nơi công tác có ký tự đặc biệt.,"Tại màn hình Sửa cán bộ:
+1. Nhập ký tự đặc biệt tại [Nơi công tác]textbox.
+2.Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng không nhập ký tự đặc biệt!""
+Trỏ chuột tại [Nơi công tác]textbox.",,,,
+FUNC-SuaCB-22,Không nhập chức vụ,"Tại màn hình Sửa cán bộ:
+1. Không nhập dữ liệu chức vụ tại textbox Chức vụ.
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng nhập chức vụ!""
+Trỏ chuột tại [Chức vụ] textbox.",,,,
+FUNC-SuaCB-23,Nhập chức vụ có ký tự đặc biệt,"Tại màn hình Sửa cán bộ:
+1. Nhập ký tự đặc biệt tại [Chức vụ]textbo.
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng không nhập ký tự đặc biệt!""
+Trỏ chuột tại [Chức vụ] textbox.",,,,
+FUNC-SuaCB-24,Không nhập dữ liệu vào form,"Tại màn hình Sửa cán bộ:
+1. Không nhập tất cả các dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Vui lòng nhập dữ liệu!""
+Trỏ chuột tại [Tên cán bộ] textbox.
+",,,,
+FUNC-SuaCB-25,Sửa cán bộ thành công,"Tại màn hình Sửa cán bộ:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Sửa cán bộ thành công!""",,,,
+FUNC-SuaCB-26,Sửa cán bộ thành công khi chỉ input item bắt buộc nhập,"Tại màn hình Sửa cán bộ:
+1. Nhập data valid cho các item bắt buộc
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Sửa cán bộ thành công!""",,,,
+FUNC-SuaCB-27,Sửa cán bộ thành công khi input tất cả các thông tin với data max length,"Tại màn hình Sửa cán bộ:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form với data max length
+2. Nhấn [Sửa]Button.","Hiển thị thông báo: ""Sửa cán bộ thành công!""",,,,
+FUNC-SuaCB-28,Xóa toàn bộ dữ liệu đã nhập vào.,"Tại màn hình Sửa cán bộ:
+1. Nhập vào các dữ liệu được yêu cầu trong form.
+2. Nhấn [Reset]button.","Hiển thị màn hình Sửa cán bộ với form còn trống.
+Trỏ chuột tại [Tên cán bộ] textbox.",,,,
+FUNC-SuaCB-29,Hủy việc sửa cán bộ.,"Tại màn hình Sửa cán bộ:
+Nhấn[ Hủy] Button.",Hiển thị màn hình Danh sách cán bộ.,,,,
+,Function: Xóa cán bộ,,,,,,
+,Check-GUI-Xóa cán bộ,,,,,,
+GUI-XoaCB-01,[OK] Button,,Status = enable,,,,
+GUI-XóaCB-02,[Cancel]Button,,Status = enable,,,,
+,Check-FUNC-Xóa cán bộ,,,,,,
+FUNC-XoaCB-01,Mở thành công màn hình Xác nhận xóa,Tại màn hình Danh sách cán bộ: Click [Xóa] ngay tại cán bộ muốn xóa.,Hiển thị màn hình Xác nhận xóa.,,,,
+FUNC-XoaCB-02,Xóa thành công cán bộ.,"Tại màn hình Xác nhận xóa: 
+Click [OK]Button.","Hiển thị thông báo: ""Xóa thành công!""",,,,
+FUNC-XoaCB-03,Xóa không thành công.,"Tại màn hình Xác nhận xóa:
+Trường hợp connect database lỗi
+Click [OK]Button.","Hiển thị thông báo: ""Xóa không thành công!'",,,,
+FUNC-XoaCB-04,Hủy việc xóa cán bộ.,"Tại màn hình Xác nhận xóa:
+Click [Cancel]Button.",Hiển thị màn hình Danh sách cán bộ.,,,,

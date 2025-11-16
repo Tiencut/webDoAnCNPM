@@ -1,0 +1,50 @@
+,,,,,,
+Module Code,QLDT,,,,,
+Test requirement,"1. Tìm kiếm đề tài.
+2. Thêm đề tài
+3. Chỉnh sửa thông tin đề tài
+4. Xóa đề tài
+5. Xem chi tiết đề tài
+",,,,,,
+Tester,Lê Trường Lâm,,,,,
+Pass,Fail,Untested,N/A,Number of Test cases,,,
+0,0,10,0,10,,,
+,,,,,,,
+ID,Test Case Description,Test Case Procedure,Expected Output,Inter-test case Dependence,Result,Test date,Note
+,Function : Tìm kiếm đề tài,,,,,
+GUI-SearchDT-01,[Tìm kiếm] Button,,Status = enable,,,,
+FUNC-SearchDT-01,Mở màn hình tìm kiếm thành công,"Tại Menu Ứng dụng:
+1. Click [Đề tài]
+2. Click [Danh sách đề tài].",Mở màn hình danh sách đề tài,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchDT-02,Tìm kiếm thành công nhưng không có kết quả tìm thấy,"Tại màn hình tìm kiếm:
+1. Nhập vào dữ liệu không tồn tại trong hệ thống.
+2. Nhấn Enter","Hiển thị thông báo: ""Không tìm thấy dữ liệu phù hợp!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchDT-03,Tìm kiếm thành công nhưng không nhập dữ liệu,"Tại màn hình tìm kiếm:
+1. Không nhập dữ liệu vào.
+2. Nhấn Enter",Hiển thị danh sách tất cả đề tài trong hệ thống.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchDT-04,Tìm kiếm thành công với dữ liệu được nhập vào là tên,"Tại màn hình tìm kiếm:
+1. Nhập vào tên đề tài cần tìm.
+2. Nhấn Enter.",Hiển thị danh sách đề tài phù hợp với tên nhập vào.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Thêm đề tài,,,,,
+GUI-AddDT-01,[Thêm] Button,,Status = enable,,,,
+FUNC-AddDT-01,Mở màn hình Thêm đề tài thành công,"Tại Menu Ứng dụng: Click Thêm đề tài
+Tại màn hình Danh sách đề tài: Click Thêm",Hiển thị màn hình Thêm đề tài,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-AddDT-02,Thêm đề tài thành công,"Tại màn hình Thêm đề tài:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Thêm đề tài thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Chỉnh sửa thông tin đề tài,,,,,
+GUI-EditDT-01,[Sửa] Button,,Status = enable,,,,
+FUNC-EditDT-01,Mở màn hình Sửa đề tài thành công,"Tại màn hình Danh sách đề tài:
+Click [Sửa] Button ngay tại đề tài cần sửa.",Hiển thị màn hình Sửa đề tài,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-EditDT-02,Chỉnh sửa đề tài thành công,"Tại màn hình Sửa đề tài:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Sửa] button.","Hiển thị thông báo: ""Sửa đề tài thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xóa đề tài,,,,,
+GUI-DeleteDT-01,[Xóa] Button,,Status = enable,,,,
+FUNC-DeleteDT-01,Mở màn hình Xác nhận xóa thành công,Tại màn hình Danh sách đề tài: Click [Xóa] ngay tại đề tài muốn xóa.,Hiển thị màn hình Xác nhận xóa.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-DeleteDT-02,Xóa đề tài thành công,"Tại màn hình Xác nhận xóa:
+Click [OK]Button.","Hiển thị thông báo: ""Xóa thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xem chi tiết đề tài,,,,,
+GUI-ViewDT-01,[Xem chi tiết] Button,,Status = enable,,,,
+FUNC-ViewDT-01,Mở màn hình Xem chi tiết đề tài thành công,"Tại màn hình Danh sách đề tài:
+Click [Xem chi tiết] Button ngay tại đề tài cần xem.",Hiển thị màn hình Xem chi tiết đề tài,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."

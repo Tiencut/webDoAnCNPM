@@ -1,0 +1,48 @@
+,,
+1,Khái niệm,
+,Black-box testcase là test case dùng để test cho hình thức black-box testing.,
+,Là hình thức test mà dev/tester  không cần biết đến source code bên trong.,
+,Cách test là nhập dữ liệu đầu vào (input) và kiểm tra kết quả trả về (output) có đúng như mong muốn hay không.,
+,,
+2,Yêu cầu của Black-box testcase,
+,Cấu trúc test case phải dễ hiểu và hợp lý.,
+,Follow bám sát chặt chẽ requirement.,
+,Cover tất cả các case có thể xảy ra -> bắt được toàn bộ lỗi mà không cần tích hợp module lại,
+,Title dễ hiểu và cover requirement (người khác đọc hiểu được và làm được),
+,,
+3,Các thành phần của testcase,
+,"- Test case ID: Được đánh số duy nhất, không trùng lặp để dễ nhận biết. ",
+,"- Test case description: Mô tả mục tiêu or điều kiện test
+",
+,"- Test Case Procedure: Tập các step/action cần chạy để hoàn thành mục tiêu or điều kiện test riêng biệt
+",
+,"- Expected Output: Tập output/result sau khi chạy
+",
+,"- Inter-test case Dependence: Là 1 or nhiều test case dùng làm điều kiện input cho test case khác. Nếu nó fail thì không thể run các case kế tiếp được. 
+",
+,,
+4,Định nghĩa các test level,
+,Unit Test,
+,,"Một Unit là một thành phần nhỏ nhất mà ta có thể kiểm tra được, chẳng hạn như các hàm, thủ tục, class hoặc các method đều có thể được xem là Unit."
+,,"Vì case test ở mức đơn vị nên dễ dàng kiểm tra và phát hiện bug, fix bug."
+,,"Việc thực hiện Unit test để đảm bảo cấu trúc bên trong, các component, module... thực hiện đúng. "
+,,"Thực hiện bằng cách kiểm tra các điều kiện đầu vào, các bước thực hiện và dữ liệu đầu ra có thực hiện đúng như mong đợi hay không."
+,,"Yêu cầu phải coverage được các Statement, Branch, Path, Condition để phát hiện lỗi. "
+,,Unit test thường dev thực hiện. 
+,,
+,Integration Test ,
+,,"Integration test kết hợp các component với nhau để phát hiện lỗi liên quan giữa các màn hình, đảm bảo flow giữa các màn hình chạy đúng business."
+,,Nó được thực hiện sau khi đã Unit test xong.
+,,
+,System Test ,
+,,"Mục đích System Test là kiểm tra thiết kế và toàn bộ hệ thống (sau khi tích hợp) có thỏa mãn yêu cầu đặt ra hay không,"
+,,"đảm bảo hệ thống làm được những gì đặc tả yêu cầu, thường được chạy trên môi trường thật."
+,,"Điểm khác nhau cơ bản giữa Integration Test và System Test là System Test chú trọng các hành vi và lỗi trên toàn hệ thống, "
+,,còn Integration Test chú trọng sự giao tiếp giữa các màn hình khi chúng làm việc cùng nhau.
+,,Thông thường ta phải thực hiện Unit Test và Integration Test để bảo đảm mọi Unit và sự tương tác giữa chúng hoạt động chính xác trước khi thực hiện System Test.
+,,
+,Acceptance Test,
+,,"Acceptance Test thường được khách hàng thực hiện để accept sản phẩm, để khách hàng xác định phần mềm đã thực hiện đúng những gì họ yêu cầu."
+,,"để khách hàng phát hiện ra những điểm không hợp lí, những khác biệt so với thực tế sử dụng của khách hàng "
+,,dù có mô tả trong tài liệu hay không.
+,,Nếu có vấn đề phát sinh khách hàng có thể thay đổi lại yêu cầu và được xem là change spec.

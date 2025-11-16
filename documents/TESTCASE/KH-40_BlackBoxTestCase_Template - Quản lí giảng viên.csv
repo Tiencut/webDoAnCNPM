@@ -1,0 +1,75 @@
+,,,,,,
+Module Code,QLGV,,,,,
+Test requirement,"1. Tìm kiếm giảng viên.
+2. Thêm giảng viên
+3. Chỉnh sửa thông tin giảng viên
+4. Xóa giảng viên
+5. Xem chi tiết giảng viên
+6. Quản lý nhóm của giảng viên
+7. Quản lý đề tài của giảng viên
+8. Quản lý kế hoạch tuần của giảng viên
+9. Quản lý thông báo cho giảng viên
+10. Quản lý chat với giảng viên
+",,,,,,
+Tester,Lê Trường Lâm,,,,,
+Pass,Fail,Untested,N/A,Number of Test cases,,,
+0,0,26,0,26,,,
+,,,,,,,
+ID,Test Case Description,Test Case Procedure,Expected Output,Inter-test case Dependence,Result,Test date,Note
+,Function : Tìm kiếm giảng viên,,,,,
+GUI-SearchGV-01,[Tìm kiếm] Button,,Status = enable,,,,
+FUNC-SearchGV-01,Mở màn hình tìm kiếm thành công,"Tại Menu Ứng dụng:
+1. Click [Giảng viên]
+2. Click [Danh sách giảng viên].",Mở màn hình danh sách giảng viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchGV-02,Tìm kiếm thành công nhưng không có kết quả tìm thấy,"Tại màn hình tìm kiếm:
+1. Nhập vào dữ liệu không tồn tại trong hệ thống.
+2. Nhấn Enter","Hiển thị thông báo: ""Không tìm thấy dữ liệu phù hợp!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchGV-03,Tìm kiếm thành công nhưng không nhập dữ liệu,"Tại màn hình tìm kiếm:
+1. Không nhập dữ liệu vào.
+2. Nhấn Enter",Hiển thị danh sách tất cả giảng viên trong hệ thống.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchGV-04,Tìm kiếm thành công với dữ liệu được nhập vào là tên,"Tại màn hình tìm kiếm:
+1. Nhập vào tên giảng viên cần tìm.
+2. Nhấn Enter.",Hiển thị danh sách giảng viên phù hợp với tên nhập vào.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Thêm giảng viên,,,,,
+GUI-AddGV-01,[Thêm] Button,,Status = enable,,,,
+FUNC-AddGV-01,Mở màn hình Thêm giảng viên thành công,"Tại Menu Ứng dụng: Click Thêm giảng viên
+Tại màn hình Danh sách giảng viên: Click Thêm",Hiển thị màn hình Thêm giảng viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-AddGV-02,Thêm giảng viên thành công,"Tại màn hình Thêm giảng viên:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Thêm giảng viên thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Chỉnh sửa thông tin giảng viên,,,,,
+GUI-EditGV-01,[Sửa] Button,,Status = enable,,,,
+FUNC-EditGV-01,Mở màn hình Sửa giảng viên thành công,"Tại màn hình Danh sách giảng viên:
+Click [Sửa] Button ngay tại giảng viên cần sửa.",Hiển thị màn hình Sửa giảng viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-EditGV-02,Chỉnh sửa giảng viên thành công,"Tại màn hình Sửa giảng viên:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Sửa] button.","Hiển thị thông báo: ""Sửa giảng viên thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xóa giảng viên,,,,,
+GUI-DeleteGV-01,[Xóa] Button,,Status = enable,,,,
+FUNC-DeleteGV-01,Mở màn hình Xác nhận xóa thành công,Tại màn hình Danh sách giảng viên: Click [Xóa] ngay tại giảng viên muốn xóa.,Hiển thị màn hình Xác nhận xóa.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-DeleteGV-02,Xóa giảng viên thành công,"Tại màn hình Xác nhận xóa:
+Click [OK]Button.","Hiển thị thông báo: ""Xóa thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xem chi tiết giảng viên,,,,,
+GUI-ViewGV-01,[Xem chi tiết] Button,,Status = enable,,,,
+FUNC-ViewGV-01,Mở màn hình Xem chi tiết giảng viên thành công,"Tại màn hình Danh sách giảng viên:
+Click [Xem chi tiết] Button ngay tại giảng viên cần xem.",Hiển thị màn hình Xem chi tiết giảng viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý nhóm của giảng viên,,,,,
+GUI-GroupGV-01,[Quản lý nhóm] Button,,Status = enable,,,,
+FUNC-GroupGV-01,Mở màn hình Quản lý nhóm của giảng viên thành công,"Tại màn hình Danh sách giảng viên:
+Click [Quản lý nhóm] Button ngay tại giảng viên.",Hiển thị màn hình Quản lý nhóm của giảng viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý đề tài của giảng viên,,,,,
+GUI-TopicGV-01,[Quản lý đề tài] Button,,Status = enable,,,,
+FUNC-TopicGV-01,Mở màn hình Quản lý đề tài của giảng viên thành công,"Tại màn hình Danh sách giảng viên:
+Click [Quản lý đề tài] Button ngay tại giảng viên.",Hiển thị màn hình Quản lý đề tài của giảng viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý kế hoạch tuần của giảng viên,,,,,
+GUI-WeeklyPlanGV-01,[Quản lý kế hoạch tuần] Button,,Status = enable,,,,
+FUNC-WeeklyPlanGV-01,Mở màn hình Quản lý kế hoạch tuần của giảng viên thành công,"Tại màn hình Danh sách giảng viên:
+Click [Quản lý kế hoạch tuần] Button ngay tại giảng viên.",Hiển thị màn hình Quản lý kế hoạch tuần của giảng viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý thông báo cho giảng viên,,,,,
+GUI-NotificationGV-01,[Quản lý thông báo] Button,,Status = enable,,,,
+FUNC-NotificationGV-01,Mở màn hình Quản lý thông báo cho giảng viên thành công,"Tại màn hình Danh sách giảng viên:
+Click [Quản lý thông báo] Button ngay tại giảng viên.",Hiển thị màn hình Quản lý thông báo cho giảng viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý chat với giảng viên,,,,,
+GUI-ChatGV-01,[Chat] Button,,Status = enable,,,,
+FUNC-ChatGV-01,Mở màn hình Chat với giảng viên thành công,"Tại màn hình Danh sách giảng viên:
+Click [Chat] Button ngay tại giảng viên.",Hiển thị màn hình Chat với giảng viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."

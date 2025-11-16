@@ -1,0 +1,75 @@
+,,,,,,
+Module Code,QLSV,,,,,
+Test requirement,"1. Tìm kiếm sinh viên.
+2. Thêm sinh viên
+3. Chỉnh sửa thông tin sinh viên
+4. Xóa sinh viên
+5. Xem chi tiết sinh viên
+6. Quản lý nhóm của sinh viên
+7. Quản lý đề tài của sinh viên
+8. Quản lý kế hoạch tuần của sinh viên
+9. Quản lý thông báo cho sinh viên
+10. Quản lý chat với sinh viên
+",,,,,,
+Tester,Lê Trường Lâm,,,,,
+Pass,Fail,Untested,N/A,Number of Test cases,,,
+0,0,26,0,26,,,
+,,,,,,,
+ID,Test Case Description,Test Case Procedure,Expected Output,Inter-test case Dependence,Result,Test date,Note
+,Function : Tìm kiếm sinh viên,,,,,
+GUI-SearchSV-01,[Tìm kiếm] Button,,Status = enable,,,,
+FUNC-SearchSV-01,Mở màn hình tìm kiếm thành công,"Tại Menu Ứng dụng:
+1. Click [Sinh viên]
+2. Click [Danh sách sinh viên].",Mở màn hình danh sách sinh viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchSV-02,Tìm kiếm thành công nhưng không có kết quả tìm thấy,"Tại màn hình tìm kiếm:
+1. Nhập vào dữ liệu không tồn tại trong hệ thống.
+2. Nhấn Enter","Hiển thị thông báo: ""Không tìm thấy dữ liệu phù hợp!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchSV-03,Tìm kiếm thành công nhưng không nhập dữ liệu,"Tại màn hình tìm kiếm:
+1. Không nhập dữ liệu vào.
+2. Nhấn Enter",Hiển thị danh sách tất cả sinh viên trong hệ thống.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchSV-04,Tìm kiếm thành công với dữ liệu được nhập vào là tên,"Tại màn hình tìm kiếm:
+1. Nhập vào tên sinh viên cần tìm.
+2. Nhấn Enter.",Hiển thị danh sách sinh viên phù hợp với tên nhập vào.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Thêm sinh viên,,,,,
+GUI-AddSV-01,[Thêm] Button,,Status = enable,,,,
+FUNC-AddSV-01,Mở màn hình Thêm sinh viên thành công,"Tại Menu Ứng dụng: Click Thêm sinh viên
+Tại màn hình Danh sách sinh viên: Click Thêm",Hiển thị màn hình Thêm sinh viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-AddSV-02,Thêm sinh viên thành công,"Tại màn hình Thêm sinh viên:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Thêm sinh viên thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Chỉnh sửa thông tin sinh viên,,,,,
+GUI-EditSV-01,[Sửa] Button,,Status = enable,,,,
+FUNC-EditSV-01,Mở màn hình Sửa sinh viên thành công,"Tại màn hình Danh sách sinh viên:
+Click [Sửa] Button ngay tại sinh viên cần sửa.",Hiển thị màn hình Sửa sinh viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-EditSV-02,Chỉnh sửa sinh viên thành công,"Tại màn hình Sửa sinh viên:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Sửa] button.","Hiển thị thông báo: ""Sửa sinh viên thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xóa sinh viên,,,,,
+GUI-DeleteSV-01,[Xóa] Button,,Status = enable,,,,
+FUNC-DeleteSV-01,Mở màn hình Xác nhận xóa thành công,Tại màn hình Danh sách sinh viên: Click [Xóa] ngay tại sinh viên muốn xóa.,Hiển thị màn hình Xác nhận xóa.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-DeleteSV-02,Xóa sinh viên thành công,"Tại màn hình Xác nhận xóa:
+Click [OK]Button.","Hiển thị thông báo: ""Xóa thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xem chi tiết sinh viên,,,,,
+GUI-ViewSV-01,[Xem chi tiết] Button,,Status = enable,,,,
+FUNC-ViewSV-01,Mở màn hình Xem chi tiết sinh viên thành công,"Tại màn hình Danh sách sinh viên:
+Click [Xem chi tiết] Button ngay tại sinh viên cần xem.",Hiển thị màn hình Xem chi tiết sinh viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý nhóm của sinh viên,,,,,
+GUI-GroupSV-01,[Quản lý nhóm] Button,,Status = enable,,,,
+FUNC-GroupSV-01,Mở màn hình Quản lý nhóm của sinh viên thành công,"Tại màn hình Danh sách sinh viên:
+Click [Quản lý nhóm] Button ngay tại sinh viên.",Hiển thị màn hình Quản lý nhóm của sinh viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý đề tài của sinh viên,,,,,
+GUI-TopicSV-01,[Quản lý đề tài] Button,,Status = enable,,,,
+FUNC-TopicSV-01,Mở màn hình Quản lý đề tài của sinh viên thành công,"Tại màn hình Danh sách sinh viên:
+Click [Quản lý đề tài] Button ngay tại sinh viên.",Hiển thị màn hình Quản lý đề tài của sinh viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý kế hoạch tuần của sinh viên,,,,,
+GUI-WeeklyPlanSV-01,[Quản lý kế hoạch tuần] Button,,Status = enable,,,,
+FUNC-WeeklyPlanSV-01,Mở màn hình Quản lý kế hoạch tuần của sinh viên thành công,"Tại màn hình Danh sách sinh viên:
+Click [Quản lý kế hoạch tuần] Button ngay tại sinh viên.",Hiển thị màn hình Quản lý kế hoạch tuần của sinh viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý thông báo cho sinh viên,,,,,
+GUI-NotificationSV-01,[Quản lý thông báo] Button,,Status = enable,,,,
+FUNC-NotificationSV-01,Mở màn hình Quản lý thông báo cho sinh viên thành công,"Tại màn hình Danh sách sinh viên:
+Click [Quản lý thông báo] Button ngay tại sinh viên.",Hiển thị màn hình Quản lý thông báo cho sinh viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Quản lý chat với sinh viên,,,,,
+GUI-ChatSV-01,[Chat] Button,,Status = enable,,,,
+FUNC-ChatSV-01,Mở màn hình Chat với sinh viên thành công,"Tại màn hình Danh sách sinh viên:
+Click [Chat] Button ngay tại sinh viên.",Hiển thị màn hình Chat với sinh viên,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."

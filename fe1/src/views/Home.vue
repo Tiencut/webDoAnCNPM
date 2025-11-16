@@ -69,7 +69,7 @@
           </tr>
           <tr>
             <td>Cập nhật trang cá nhân</td>
-            <td></td>
+            <td>Cho phép sinh viên chỉnh sửa thông tin cá nhân như tên, email, số điện thoại, và các thông tin khác.</td>
             <td>✅</td>
             <td><NavLink to="/student/profile-edit" class="text-blue-500 hover:text-blue-700">/student/profile-edit</NavLink></td>
           </tr>

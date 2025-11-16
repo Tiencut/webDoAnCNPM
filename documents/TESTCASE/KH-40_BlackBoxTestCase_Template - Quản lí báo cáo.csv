@@ -1,0 +1,14 @@
+,,,,,,
+Module Code,QLBC,,,,,
+Test requirement,"1. Xem báo cáo.
+",,,,,,
+Tester,Lê Trường Lâm,,,,,
+Pass,Fail,Untested,N/A,Number of Test cases,,,
+0,0,2,0,2,,,
+,,,,,,,
+ID,Test Case Description,Test Case Procedure,Expected Output,Inter-test case Dependence,Result,Test date,Note
+,Function : Xem báo cáo,,,,,
+GUI-ViewBC-01,[Xem báo cáo] Button,,Status = enable,,,,
+FUNC-ViewBC-01,Mở màn hình Xem báo cáo thành công,"Tại Menu Ứng dụng:
+1. Click [Báo cáo]
+2. Click [Danh sách báo cáo].",Mở màn hình danh sách báo cáo,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."

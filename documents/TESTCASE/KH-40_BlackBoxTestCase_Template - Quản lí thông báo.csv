@@ -1,0 +1,50 @@
+,,,,,,
+Module Code,QLTB,,,,,
+Test requirement,"1. Tìm kiếm thông báo.
+2. Thêm thông báo
+3. Chỉnh sửa thông tin thông báo
+4. Xóa thông báo
+5. Xem chi tiết thông báo
+",,,,,,
+Tester,Lê Trường Lâm,,,,,
+Pass,Fail,Untested,N/A,Number of Test cases,,,
+0,0,10,0,10,,,
+,,,,,,,
+ID,Test Case Description,Test Case Procedure,Expected Output,Inter-test case Dependence,Result,Test date,Note
+,Function : Tìm kiếm thông báo,,,,,
+GUI-SearchTB-01,[Tìm kiếm] Button,,Status = enable,,,,
+FUNC-SearchTB-01,Mở màn hình tìm kiếm thành công,"Tại Menu Ứng dụng:
+1. Click [Thông báo]
+2. Click [Danh sách thông báo].",Mở màn hình danh sách thông báo,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchTB-02,Tìm kiếm thành công nhưng không có kết quả tìm thấy,"Tại màn hình tìm kiếm:
+1. Nhập vào dữ liệu không tồn tại trong hệ thống.
+2. Nhấn Enter","Hiển thị thông báo: ""Không tìm thấy dữ liệu phù hợp!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchTB-03,Tìm kiếm thành công nhưng không nhập dữ liệu,"Tại màn hình tìm kiếm:
+1. Không nhập dữ liệu vào.
+2. Nhấn Enter",Hiển thị danh sách tất cả thông báo trong hệ thống.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-SearchTB-04,Tìm kiếm thành công với dữ liệu được nhập vào là tên,"Tại màn hình tìm kiếm:
+1. Nhập vào tên thông báo cần tìm.
+2. Nhấn Enter.",Hiển thị danh sách thông báo phù hợp với tên nhập vào.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Thêm thông báo,,,,,
+GUI-AddTB-01,[Thêm] Button,,Status = enable,,,,
+FUNC-AddTB-01,Mở màn hình Thêm thông báo thành công,"Tại Menu Ứng dụng: Click Thêm thông báo
+Tại màn hình Danh sách thông báo: Click Thêm",Hiển thị màn hình Thêm thông báo,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-AddTB-02,Thêm thông báo thành công,"Tại màn hình Thêm thông báo:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Thêm] button.","Hiển thị thông báo: ""Thêm thông báo thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Chỉnh sửa thông tin thông báo,,,,,
+GUI-EditTB-01,[Sửa] Button,,Status = enable,,,,
+FUNC-EditTB-01,Mở màn hình Sửa thông báo thành công,"Tại màn hình Danh sách thông báo:
+Click [Sửa] Button ngay tại thông báo cần sửa.",Hiển thị màn hình Sửa thông báo,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-EditTB-02,Chỉnh sửa thông báo thành công,"Tại màn hình Sửa thông báo:
+1. Nhập tất cả dữ liệu được yêu cầu nhập trong form.
+2. Nhấn [Sửa] button.","Hiển thị thông báo: ""Sửa thông báo thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xóa thông báo,,,,,
+GUI-DeleteTB-01,[Xóa] Button,,Status = enable,,,,
+FUNC-DeleteTB-01,Mở màn hình Xác nhận xóa thành công,Tại màn hình Danh sách thông báo: Click [Xóa] ngay tại thông báo muốn xóa.,Hiển thị màn hình Xác nhận xóa.,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+FUNC-DeleteTB-02,Xóa thông báo thành công,"Tại màn hình Xác nhận xóa:
+Click [OK]Button.","Hiển thị thông báo: ""Xóa thành công!""",,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."
+,Function : Xem chi tiết thông báo,,,,,
+GUI-ViewTB-01,[Xem chi tiết] Button,,Status = enable,,,,
+FUNC-ViewTB-01,Mở màn hình Xem chi tiết thông báo thành công,"Tại màn hình Danh sách thông báo:
+Click [Xem chi tiết] Button ngay tại thông báo cần xem.",Hiển thị màn hình Xem chi tiết thông báo,,"Người dùng đã đăng nhập với vai trò Quản trị viên. Hệ thống có kết nối đến cơ sở dữ liệu."

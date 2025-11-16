@@ -85,6 +85,11 @@ const handleLogout = () => {
   height: auto;
 }
 
+.navigation {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
 .navigation ul {
   list-style: none;
   padding: 0;

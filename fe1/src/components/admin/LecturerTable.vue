@@ -17,15 +17,48 @@
       </button>
     </div>
 
-    <!-- Form thêm/sửa giảng viên -->
+    <!-- Form thêm/sửa giảng viên (đã chuyển từ Modal/LecturerForm sang form trực tiếp để sửa lỗi encoding) -->
+    <!--
     <Modal :show="showForm" @close="cancelEdit">
       <LecturerForm
         :lecturer="currentLecturer"
         :isEditing="isEditing"
         @save="handleSaveLecturer"
         @cancel="cancelEdit"
-      />
+      >
+        <template #label-fullName>
+          <label for="fullName">Họ và Tên <span class="required">*</span></label>
+        </template>
+        <template #label-email>
+          <label for="email">Email <span class="required">*</span></label>
+        </template>
+        <template #label-phoneNumber>
+          <label for="phoneNumber">SĐT <span class="required">*</span></label>
+        </template>
+      </LecturerForm>
     </Modal>
+    -->
+    <div v-if="showForm" class="inline-form">
+      <form @submit.prevent="handleSaveLecturer(currentLecturer)">
+        <div class="form-field">
+          <label for="fullName">Họ và Tên <span class="required">*</span></label>
+          <input id="fullName" type="text" v-model="currentLecturer.fullName" required />
+        </div>
+        <div class="form-field">
+          <label for="email">Email <span class="required">*</span></label>
+          <input id="email" type="email" v-model="currentLecturer.email" required />
+        </div>
+        <div class="form-field">
+          <label for="phoneNumber">SĐT <span class="required">*</span></label>
+          <input id="phoneNumber" type="tel" v-model="currentLecturer.phoneNumber" required />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">{{ isEditing ? 'Cập nhật' : 'Thêm' }}</button>
+          <button type="button" class="btn-danger" @click="cancelEdit">Hủy</button>
+        </div>
+      </form>
+    </div>
+    <!--  -->
     <div class="table-responsive">
       <BaseTable
         :headers="lecturerTableHeaders"
@@ -48,8 +81,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import LecturerForm from './LecturerForm.vue';
-import Modal from '../common/Modal.vue';
+// import LecturerForm from './LecturerForm.vue';
+// import Modal from '../common/Modal.vue';
 import BaseTable from '../common/BaseTable.vue';
 import LecturerImportModal from '../common/LecturerImportModal.vue';
 import { computed } from 'vue';
@@ -100,6 +133,31 @@ const filteredLecturers = computed(() => {
 });
 
 const handleSaveLecturer = (lecturer: Lecturer) => {
+  // Kiểm tra tên hợp lệ (chỉ chứa chữ cái, không chứa số hoặc ký tự đặc biệt)
+  const nameRegex = /^[a-zA-ZÀ-ỹ\s]+$/u;
+  if (!nameRegex.test(lecturer.fullName)) {
+    alert('Tên không hợp lệ. Vui lòng chỉ nhập chữ cái và khoảng trắng.');
+    return;
+  }
+
+  // Kiểm tra trùng lặp email
+  const duplicateEmail = lecturers.value.some(
+    (l) => l.email === lecturer.email && l.id !== lecturer.id
+  );
+  if (duplicateEmail) {
+    alert('Email đã tồn tại. Vui lòng sử dụng email khác.');
+    return;
+  }
+
+  // Kiểm tra trùng lặp số điện thoại
+  const duplicatePhoneNumber = lecturers.value.some(
+    (l) => l.phoneNumber === lecturer.phoneNumber && l.id !== lecturer.id
+  );
+  if (duplicatePhoneNumber) {
+    alert('Số điện thoại đã tồn tại. Vui lòng sử dụng số khác.');
+    return;
+  }
+
   if (isEditing.value) {
     const index = lecturers.value.findIndex((l) => l.id === lecturer.id);
     if (index !== -1) {
@@ -110,11 +168,16 @@ const handleSaveLecturer = (lecturer: Lecturer) => {
     lecturers.value.push({ ...lecturer });
   }
   cancelEdit();
-  showForm.value = false; // Hide form after saving
+  showForm.value = false; // Ẩn form sau khi lưu
 };
 
 const editLecturer = (lecturer: Lecturer) => {
-  currentLecturer.value = { ...lecturer };
+  // Gán từng thuộc tính để đảm bảo reactivity
+  currentLecturer.value.id = lecturer.id;
+  currentLecturer.value.fullName = lecturer.fullName;
+  currentLecturer.value.email = lecturer.email;
+  currentLecturer.value.phoneNumber = lecturer.phoneNumber;
+
   isEditing.value = true;
   showForm.value = true; // Show form when editing
 };
@@ -208,5 +271,12 @@ const cancelEdit = () => {
 
 .btn-danger:hover {
   background-color: #dc2626; /* Tailwind's red-600 */
+}
+</style>
+
+<style scoped>
+.required {
+  color: red;
+  font-weight: bold;
 }
 </style>

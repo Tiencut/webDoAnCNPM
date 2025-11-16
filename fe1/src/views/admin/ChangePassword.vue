@@ -14,6 +14,11 @@
         <label for="confirm-password">Xác nhận mật khẩu mới:</label>
         <input type="password" id="confirm-password" v-model="confirmPassword" required />
       </div>
+      <div class="form-group">
+        <label for="otp">Mã OTP:</label>
+        <input type="text" id="otp" v-model="otp" required />
+      </div>
+      <button type="button" class="send-otp-button" @click="sendOtp">Gửi mã OTP</button>
       <button type="submit" class="submit-button">Đổi mật khẩu</button>
     </form>
   </div>
@@ -25,22 +30,38 @@ import { ref } from 'vue';
 const currentPassword = ref('');
 const newPassword = ref('');
 const confirmPassword = ref('');
+const otp = ref('');
+
+const sendOtp = () => {
+  // Logic gửi mã OTP đến email của người dùng
+  console.log('Gửi mã OTP đến email...');
+  alert('Mã OTP đã được gửi đến email của bạn!');
+};
 
 const handleChangePassword = () => {
   if (newPassword.value !== confirmPassword.value) {
     alert('Mật khẩu mới và xác nhận mật khẩu không khớp!');
     return;
   }
+
+  if (!otp.value) {
+    alert('Vui lòng nhập mã OTP!');
+    return;
+  }
+
   // Logic để gửi yêu cầu đổi mật khẩu đến API sẽ được thêm vào đây
   console.log('Đổi mật khẩu:', {
     currentPassword: currentPassword.value,
     newPassword: newPassword.value,
+    otp: otp.value,
   });
   alert('Đổi mật khẩu thành công!');
+
   // Xóa các trường sau khi đổi mật khẩu thành công
   currentPassword.value = '';
   newPassword.value = '';
   confirmPassword.value = '';
+  otp.value = '';
 };
 </script>
 
@@ -78,7 +99,8 @@ h2 {
   font-weight: bold;
 }
 
-.form-group input[type="password"] {
+.form-group input[type="password"],
+.form-group input[type="text"] {
   width: 100%;
   padding: 12px;
   border: 1px solid #cccccc;
@@ -88,9 +110,31 @@ h2 {
   transition: border-color 0.3s ease;
 }
 
-.form-group input[type="password"]:focus {
+.form-group input[type="password"]:focus,
+.form-group input[type="text"]:focus {
   border-color: #3498db;
   outline: none;
+}
+
+.send-otp-button {
+  background-color: #e67e22;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.send-otp-button:hover {
+  background-color: #d35400;
+  transform: translateY(-2px);
+}
+
+.send-otp-button:active {
+  transform: translateY(0);
 }
 
 .submit-button {
