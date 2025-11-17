@@ -35,7 +35,7 @@
               <td class="table-td">{{ plan.startDate }}</td>
               <td class="table-td">{{ plan.endDate }}</td>
               <td class="table-td">{{ plan.status }}</td>
-              <td class="table-td">{{ plan.members.join(', ') }}</td>
+              <td class="table-td">{{ (plan.members || []).join(', ') }}</td>
               <td class="table-td">
                 <button @click.stop="$emit('deletePlan', plan.id)"
                   class="btn-delete">
@@ -58,7 +58,7 @@ interface WeeklyPlan {
   startDate: string;
   endDate: string;
   status: string;
-  members: string[];
+  members?: string[];
 }
 
 const props = defineProps<{
@@ -79,7 +79,7 @@ const filteredPlans = computed(() => {
     plan.startDate.toLowerCase().includes(query) ||
     plan.endDate.toLowerCase().includes(query) ||
     plan.status.toLowerCase().includes(query) ||
-    plan.members.some(member => member.toLowerCase().includes(query))
+    (plan.members || []).some(member => member.toLowerCase().includes(query))
   );
 });
 </script>

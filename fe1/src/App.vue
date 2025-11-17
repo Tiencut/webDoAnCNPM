@@ -38,6 +38,6 @@ export default defineComponent({
 
 .main-content {
   flex-grow: 1;
-  /* padding: 20px; */
+  padding: 20px;
 }
 </style>

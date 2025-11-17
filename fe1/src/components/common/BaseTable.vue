@@ -4,7 +4,6 @@
       <tr>
         <th v-if="expandable" class="table-th expand-toggle-th"></th>
         <th v-for="header in headers" :key="header.value" scope="col" class="table-th">{{ header.text }}</th>
-        <th v-if="hasActions" scope="col" class="table-th">Hành động</th>
       </tr>
     </thead>
     <tbody class="table-body">
@@ -19,9 +18,6 @@
             <slot :name="`item-${header.value}`" :item="item">
               {{ item[header.value] }}
             </slot>
-          </td>
-          <td v-if="hasActions" class="table-td action-buttons">
-            <slot name="actions" :item="item"></slot>
           </td>
         </tr>
         <tr v-if="expandable && expandedRows[item[itemKey]]" class="expanded-row">
@@ -52,10 +48,6 @@ const props = defineProps({
   itemKey: {
     type: String,
     required: true,
-  },
-  hasActions: {
-    type: Boolean,
-    default: true,
   },
   clickable: {
     type: Boolean,

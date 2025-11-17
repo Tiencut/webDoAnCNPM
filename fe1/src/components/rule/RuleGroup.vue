@@ -14,91 +14,70 @@
       :headers="headers"
       :items="rules"
       item-key="id"
-      :has-actions="hasActions"
     >
       <template #item-content="{ item }">
         {{ item.content }}
       </template>
       <template #item-actions="{ item }" v-if="hasActions">
-        <button
-          @click="handleEditRule(item)"
-          class="px-3 py-1 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 mr-2"
-        >
-          Sửa
-        </button>
-        <button
-          @click="handleDeleteRule(item.id)"
-          class="px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-        >
-          Xóa
-        </button>
-      </template>
-    </BaseTable>
-
-    <!-- Add/Edit Rule Modal -->
-    <div v-if="isRuleModalOpen" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
-      <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ isEditingRule ? 'Chỉnh sửa Quy tắc' : 'Thêm Quy tắc Mới' }}</h2>
-        <form @submit.prevent="saveRule">
-          <div class="mb-4">
-            <label for="ruleContent" class="block text-gray-700 text-sm font-bold mb-2">Nội dung Quy tắc:</label>
-            <textarea
-              id="ruleContent"
-              v-model="currentRule.content"
-              rows="4"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Nhập nội dung quy tắc"
-              required
-            ></textarea>
-          </div>
-          <div class="flex justify-end">
-            <button
-              type="button"
-              @click="closeRuleModal"
-              class="mr-4 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            >
-              Hủy
-            </button>
-            <button
-              type="submit"
-              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              Lưu
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Delete Confirmation Modal -->
-    <div v-if="isDeleteModalOpen" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
-      <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-sm">
-        <h2 class="text-2xl font-bold mb-4 text-gray-800">Xác nhận Xóa</h2>
-        <p class="text-gray-700 mb-6">Bạn có chắc chắn muốn xóa quy tắc này không?</p>
-        <div class="flex justify-end">
+        <div class="flex items-center space-x-2">
           <button
-            type="button"
-            @click="cancelDelete"
-            class="mr-4 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            @click="handleEditRule(item)"
+            class="px-3 py-1 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
           >
-            Hủy
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 inline mr-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z"
+              />
+            </svg>
+            Sửa
           </button>
           <button
-            type="button"
-            @click="confirmDelete"
-            class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+            @click="handleDeleteRule(item.id)"
+            class="px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 inline mr-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+              />
+            </svg>
             Xóa
           </button>
         </div>
-      </div>
-    </div>
+      </template>
+    </BaseTable>
+
+    <RuleFormModal
+      :show="isRuleModalOpen"
+      :rule="currentRule"
+      :isEditing="isEditingRule"
+      @save="handleSaveRuleForm"
+      @close="closeRuleModal"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, defineProps, defineEmits, computed } from 'vue';
 import BaseTable from '@/components/common/BaseTable.vue';
+import RuleFormModal from './RuleFormModal.vue';
 
 interface Rule {
   id: number;
@@ -145,8 +124,6 @@ const headers = computed(() => {
 const isRuleModalOpen = ref(false);
 const isEditingRule = ref(false);
 const currentRule = ref<Rule>({ id: 0, content: '' });
-const isDeleteModalOpen = ref(false);
-const ruleToDeleteId = ref<number | null>(null);
 
 const openAddRuleModal = () => {
   isEditingRule.value = false;
@@ -158,15 +135,15 @@ const closeRuleModal = () => {
   isRuleModalOpen.value = false;
 };
 
-const saveRule = () => {
+const handleSaveRuleForm = (rule: Rule) => {
   if (isEditingRule.value) {
-    const index = rules.value.findIndex(r => r.id === currentRule.value.id);
+    const index = rules.value.findIndex(r => r.id === rule.id);
     if (index !== -1) {
-      rules.value[index] = { ...currentRule.value };
+      rules.value[index] = { ...rule };
     }
   } else {
     const newId = rules.value.length > 0 ? Math.max(...rules.value.map(r => r.id)) + 1 : 1;
-    rules.value.push({ ...currentRule.value, id: newId });
+    rules.value.push({ ...rule, id: newId });
   }
   closeRuleModal();
 };
@@ -178,21 +155,9 @@ const handleEditRule = (rule: Rule) => {
 };
 
 const handleDeleteRule = (id: number) => {
-  ruleToDeleteId.value = id;
-  isDeleteModalOpen.value = true;
-};
-
-const confirmDelete = () => {
-  if (ruleToDeleteId.value !== null) {
-    rules.value = rules.value.filter(rule => rule.id !== ruleToDeleteId.value);
-    isDeleteModalOpen.value = false;
-    ruleToDeleteId.value = null;
+  if (window.confirm('Bạn có chắc chắn muốn xóa quy tắc này không?')) {
+    rules.value = rules.value.filter(rule => rule.id !== id);
   }
-};
-
-const cancelDelete = () => {
-  isDeleteModalOpen.value = false;
-  ruleToDeleteId.value = null;
 };
 
 </script>

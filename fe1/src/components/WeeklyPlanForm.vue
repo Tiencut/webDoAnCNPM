@@ -1,56 +1,57 @@
 <template>
-  <Modal :show="show" @close="cancelEdit">
-    <div class="weekly-plan-form-card">
-      <h2 class="weekly-plan-form-title">{{ isEditing ? 'Chỉnh sửa Kế hoạch' : 'Thêm Kế hoạch Mới' }}</h2>
-      <form @submit.prevent="savePlan">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="planName" class="form-label">Tên Kế hoạch:</label>
-            <input type="text" id="planName" v-model="currentPlan.name"
-                   class="form-input"
-                   required>
+  <div v-if="show" class="modal-overlay" @click.self="cancelEdit">
+    <div class="modal-content">
+      <div class="weekly-plan-form-card">
+        <h2 class="weekly-plan-form-title">{{ isEditing ? 'Chỉnh sửa Kế hoạch' : 'Thêm Kế hoạch Mới' }}</h2>
+        <form @submit.prevent="savePlan">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="planName" class="form-label">Tên Kế hoạch:</label>
+              <input type="text" id="planName" v-model="currentPlan.name"
+                     class="form-input"
+                     required>
+            </div>
+            <div class="form-group">
+              <label for="startDate" class="form-label">Ngày Bắt đầu:</label>
+              <input type="date" id="startDate" v-model="currentPlan.startDate"
+                     class="form-input"
+                     required>
+            </div>
+            <div class="form-group">
+              <label for="endDate" class="form-label">Ngày Kết thúc:</label>
+              <input type="date" id="endDate" v-model="currentPlan.endDate"
+                     class="form-input"
+                     required>
+            </div>
+            <div class="form-group">
+              <label for="status" class="form-label">Trạng thái:</label>
+              <select id="status" v-model="currentPlan.status"
+                      class="form-select"
+                      required>
+                <option value="pending">Chưa bắt đầu</option>
+                <option value="in_progress">Đang tiến hành</option>
+                <option value="completed">Hoàn thành</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="startDate" class="form-label">Ngày Bắt đầu:</label>
-            <input type="date" id="startDate" v-model="currentPlan.startDate"
-                   class="form-input"
-                   required>
+          <div class="form-actions">
+            <button type="submit"
+                    class="btn btn-primary">
+              {{ isEditing ? 'Cập nhật' : 'Thêm Kế hoạch' }}
+            </button>
+            <button type="button" @click="cancelEdit" v-if="isEditing"
+                    class="btn btn-secondary">
+              Hủy
+            </button>
           </div>
-          <div class="form-group">
-            <label for="endDate" class="form-label">Ngày Kết thúc:</label>
-            <input type="date" id="endDate" v-model="currentPlan.endDate"
-                   class="form-input"
-                   required>
-          </div>
-          <div class="form-group">
-            <label for="status" class="form-label">Trạng thái:</label>
-            <select id="status" v-model="currentPlan.status"
-                    class="form-select"
-                    required>
-              <option value="pending">Chưa bắt đầu</option>
-              <option value="in_progress">Đang tiến hành</option>
-              <option value="completed">Hoàn thành</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-actions">
-          <button type="submit"
-                  class="btn btn-primary">
-            {{ isEditing ? 'Cập nhật' : 'Thêm Kế hoạch' }}
-          </button>
-          <button type="button" @click="cancelEdit" v-if="isEditing"
-                  class="btn btn-secondary">
-            Hủy
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
-  </Modal>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, reactive, watch } from 'vue';
-import Modal from './common/Modal.vue';
 
 interface WeeklyPlan {
   id: number;
@@ -62,9 +63,6 @@ interface WeeklyPlan {
 
 export default defineComponent({
   name: 'WeeklyPlanForm',
-  components: {
-    Modal,
-  },
   props: {
     initialPlan: {
       type: Object as () => WeeklyPlan,
@@ -79,7 +77,7 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ['save', 'close'],
+  emits: ['save', 'close', 'cancel'],
   setup(props, { emit }) {
     const currentPlan = reactive<WeeklyPlan>({ ...props.initialPlan });
     const isEditing = ref(props.isEditingProp);
@@ -104,6 +102,7 @@ export default defineComponent({
     };
 
     const cancelEdit = () => {
+      emit('cancel');
       emit('close');
       resetForm();
     };
@@ -119,6 +118,23 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  max-width: 640px;
+  width: 100%;
+}
 .weekly-plan-form-card {
   background-color: white;
   box-shadow: none;
