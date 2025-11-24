@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit" class="space-y-4">
     <div>
-      <label for="topicName" class="block text-sm font-medium text-gray-700">Tên đề tài</label>
+      <label for="topicName" class="block text-sm font-medium text-gray-700">Tên đề tài<span class="required-star">*</span></label>
       <input
         type="text"
         id="topicName"
@@ -56,6 +56,7 @@ const handleSubmit = () => {
 </script>
 
 <style scoped>
+.required-star{color:#e53e3e;margin-left:4px}
 .space-y-4 > div {
   margin-bottom: 1rem; /* Thêm khoảng cách dưới cho mỗi trường form */
 }

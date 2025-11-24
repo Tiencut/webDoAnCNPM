@@ -17,48 +17,14 @@
       </button>
     </div>
 
-    <!-- Form thêm/sửa giảng viên (đã chuyển từ Modal/LecturerForm sang form trực tiếp để sửa lỗi encoding) -->
-    <!--
-    <Modal :show="showForm" @close="cancelEdit">
-      <LecturerForm
-        :lecturer="currentLecturer"
-        :isEditing="isEditing"
-        @save="handleSaveLecturer"
-        @cancel="cancelEdit"
-      >
-        <template #label-fullName>
-          <label for="fullName">Họ và Tên <span class="required">*</span></label>
-        </template>
-        <template #label-email>
-          <label for="email">Email <span class="required">*</span></label>
-        </template>
-        <template #label-phoneNumber>
-          <label for="phoneNumber">SĐT <span class="required">*</span></label>
-        </template>
-      </LecturerForm>
-    </Modal>
-    -->
-    <div v-if="showForm" class="inline-form">
-      <form @submit.prevent="handleSaveLecturer(currentLecturer)">
-        <div class="form-field">
-          <label for="fullName">Họ và Tên <span class="required">*</span></label>
-          <input id="fullName" type="text" v-model="currentLecturer.fullName" required />
-        </div>
-        <div class="form-field">
-          <label for="email">Email <span class="required">*</span></label>
-          <input id="email" type="email" v-model="currentLecturer.email" required />
-        </div>
-        <div class="form-field">
-          <label for="phoneNumber">SĐT <span class="required">*</span></label>
-          <input id="phoneNumber" type="tel" v-model="currentLecturer.phoneNumber" required />
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="btn-primary">{{ isEditing ? 'Cập nhật' : 'Thêm' }}</button>
-          <button type="button" class="btn-danger" @click="cancelEdit">Hủy</button>
-        </div>
-      </form>
-    </div>
-    <!--  -->
+    <LecturerForm
+      :showForm="showForm"
+      :editingLecturer="isEditing ? currentLecturer : null"
+      @save="handleSaveLecturer"
+      @cancel="cancelEdit"
+    />
+    
+    <!-- Bảng hiển thị danh sách giảng viên -->
     <div class="table-responsive">
       <BaseTable
         :headers="lecturerTableHeaders"
@@ -81,6 +47,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import LecturerForm from '../lecturer/LecturerForm.vue';
 // import LecturerForm from './LecturerForm.vue';
 // import Modal from '../common/Modal.vue';
 import BaseTable from '../common/BaseTable.vue';
@@ -213,6 +180,8 @@ const cancelEdit = () => {
   showForm.value = false;
 };
 </script>
+
+
 <style scoped>
 .lecturer-list-section {
   background-color: #fff; /* bg-white */

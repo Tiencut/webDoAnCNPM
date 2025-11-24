@@ -5,12 +5,12 @@
       <form @submit.prevent="saveTopic">
         <div class="form-grid">
           <div>
-            <label for="topicId" class="form-label">Mã Đề tài</label>
+            <label for="topicId" class="form-label">Mã Đề tài<span class="required-star">*</span></label>
             <input type="text" id="topicId" v-model="editableTopic.topicId"
                    class="form-input" required :disabled="isEditing">
           </div>
           <div>
-            <label for="topicName" class="form-label">Tên Đề tài</label>
+            <label for="topicName" class="form-label">Tên Đề tài<span class="required-star">*</span></label>
             <input type="text" id="topicName" v-model="editableTopic.topicName"
                    class="form-input" required>
           </div>
@@ -82,6 +82,7 @@ const cancelEdit = () => {
 </script>
 
 <style scoped>
+.required-star{color:#e53e3e;margin-left:4px}
 .topic-form-card {
   background-color: #fff;
   padding: 2rem;

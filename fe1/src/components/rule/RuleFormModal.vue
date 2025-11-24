@@ -15,7 +15,7 @@
         </div>
         <form @submit.prevent="handleSave">
           <div class="input-group">
-            <label for="ruleContent" class="input-label">Nội dung Quy tắc:</label>
+            <label for="ruleContent" class="input-label">Nội dung Quy tắc<span class="required-star">*</span>:</label>
             <textarea
                 id="ruleContent"
                 v-model="editableRule.content"
@@ -78,6 +78,7 @@ const handleClose = () => {
 </script>
 
 <style scoped>
+.required-star{color:#e53e3e;margin-left:4px}
 .modal-overlay {
   position: fixed;
   z-index: 9999;

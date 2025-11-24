@@ -4,15 +4,15 @@
     <form @submit.prevent="saveLecturer">
       <div class="form-grid">
         <div>
-          <label for="fullName" class="form-label">Họ và Tên</label>
+          <label for="fullName" class="form-label">Họ và Tên<span class="required-star">*</span></label>
           <input type="text" id="fullName" v-model="currentLecturer.fullName" class="form-input" required />
         </div>
         <div>
-          <label for="email" class="form-label">Email</label>
+          <label for="email" class="form-label">Email<span class="required-star">*</span></label>
           <input type="email" id="email" v-model="currentLecturer.email" class="form-input" required />
         </div>
         <div>
-          <label for="phoneNumber" class="form-label">Số điện thoại</label>
+          <label for="phoneNumber" class="form-label">Số điện thoại<span class="required-star">*</span></label>
           <input type="text" id="phoneNumber" v-model="currentLecturer.phoneNumber" class="form-input" required />
         </div>
       </div>
@@ -61,6 +61,7 @@ const cancelEdit = () => {
 </script>
 
 <style scoped>
+.required-star{color:#e53e3e;margin-left:4px}
 .lecturer-form-section {
   padding: 1.5rem; /* p-6 */
   border: 1px solid #e5e7eb; /* border border-gray-200 */

@@ -5,20 +5,20 @@
       <form @submit.prevent="saveTopic">
         <div class="form-grid">
           <div class="form-group">
-            <label for="topicName" class="form-label">Tên Đề tài:</label>
+            <label for="topicName" class="form-label">Tên Đề tài<span class="required-star">*</span>:</label>
             <input type="text" id="topicName" v-model="currentTopic.name"
               class="form-input"
               required>
           </div>
           <div class="form-group">
-            <label for="topicDescription" class="form-label">Mô tả:</label>
+            <label for="topicDescription" class="form-label">Mô tả<span class="required-star">*</span>:</label>
             <textarea id="topicDescription" v-model="currentTopic.description"
               class="form-textarea"
               rows="3"
               required></textarea>
           </div>
           <div class="form-group">
-            <label for="topicStatus" class="form-label">Trạng thái:</label>
+            <label for="topicStatus" class="form-label">Trạng thái<span class="required-star">*</span>:</label>
             <select id="topicStatus" v-model="currentTopic.status"
               class="form-select"
               required>
@@ -113,6 +113,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.required-star{color:#e53e3e;margin-left:4px}
 .topic-form-card {
   background-color: white;
   box-shadow: none;

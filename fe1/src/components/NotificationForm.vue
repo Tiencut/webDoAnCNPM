@@ -9,15 +9,15 @@
           required>
       </div>
       <div class="form-group">
-        <label for="message" class="form-label">Nội dung:</label>
-        <textarea id="message" v-model="notification.message"
+        <label for="content" class="form-label">Nội dung:</label>
+        <textarea id="content" v-model="notification.content"
           class="form-textarea"
           rows="4"
           required></textarea>
       </div>
       <div class="form-group">
-        <label for="date" class="form-label">Ngày:</label>
-        <input type="date" id="date" v-model="notification.date"
+        <label for="createdAt" class="form-label">Ngày:</label>
+        <input type="date" id="createdAt" v-model="notification.createdAt"
           class="form-input"
           required>
       </div>
@@ -41,8 +41,8 @@ import { defineComponent, ref, watch, reactive } from 'vue';
 interface Notification {
   id: number;
   title: string;
-  message: string;
-  date: string;
+  content: string;
+  createdAt: string;
 }
 
 export default defineComponent({
@@ -53,8 +53,8 @@ export default defineComponent({
       default: () => ({
         id: 0,
         title: '',
-        message: '',
-        date: '',
+        content: '',
+        createdAt: '',
       }),
     },
     isEditingProp: {
@@ -67,15 +67,19 @@ export default defineComponent({
     const notification = reactive<Notification>({
       id: 0,
       title: '',
-      message: '',
-      date: '',
+      content: '',
+      createdAt: '',
     });
 
     watch(
       () => props.initialNotification,
       (newVal) => {
         if (newVal) {
-          Object.assign(notification, newVal);
+          console.log('initialNotification changed:', newVal);
+          notification.id = newVal.id;
+          notification.title = newVal.title;
+          notification.content = newVal.content;
+          notification.createdAt = newVal.createdAt;
         }
       },
       { immediate: true, deep: true }
@@ -101,8 +105,8 @@ export default defineComponent({
     const resetForm = () => {
       notification.id = 0;
       notification.title = '';
-      notification.message = '';
-      notification.date = '';
+      notification.content = '';
+      notification.createdAt = '';
     };
 
     return {

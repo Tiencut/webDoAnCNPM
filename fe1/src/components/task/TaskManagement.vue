@@ -8,7 +8,7 @@
           <h3>Thêm nhiệm vụ mới</h3>
           <form @submit.prevent="addTask" class="task-form">
             <div class="form-group">
-              <label for="taskName">Tên nhiệm vụ:</label>
+              <label for="taskName">Tên nhiệm vụ<span class="required-star">*</span>:</label>
               <input type="text" id="taskName" v-model="newTask.name" required />
             </div>
             <div class="form-group">
@@ -16,7 +16,7 @@
               <input type="date" id="taskDueDate" v-model="newTask.dueDate" />
             </div>
             <div class="form-group">
-              <label for="taskAssignedTo">Người được giao:</label>
+              <label for="taskAssignedTo">Người được giao<span class="required-star">*</span>:</label>
               <select id="taskAssignedTo" v-model="newTask.assignedTo" required>
                 <option value="">Chọn thành viên</option>
                 <option v-for="member in teamMembers" :key="member.id" :value="member.name">{{ member.name }}</option>
@@ -210,6 +210,7 @@ const updateTaskStatus = (task: Task) => {
   font-weight: bold;
   color: #555;
 }
+.required-star{color:#e53e3e;margin-left:4px}
 
 .task-form input[type="text"],
 .task-form input[type="date"],

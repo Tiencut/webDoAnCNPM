@@ -1,11 +1,11 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <div class="mb-4">
-      <label for="groupId" class="block text-gray-700 text-sm font-bold mb-2">Mã nhóm:</label>
+      <label for="groupId" class="block text-gray-700 text-sm font-bold mb-2">Mã nhóm<span class="required-star">*</span>:</label>
       <input type="text" id="groupId" v-model="formData.groupId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
     </div>
     <div class="mb-4">
-      <label for="topicName" class="block text-gray-700 text-sm font-bold mb-2">Tên đề tài:</label>
+      <label for="topicName" class="block text-gray-700 text-sm font-bold mb-2">Tên đề tài<span class="required-star">*</span>:</label>
       <input type="text" id="topicName" v-model="formData.topicName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
     </div>
     <div class="mb-4">
@@ -13,7 +13,7 @@
       <textarea id="note" v-model="formData.note" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
     </div>
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2">Thành viên:</label>
+      <label class="block text-gray-700 text-sm font-bold mb-2">Thành viên<span class="required-star">*</span>:</label>
       <div v-for="(member, index) in formData.members" :key="index" class="flex items-center mb-2">
         <input type="text" v-model="member.name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mr-2" placeholder="Tên thành viên" required>
         <input type="text" v-model="member.studentId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mr-2" placeholder="Mã số sinh viên" required>
@@ -80,5 +80,6 @@ const onSubmit = () => {
 </script>
 
 <style scoped>
+.required-star{color:#e53e3e;margin-left:4px}
 /* Các style dành riêng cho form nếu cần */
 </style>

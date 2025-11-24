@@ -4,15 +4,15 @@
       <button class="modal-close-button" @click="closeModal">×</button>
       <form @submit.prevent="saveNotification">
         <div class="form-group">
-          <label for="title" class="form-label">Tiêu đề:</label>
+          <label for="title" class="form-label">Tiêu đề<span class="required-star">*</span>:</label>
           <input type="text" id="title" v-model="notification.title" class="form-input" required>
         </div>
         <div class="form-group">
-          <label for="content" class="form-label">Nội dung:</label>
+          <label for="content" class="form-label">Nội dung<span class="required-star">*</span>:</label>
           <textarea id="content" v-model="notification.content" class="form-input form-textarea" required></textarea>
         </div>
         <div class="form-group">
-          <label for="targetRole" class="form-label">Đối tượng:</label>
+          <label for="targetRole" class="form-label">Đối tượng<span class="required-star">*</span>:</label>
           <select id="targetRole" v-model="notification.targetRole" class="form-input" required>
             <option value="all">Tất cả</option>
             <option value="student">Sinh viên</option>
@@ -103,6 +103,7 @@ const closeModal = () => {
 </script>
 
 <style scoped>
+.required-star{color:#e53e3e;margin-left:4px}
 .modal-overlay {
   position: fixed;
   top: 0;

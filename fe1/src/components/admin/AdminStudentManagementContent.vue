@@ -12,14 +12,12 @@
         </button>
       </div>
 
-      <Modal :show="showForm" @close="cancelEdit">
-        <StudentForm
-          :student="currentStudent"
-          :isEditing="isEditing"
-          @save="handleSaveStudent"
-          @cancel="cancelEdit"
-        />
-      </Modal>
+      <StudentForm
+        :showForm="showForm"
+        :editingStudent="isEditing ? currentStudent : null"
+        @save="handleSaveStudent"
+        @cancel="cancelEdit"
+      />
 
       <BaseTable
         :headers="studentTableHeaders"
@@ -43,7 +41,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import StudentForm from './StudentForm.vue';
-import Modal from '../common/Modal.vue';
+
 import BaseTable from '../common/BaseTable.vue';
 import StudentImportModal from '../common/StudentImportModal.vue';
 

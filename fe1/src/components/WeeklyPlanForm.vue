@@ -6,25 +6,25 @@
         <form @submit.prevent="savePlan">
           <div class="form-grid">
             <div class="form-group">
-              <label for="planName" class="form-label">Tên Kế hoạch:</label>
+            <label for="planName" class="form-label">Tên Kế hoạch<span class="required-star">*</span>:</label>
               <input type="text" id="planName" v-model="currentPlan.name"
                      class="form-input"
                      required>
             </div>
             <div class="form-group">
-              <label for="startDate" class="form-label">Ngày Bắt đầu:</label>
+            <label for="startDate" class="form-label">Ngày Bắt đầu<span class="required-star">*</span>:</label>
               <input type="date" id="startDate" v-model="currentPlan.startDate"
                      class="form-input"
                      required>
             </div>
             <div class="form-group">
-              <label for="endDate" class="form-label">Ngày Kết thúc:</label>
+            <label for="endDate" class="form-label">Ngày Kết thúc<span class="required-star">*</span>:</label>
               <input type="date" id="endDate" v-model="currentPlan.endDate"
                      class="form-input"
                      required>
             </div>
             <div class="form-group">
-              <label for="status" class="form-label">Trạng thái:</label>
+            <label for="status" class="form-label">Trạng thái<span class="required-star">*</span>:</label>
               <select id="status" v-model="currentPlan.status"
                       class="form-select"
                       required>
@@ -118,6 +118,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.required-star{color:#e53e3e;margin-left:4px}
 .modal-overlay {
   position: fixed;
   inset: 0;

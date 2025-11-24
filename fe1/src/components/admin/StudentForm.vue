@@ -1,76 +1,81 @@
 <template>
-  <div class="student-form-card">
-    <h2 class="student-form-title">{{ isEditing ? 'Chỉnh sửa Sinh viên' : 'Thêm Sinh viên mới' }}</h2>
-    <form @submit.prevent="saveStudent">
-      <div class="form-grid">
-        <div>
-          <label for="studentCode" class="form-label">Mã Sinh viên:</label>
-          <input type="text" id="studentCode" v-model="currentStudent.studentCode" class="form-input" required>
-        </div>
-        <div>
-          <label for="fullName" class="form-label">Họ và Tên:</label>
-          <input type="text" id="fullName" v-model="currentStudent.fullName" class="form-input" required>
-        </div>
-        <div>
-          <label for="university" class="form-label">Trường:</label>
-          <input type="text" id="university" v-model="currentStudent.university" class="form-input" required>
-        </div>
-        <div>
-          <label for="major" class="form-label">Chuyên ngành:</label>
-          <input type="text" id="major" v-model="currentStudent.major" class="form-input" required>
-        </div>
-        <div>
-          <label for="gpa" class="form-label">GPA:</label>
-          <input type="number" id="gpa" v-model.number="currentStudent.gpa" class="form-input" step="0.1" required>
-        </div>
-        <div>
-          <label for="gender" class="form-label">Giới tính:</label>
-          <select id="gender" v-model="currentStudent.gender" class="form-input" required>
-            <option value="">Chọn giới tính</option>
-            <option value="Nam">Nam</option>
-            <option value="Nữ">Nữ</option>
-            <option value="Khác">Khác</option>
-          </select>
-        </div>
-        <div>
-          <label for="dob" class="form-label">Ngày sinh:</label>
-          <input type="date" id="dob" v-model="currentStudent.dob" class="form-input" required>
-        </div>
-        <div>
-          <label for="email" class="form-label">Email cá nhân:</label>
-          <input type="email" id="email" v-model="currentStudent.email" class="form-input" required>
-        </div>
-        <div>
-          <label for="phone" class="form-label">Số điện thoại:</label>
-          <input type="tel" id="phone" v-model="currentStudent.phone" class="form-input" required>
-        </div>
-        <div>
-          <label for="graduationYear" class="form-label">Năm tốt nghiệp:</label>
-          <input type="number" id="graduationYear" v-model.number="currentStudent.graduationYear" class="form-input" required>
-        </div>
-        <div>
-          <label for="course" class="form-label">Khóa:</label>
-          <input type="text" id="course" v-model="currentStudent.course" class="form-input" required>
-        </div>
-        <div>
-          <label for="idNumber" class="form-label">CMND/CCCD:</label>
-          <input type="text" id="idNumber" v-model="currentStudent.idNumber" class="form-input" required>
-        </div>
+  <div v-if="showForm" class="modal-overlay" @click.self="cancelEdit">
+    <div class="modal-content">
+      <button class="modal-close-button" @click="cancelEdit">×</button>
+      <div class="student-form-card">
+        <h2 class="student-form-title">{{ isEditing ? 'Chỉnh sửa Sinh viên' : 'Thêm Sinh viên mới' }}</h2>
+        <form @submit.prevent="saveStudent">
+          <div class="form-grid">
+            <div>
+              <label for="studentCode" class="form-label">Mã Sinh viên<span class="required-star">*</span>:</label>
+              <input type="text" id="studentCode" v-model="currentStudent.studentCode" class="form-input" required>
+            </div>
+            <div>
+              <label for="fullName" class="form-label">Họ và Tên<span class="required-star">*</span>:</label>
+              <input type="text" id="fullName" v-model="currentStudent.fullName" class="form-input" required>
+            </div>
+            <div>
+              <label for="university" class="form-label">Trường<span class="required-star">*</span>:</label>
+              <input type="text" id="university" v-model="currentStudent.university" class="form-input" required>
+            </div>
+            <div>
+              <label for="major" class="form-label">Chuyên ngành<span class="required-star">*</span>:</label>
+              <input type="text" id="major" v-model="currentStudent.major" class="form-input" required>
+            </div>
+            <div>
+              <label for="gpa" class="form-label">GPA<span class="required-star">*</span>:</label>
+              <input type="number" id="gpa" v-model.number="currentStudent.gpa" class="form-input" step="0.1" required>
+            </div>
+            <div>
+              <label for="gender" class="form-label">Giới tính<span class="required-star">*</span>:</label>
+              <select id="gender" v-model="currentStudent.gender" class="form-input" required>
+                <option value="">Chọn giới tính</option>
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
+                <option value="Khác">Khác</option>
+              </select>
+            </div>
+            <div>
+              <label for="dob" class="form-label">Ngày sinh<span class="required-star">*</span>:</label>
+              <input type="date" id="dob" v-model="currentStudent.dob" class="form-input" required>
+            </div>
+            <div>
+              <label for="email" class="form-label">Email cá nhân<span class="required-star">*</span>:</label>
+              <input type="email" id="email" v-model="currentStudent.email" class="form-input" required>
+            </div>
+            <div>
+              <label for="phone" class="form-label">Số điện thoại<span class="required-star">*</span>:</label>
+              <input type="tel" id="phone" v-model="currentStudent.phone" class="form-input" required>
+            </div>
+            <div>
+              <label for="graduationYear" class="form-label">Năm tốt nghiệp<span class="required-star">*</span>:</label>
+              <input type="number" id="graduationYear" v-model.number="currentStudent.graduationYear" class="form-input" required>
+            </div>
+            <div>
+              <label for="course" class="form-label">Khóa<span class="required-star">*</span>:</label>
+              <input type="text" id="course" v-model="currentStudent.course" class="form-input" required>
+            </div>
+            <div>
+              <label for="idNumber" class="form-label">CMND/CCCD<span class="required-star">*</span>:</label>
+              <input type="text" id="idNumber" v-model="currentStudent.idNumber" class="form-input" required>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">
+              {{ isEditing ? 'Cập nhật' : 'Thêm Sinh viên' }}
+            </button>
+            <button type="button" @click="cancelEdit" class="btn-secondary">
+              Hủy
+            </button>
+          </div>
+        </form>
       </div>
-      <div class="form-actions">
-        <button type="submit" class="btn-primary">
-          {{ isEditing ? 'Cập nhật' : 'Thêm Sinh viên' }}
-        </button>
-        <button type="button" @click="cancelEdit" v-if="isEditing" class="btn-secondary">
-          Hủy
-        </button>
-      </div>
-    </form>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, computed, defineProps, defineEmits } from 'vue';
 
 interface Student {
   id: number;
@@ -89,17 +94,51 @@ interface Student {
 }
 
 const props = defineProps<{
-  student: Student;
-  isEditing: boolean;
+  showForm: boolean;
+  editingStudent: Student | null;
 }>();
 
 const emit = defineEmits(['save', 'cancel']);
 
-const currentStudent = ref<Student>({ ...props.student });
-
-watch(() => props.student, (newVal) => {
-  currentStudent.value = { ...newVal };
+const currentStudent = ref<Student>({
+  id: 0,
+  studentCode: '',
+  fullName: '',
+  university: '',
+  major: '',
+  gpa: 0,
+  gender: '',
+  dob: '',
+  email: '',
+  phone: '',
+  graduationYear: 0,
+  course: '',
+  idNumber: '',
 });
+
+const isEditing = computed(() => !!props.editingStudent && props.editingStudent.id !== 0);
+
+watch(() => props.editingStudent, (newVal) => {
+  if (newVal) {
+    currentStudent.value = { ...newVal };
+  } else {
+    currentStudent.value = {
+      id: 0,
+      studentCode: '',
+      fullName: '',
+      university: '',
+      major: '',
+      gpa: 0,
+      gender: '',
+      dob: '',
+      email: '',
+      phone: '',
+      graduationYear: 0,
+      course: '',
+      idNumber: '',
+    };
+  }
+}, { immediate: true });
 
 const saveStudent = () => {
   emit('save', currentStudent.value);
@@ -111,11 +150,47 @@ const cancelEdit = () => {
 </script>
 
 <style scoped>
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 800px; /* Adjusted max-width for student form */
+  box-shadow: 0 10px 36px 4px rgba(30,41,59,0.13);
+  position: relative;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.modal-close-button:hover {
+  color: #333;
+}
+
+.required-star{color:#e53e3e;margin-left:4px}
 .student-form-card {
   background-color: #fff; /* bg-white */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-  border-radius: 0.5rem; /* rounded-lg */
-  padding: 1rem; /* p-4 */
+  box-shadow: none; /* Remove shadow as it's now in modal-content */
+  border-radius: 0; /* Remove border-radius as it's now in modal-content */
+  padding: 0; /* Remove padding as it's now in modal-content */
   max-width: 100%;
 }
 

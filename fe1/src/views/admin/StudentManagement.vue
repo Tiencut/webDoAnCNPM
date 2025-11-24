@@ -2,7 +2,6 @@
   <div class="admin-student-management">
     <!-- <div class="content-wrapper"> -->
       <AdminStudentManagementContent />
-    <!-- </div> -->
   </div>
 </template>
 
